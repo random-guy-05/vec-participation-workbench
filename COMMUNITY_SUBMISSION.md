@@ -798,3 +798,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/minimal-reproducer/
 - **What it is, and who it helps:** A browser-local helper for preparing a small CSV example when asking for technical support. Each field is omitted by default; a participant can choose to include or pseudonymize it, set a row limit, and preview the result. This reduces accidental oversharing while preserving repeated identifier structure when an example needs it.
 - **How someone else runs it:** Paste a CSV excerpt, mark each field omit/include/pseudonymize, set a row cap and deterministic seed, review the preview, and download the export. Inspect the complete file for rare combinations or identifying context before sharing. Pseudonyms do not guarantee anonymity, and nothing leaves the browser until the user shares the downloaded file elsewhere.
+
+### 114. VEC Compositional Closure Demonstrator
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/composition-closure/
+- **What it is, and who it helps:** An interactive synthetic simulation that draws three independent count populations and compares the A/B correlation in counts with their correlation after division by the shared total. It helps participants recognize that negative association among cell-type proportions can be induced by closure and is not, by itself, evidence of biological antagonism.
+- **How someone else runs it:** Adjust sample count, population mean counts, and seed, then simulate. Compare the raw-count and proportion scatterplots and correlations; optionally download the synthetic table. All results are artificial and vary with seed.
