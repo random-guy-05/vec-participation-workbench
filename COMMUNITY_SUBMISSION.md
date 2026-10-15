@@ -812,3 +812,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/split-audit/
 - **What it is, and who it helps:** A browser-local audit of a participant-defined split manifest. It reports sample IDs present in multiple split labels, exact cell IDs reused across splits, duplicate cell IDs within one split, and supplied condition counts. It helps teams review whether their local validation partitions align with the independent unit they intend to generalize to.
 - **How someone else runs it:** Paste a CSV containing `sample_id` and `split`, optionally including `cell_id` and `condition`, then audit. Review each flagged identifier against the source manifest and download the findings. It does not assess near-duplicates, indirect dependencies, preprocessing leakage, or official Challenge compliance.
+
+### 116. VEC Training Seed Stability Report
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/seed-stability/
+- **What it is, and who it helps:** Summarizes the score distribution for repeated method/seed runs and reports paired candidate-minus-baseline differences on shared seed values. It helps teams see whether a claimed improvement appears consistently across training randomness rather than from a single favorable run.
+- **How someone else runs it:** Paste `method,seed,score` rows, enter the two method names, choose which score direction is better, and analyze. Use paired results only if a shared seed means comparable randomness; verify that data splits and metric versions match. The output is descriptive and does not estimate biological-sample uncertainty or statistical significance.
