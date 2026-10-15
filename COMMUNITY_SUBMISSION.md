@@ -518,3 +518,59 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/distribution-shift/
 - **What it is, and who it helps:** Compares reference and prediction marginal distributions using the empirical CDF maximum distance and one-dimensional Wasserstein distance, while also showing paired correlation for context. It highlights that matching marginals can coexist with poor per-observation agreement.
 - **How someone else runs it:** Paste paired `reference,predicted` values and inspect the two distribution distances; use the page’s caveat that marginal statistics ignore pair identities.
+
+### 74. VEC Spatial Graph Connectivity Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-components/
+- **What it is, and who it helps:** Builds an undirected 3D radius graph from user-supplied points and reports connected components, membership, degree, and isolates. It helps participants spot disconnected geometry or isolated points while keeping the chosen radius and coordinate units explicit; graph connectivity is not treated as segmentation or a biological conclusion.
+- **How someone else runs it:** Paste unique `cell_id,x,y,z` rows, optionally with `label`; enter a radius in the same coordinate units; inspect or download the component and degree tables.
+
+### 75. VEC Spatial kNN Distance Profiler
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-knn/
+- **What it is, and who it helps:** Reports each point’s k-th nearest-neighbor distance and distribution summaries, making local density variation and candidate spatial scales visible beyond a single nearest-neighbor distance. It does not prescribe a neighborhood radius.
+- **How someone else runs it:** Paste unique `cell_id,x,y,z` rows, choose an integer neighbor rank smaller than the point count, then inspect or download per-point distances and quantiles.
+
+### 76. VEC Spatial Radius Stability Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-radius-stability/
+- **What it is, and who it helps:** Recomputes radius-defined graphs over a supplied sequence and reports edge counts, isolates, mean degree, and edge-set Jaccard change between adjacent radii. It helps expose sensitivity to scale on the participant’s own coordinates, complementing the existing synthetic scale demonstration.
+- **How someone else runs it:** Paste unique 3D point rows and at least two distinct radii in the coordinate units; download the scale-sensitivity table.
+
+### 77. VEC Spatial Label Mixing Permutation Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-label-permutation/
+- **What it is, and who it helps:** Computes cross-label edge fraction on a fixed 3D radius graph and compares it with deterministic label shuffles that preserve label counts. It supplies an explicit Monte Carlo reference for spatial label mixing while warning that exchangeability may fail under spatial structure, covariates, or the sampling design; it is not an official Challenge metric.
+- **How someone else runs it:** Paste unique `cell_id,x,y,z,label` rows, choose a radius, a seed, and 99–499 shuffles; inspect the observed value, shuffle interval, and one-sided tail fraction.
+
+### 78. VEC Spatial Coordinate Collision Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/coordinate-collisions/
+- **What it is, and who it helps:** Finds pairs of distinct point IDs whose 3D coordinates are identical or closer than a chosen tolerance. It helps identify possible duplicate records, rounding collisions, or segmentation artifacts for source review; it never merges or deletes points.
+- **How someone else runs it:** Paste unique `cell_id,x,y,z` rows and set a non-negative tolerance in coordinate units; inspect or download matching pairs.
+
+### 79. VEC Spatial Nearest Different-Label Distance Reporter
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/label-boundary-distance/
+- **What it is, and who it helps:** Measures every point’s distance to its nearest differently labeled point and summarizes the distances by label. It gives participants a boundary-proximity profile beyond a radius-defined contact count, without interpreting distances as enrichment or interaction.
+- **How someone else runs it:** Paste unique `cell_id,x,y,z,label` rows containing at least two labels; review or download the per-label and per-point tables.
+
+### 80. VEC Spatial Axis-Scale Sensitivity Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/axis-scale-sensitivity/
+- **What it is, and who it helps:** Compares k-nearest-neighbor identities before and after applying positive physical spacing factors to each coordinate axis. This helps participants see whether anisotropic voxel spacing changes local neighborhoods before choosing a graph scale.
+- **How someone else runs it:** Paste unique 3D point rows, choose integer k and X/Y/Z spacing factors in common physical units, then inspect per-point overlap and changed-neighbor counts.
+
+### 81. VEC Spatial Axis Slice Profiler
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-axis-slices/
+- **What it is, and who it helps:** Splits the observed range of a chosen coordinate axis into equal-width slices and reports point counts and optional label composition, including empty label-by-slice combinations. It helps participants inspect coarse positional distributions while clearly describing the result as a field-of-view-dependent summary.
+- **How someone else runs it:** Paste unique 3D point rows with an optional `label` column, choose X, Y, or Z and 2–20 bins, then inspect or download the slice table.

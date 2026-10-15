@@ -1,10 +1,10 @@
 # VEC Participation Workbench
 
-Sixty-four offline-first tools and eight interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, and paired prediction diagnostics; the simulations teach core reasoning about study design, evaluation, and analysis choices.
+Seventy-two offline-first tools and eight interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, paired prediction diagnostics, and spatial graph diagnostics; the simulations teach core reasoning about study design, evaluation, and analysis choices.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
-The 21 core analysis cards in the catalog and the 29 original analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional audit cards are listed in English in the catalog. The eight paired prediction diagnostics are currently English-only.
+The 21 core analysis cards in the catalog and the 29 original analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional research-audit cards are listed in English in the catalog; their controls offer Spanish and Simplified Chinese. The eight paired prediction diagnostics and eight spatial graph diagnostics are currently English-only.
 
 ## Tools
 
@@ -106,6 +106,21 @@ These eight tools analyze small user-supplied paired tables with `reference,pred
 | [Tolerance Coverage Analyzer](https://random-guy-05.github.io/vec-participation-workbench/tools/tolerance-coverage/) | Calculate the observed fraction within explicitly user-selected absolute-error tolerances. |
 | [Bias–Variance Error Decomposer](https://random-guy-05.github.io/vec-participation-workbench/tools/bias-variance/) | Verify the empirical identity between MSE, squared mean bias, and error variance. |
 | [Prediction Distribution Shift Comparator](https://random-guy-05.github.io/vec-participation-workbench/tools/distribution-shift/) | Compare empirical marginal distributions with CDF and Wasserstein distances while preserving the pairing caveat. |
+
+## Spatial graph diagnostics
+
+These eight browser-local tools work with small 3D point tables (`cell_id,x,y,z`, plus `label` where required). They make coordinate units and graph choices explicit, export their result tables as CSV, and describe the limits of each summary.
+
+| Tool | Workflow it supports |
+|---|---|
+| [Spatial Graph Connectivity Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-components/) | Identify radius-graph components, component membership, degrees, and isolated points. |
+| [Spatial kNN Distance Profiler](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-knn/) | Summarize per-point k-th-neighbor distances to inspect local scale variation. |
+| [Spatial Radius Stability Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-radius-stability/) | Compare edge counts, isolates, degrees, and edge-set changes across increasing radii. |
+| [Spatial Label Mixing Permutation Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-label-permutation/) | Compare cross-label edge fraction with fixed-graph label shuffles that preserve label totals. |
+| [Spatial Coordinate Collision Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/coordinate-collisions/) | Find distinct cell IDs with exact or near-duplicate coordinates for source-data review. |
+| [Spatial Nearest Different-Label Distance Reporter](https://random-guy-05.github.io/vec-participation-workbench/tools/label-boundary-distance/) | Summarize each point’s distance to its nearest differently labeled point. |
+| [Spatial Axis-Scale Sensitivity Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/axis-scale-sensitivity/) | Measure how physical spacing factors change k-nearest-neighbor identities. |
+| [Spatial Axis Slice Profiler](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-axis-slices/) | Profile point counts and label composition across equal-width coordinate-axis slices. |
 
 ## Scope
 

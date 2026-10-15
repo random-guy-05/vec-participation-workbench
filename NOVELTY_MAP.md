@@ -1,6 +1,6 @@
 # Novelty and scope map
 
-The 29 original analysis pages are separate jobs with independent inputs and outputs. They use small user-supplied CSV/JSON extracts so a participant can explore a concrete question without installing a notebook stack or sharing the data. Eight paired prediction diagnostics are mapped separately below; none of these pages replaces specialist statistical packages or official Challenge services.
+The 29 original analysis pages are separate jobs with independent inputs and outputs. They use small user-supplied CSV/JSON extracts so a participant can explore a concrete question without installing a notebook stack or sharing the data. Eight paired prediction diagnostics and eight spatial graph diagnostics are mapped separately below; none of these pages replaces specialist statistical packages or official Challenge services.
 
 The community already has substantial resources for onboarding, score calculation, submission validation, broad data inspection, and geometric sanity checks. The distinctions below are the intended boundaries of this new set.
 
@@ -68,6 +68,21 @@ These eight tools use small `reference,predicted` tables but answer different qu
 
 The community catalog changes over time. Before extending these pages or filing a later version, check the current [community resources](https://virtualembryo.ai/challenge/resources) and prefer improving an existing item when the actual workflow overlaps.
 
+## Spatial graph diagnostics
+
+These eight browser-only point-table tools use a shared 3D coordinate format. They are distinct from the existing spatial radius, contact, occupancy, alignment, and autocorrelation jobs by focusing on graph topology, scale sensitivity, data collisions, and label-boundary summaries. The permutation page states its exchangeability assumption and reports a Monte Carlo reference rather than an official score.
+
+| Diagnostic | Related existing resource | Distinct job |
+|---|---|---|
+| Spatial Graph Connectivity Auditor | Spatial Neighborhood Radius Explorer reports local counts at one radius. | Identify connected components, component membership, degrees, and isolated points in that radius graph. |
+| Spatial kNN Distance Profiler | Spatial Neighborhood Radius Explorer reports nearest-neighbor distances. | Profile the user-selected k-th neighbor distance across all points to expose local scale variation beyond first neighbors. |
+| Spatial Radius Stability Auditor | Spatial Neighborhood Scale Playground demonstrates radius effects on a synthetic graph. | Compare graph edge sets and isolate counts across a supplied point cloud and a user-entered radius sequence. |
+| Spatial Label Mixing Permutation Explorer | Spatial Cell-Contact Explorer reports observed label contacts; Spatial Autocorrelation Explorer concerns a numeric feature. | Compare observed cross-label edge fraction with a fixed-graph, fixed-label-count shuffle reference under an explicit exchangeability caveat. |
+| Spatial Coordinate Collision Auditor | Sample Manifest Integrity Auditor detects repeated sample records, not geometric collisions. | Locate distinct cell identifiers at exact or tolerance-defined duplicate coordinates without modifying records. |
+| Spatial Nearest Different-Label Distance Reporter | Spatial Cell-Contact Explorer counts labels that share radius-defined edges. | Report each point’s nearest differently labeled point distance and per-label distance summaries, without claiming contact enrichment. |
+| Spatial Axis-Scale Sensitivity Auditor | 3D Coordinate Alignment Explorer rotates and centers point clouds. | Quantify how user-supplied per-axis physical spacing factors change k-nearest-neighbor identities. |
+| Spatial Axis Slice Profiler | Stage-by-Condition Coverage Planner counts table combinations, not spatial location. | Summarize cell counts and label composition in equal-width bins along a selected coordinate axis. |
+
 ## Language access
 
-The 29 original analysis pages share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index translates cards for the 21 core analysis tools; the eight additional audit cards are labeled in English and link to pages with translated tool descriptions, labels, and input guidance. The eight paired prediction diagnostics are currently English-only. Calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.
+The 29 original analysis pages share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index translates cards for the 21 core analysis tools; the eight additional audit cards are labeled in English and link to pages with translated tool descriptions, labels, and input guidance. The eight paired prediction diagnostics and eight spatial graph diagnostics are currently English-only. Calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.
