@@ -931,3 +931,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pilot-icc/
 - **What it is, and who it helps:** A browser-local one-way random-effects method-of-moments summary for continuous pilot outcomes grouped by sample. It estimates within- and between-cluster variance, retains negative between-cluster estimates as a diagnostic, and applies the estimated ICC to an unequal-size design-effect approximation. It helps teams replace an arbitrary ICC input with a transparent pilot estimate while showing the assumptions.
 - **How someone else runs it:** Paste `sample_id,outcome` rows, read the headers, select cluster and outcome fields, and estimate. The tool requires at least two clusters and within-cluster observations. It assumes a one-way random-intercept model with common within-cluster variance; it does not fit covariate-adjusted, nested, paired, or longitudinal models and is not a power calculation.
+
+### 133. VEC H5AD Structure Profiler
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/h5ad-structure/
+- **What it is, and who it helps:** A downloadable Python and h5py script that opens an H5AD read-only and reports matrix dimensions and storage encoding, observation and variable column names, array keys, dtypes, and compression metadata. It avoids reading expression values or identifier values into the report, helping participants inspect file layout before choosing an analysis workflow or requesting help.
+- **How someone else runs it:** Install h5py in the local Python environment, then run `python vec_h5ad_structure_report.py path/to/file.h5ad`; add `--output report.json` to write the report locally. The inventory does not validate biological meaning, data eligibility, or submission compatibility. Review field names before sharing the report.
