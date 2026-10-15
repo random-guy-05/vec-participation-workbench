@@ -791,3 +791,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-precision/
 - **What it is, and who it helps:** Uses pilot measurements taken once per independent replicate and a user-selected confidence level/absolute half-width to estimate a rough count for the precision of a single mean. It makes the normal-approximation assumptions visible and warns about small or zero-variance pilot sets. This helps researchers reason about replication without treating cells as independent samples.
 - **How someone else runs it:** Paste one numeric endpoint summary per independent biological replicate, choose the target half-width and confidence level, and estimate. Interpret the output as a precision scenario only; it is not a power calculation, a model-based sample-size recommendation, or a Challenge requirement.
+
+### 113. VEC Minimal Reproducer Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/minimal-reproducer/
+- **What it is, and who it helps:** A browser-local helper for preparing a small CSV example when asking for technical support. Each field is omitted by default; a participant can choose to include or pseudonymize it, set a row limit, and preview the result. This reduces accidental oversharing while preserving repeated identifier structure when an example needs it.
+- **How someone else runs it:** Paste a CSV excerpt, mark each field omit/include/pseudonymize, set a row cap and deterministic seed, review the preview, and download the export. Inspect the complete file for rare combinations or identifying context before sharing. Pseudonyms do not guarantee anonymity, and nothing leaves the browser until the user shares the downloaded file elsewhere.
