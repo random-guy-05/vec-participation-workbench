@@ -973,3 +973,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-codebook/
 - **What it is, and who it helps:** A browser-local data documentation aid that turns a pasted CSV sample into a codebook with heuristic column types, row counts, missingness, distinct counts, and author-written descriptions. It excludes raw cell values from exports and offers English, Spanish, and Simplified Chinese interfaces. It complements file-structure and manifest validators by documenting arbitrary tabular fields rather than validating a particular schema.
 - **How someone else runs it:** Paste a representative, non-sensitive CSV sample, build the codebook, optionally write a description for each column, then download the Markdown or dictionary CSV and review it before sharing. The counts describe only the pasted sample; detected types are not a schema or scientific validation.
+
+### 139. VEC Model Sweep Matrix Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sweep-matrix/
+- **What it is, and who it helps:** A browser-local experiment planner that expands user-entered task/board, configuration, validation-split, and random-seed labels into a bounded Cartesian run matrix. With a measured pilot duration and worker count, it estimates sequential compute and idealized parallel wall time. Its interface is available in English, Spanish, and Simplified Chinese. It complements the Experiment Plan Card, Runtime Forecast Planner, and seed-stability analysis by providing an executable run inventory rather than a narrative plan, single-run extrapolation, or post-run summary.
+- **How someone else runs it:** Enter one label per line in each dimension, optionally add same-workflow measured minutes per run and available concurrent workers, and build the matrix. Review the combinations, download the CSV, and remove invalid or unjustified runs before scheduling. The time estimate excludes queueing, setup, failures, and resource contention.
