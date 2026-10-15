@@ -462,3 +462,59 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/spatial-scale/
 - **What it is, and who it helps:** A deterministic two-dimensional point-set demonstration of how a distance radius changes graph edges, edge count, and cross-label mixing together. It makes neighborhood scale an explicit analysis choice rather than hiding it in a default.
 - **How someone else runs it:** Adjust the radius, inspect the rendered graph and cross-label edge fraction, and review the notes about units, dimensionality, and segmentation before applying a neighborhood rule to real tissue.
+
+### 66. VEC Agreement Limits Analyzer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/agreement-limits/
+- **What it is, and who it helps:** Summarizes paired signed bias, the SD of differences, and approximate mean ± 1.96 SD limits, with a difference-versus-mean association. It helps participants distinguish individual-level agreement from correlation and clearly states normality and independence assumptions.
+- **How someone else runs it:** Paste paired `reference,predicted` rows, analyze, and inspect the summary table. Use only small public or synthetic data; the page is local to the browser.
+
+### 67. VEC Concordance Correlation Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/concordance-correlation/
+- **What it is, and who it helps:** Calculates Lin’s concordance correlation coefficient alongside Pearson correlation, means, and variances. It helps explain why strong association does not ensure agreement when location or scale differs.
+- **How someone else runs it:** Paste paired `reference,predicted` values and analyze; the included synthetic example makes the contrast visible.
+
+### 68. VEC Prediction Calibration Fitter
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/prediction-calibration/
+- **What it is, and who it helps:** Fits a descriptive ordinary-least-squares line from predictions to reference values and reports intercept, slope, fit RMSE, and Pearson correlation. It helps diagnose scale and offset calibration without recommending post-hoc changes.
+- **How someone else runs it:** Paste paired `reference,predicted` rows, inspect the reference-on-prediction equation, and compare its intercept and slope with the stated ideal values of 0 and 1.
+
+### 69. VEC Error-by-Range Profiler
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/error-range/
+- **What it is, and who it helps:** Sorts paired values by reference and reports signed bias, MAE, and RMSE in four nearly equal-count bands. It helps detect range-dependent error hidden by one global metric and documents how ties can cross band boundaries.
+- **How someone else runs it:** Paste at least four pairs with `reference,predicted` columns; inspect the per-band table and interpret small groups cautiously.
+
+### 70. VEC Replicate Error Stability Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-error-stability/
+- **What it is, and who it helps:** Reports bias, MAE, and RMSE separately by a user-selected biological-sample grouping column. It helps teams see between-sample variation without treating many cells from one sample as many independent replicates.
+- **How someone else runs it:** Paste `sample,reference,predicted` rows, enter the grouping-column name, and compare descriptive summaries across at least two groups.
+
+### 71. VEC Tolerance Coverage Analyzer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/tolerance-coverage/
+- **What it is, and who it helps:** Calculates how many paired predictions fall within participant-selected absolute-error tolerances, with the corresponding coverage percentage. It makes threshold-based summaries transparent and explicitly avoids implying the cutoffs are official Challenge criteria.
+- **How someone else runs it:** Paste paired values and enter comma-separated non-negative tolerances in the same units; report the thresholds and their rationale with the downloaded table.
+
+### 72. VEC Bias–Variance Error Decomposer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/bias-variance/
+- **What it is, and who it helps:** Verifies the empirical identity `MSE = mean(error)^2 + variance(error)` using population variance, alongside RMSE. It helps readers separate systematic signed bias from spread in observed paired errors without overclaiming the broader learning-theory decomposition.
+- **How someone else runs it:** Paste paired `reference,predicted` values and inspect the components and identity in the result table.
+
+### 73. VEC Prediction Distribution Shift Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/distribution-shift/
+- **What it is, and who it helps:** Compares reference and prediction marginal distributions using the empirical CDF maximum distance and one-dimensional Wasserstein distance, while also showing paired correlation for context. It highlights that matching marginals can coexist with poor per-observation agreement.
+- **How someone else runs it:** Paste paired `reference,predicted` values and inspect the two distribution distances; use the page’s caveat that marginal statistics ignore pair identities.

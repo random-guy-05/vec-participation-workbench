@@ -1,10 +1,10 @@
 # VEC Participation Workbench
 
-Fifty-six offline-first tools and eight interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, and data handling; the simulations teach core reasoning about study design, evaluation, and analysis choices.
+Sixty-four offline-first tools and eight interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, and paired prediction diagnostics; the simulations teach core reasoning about study design, evaluation, and analysis choices.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
-The 21 core analysis cards in the catalog and all 29 analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional audit cards are listed in English in the catalog.
+The 21 core analysis cards in the catalog and the 29 original analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional audit cards are listed in English in the catalog. The eight paired prediction diagnostics are currently English-only.
 
 ## Tools
 
@@ -91,6 +91,21 @@ These deterministic, browser-local demonstrations make assumptions visible and h
 | [Batch Confounding Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/batch-confounding/) | Exact treatment–batch aliasing in a two-factor design and the limits of a full-rank check. |
 | [Dose Response Shape Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/dose-shape/) | How measurement range can make synthetic linear, saturating, and transient responses harder to distinguish. |
 | [Spatial Neighborhood Scale Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/spatial-scale/) | How a radius-defined spatial graph changes in density and label mixing as the scale changes. |
+
+## Prediction agreement and error diagnostics
+
+These eight tools analyze small user-supplied paired tables with `reference,predicted` columns. They run entirely in the browser, include synthetic examples, and distinguish descriptive metrics from official Challenge scoring.
+
+| Tool | Workflow it supports |
+|---|---|
+| [Agreement Limits Analyzer](https://random-guy-05.github.io/vec-participation-workbench/tools/agreement-limits/) | Summarize signed paired bias, approximate limits of agreement, and difference-versus-mean association. |
+| [Concordance Correlation Calculator](https://random-guy-05.github.io/vec-participation-workbench/tools/concordance-correlation/) | Compare Lin’s concordance correlation with Pearson association when means and scales can differ. |
+| [Prediction Calibration Fitter](https://random-guy-05.github.io/vec-participation-workbench/tools/prediction-calibration/) | Fit a descriptive reference-on-prediction line and inspect its intercept, slope, and fit error. |
+| [Error-by-Range Profiler](https://random-guy-05.github.io/vec-participation-workbench/tools/error-range/) | Find changes in signed bias, MAE, and RMSE across rank-based reference bands. |
+| [Replicate Error Stability Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-error-stability/) | Compare prediction error by biological sample or replicate group without pooling away variation. |
+| [Tolerance Coverage Analyzer](https://random-guy-05.github.io/vec-participation-workbench/tools/tolerance-coverage/) | Calculate the observed fraction within explicitly user-selected absolute-error tolerances. |
+| [Bias–Variance Error Decomposer](https://random-guy-05.github.io/vec-participation-workbench/tools/bias-variance/) | Verify the empirical identity between MSE, squared mean bias, and error variance. |
+| [Prediction Distribution Shift Comparator](https://random-guy-05.github.io/vec-participation-workbench/tools/distribution-shift/) | Compare empirical marginal distributions with CDF and Wasserstein distances while preserving the pairing caveat. |
 
 ## Scope
 

@@ -1,6 +1,6 @@
 # Novelty and scope map
 
-These 29 pages are separate analysis jobs with independent inputs and outputs. They use small user-supplied CSV/JSON extracts so a participant can explore a concrete question without installing a notebook stack or sharing the data. The pages are not intended to replace specialist statistical packages or official Challenge services.
+The 29 original analysis pages are separate jobs with independent inputs and outputs. They use small user-supplied CSV/JSON extracts so a participant can explore a concrete question without installing a notebook stack or sharing the data. Eight paired prediction diagnostics are mapped separately below; none of these pages replaces specialist statistical packages or official Challenge services.
 
 The community already has substantial resources for onboarding, score calculation, submission validation, broad data inspection, and geometric sanity checks. The distinctions below are the intended boundaries of this new set.
 
@@ -51,8 +51,23 @@ These eight pages are deterministic teaching demonstrations, separate from the u
 | Dose Response Shape Explorer | Perturbation Dose Consistency Explorer summarizes supplied replicate trends. | Contrast three deterministic curve shapes and teach why dose range and replication affect what can be inferred. |
 | Spatial Neighborhood Scale Playground | Spatial Cell-Contact Explorer analyzes supplied labeled points. | Show how a radius choice changes an example graph's edge density and cross-label fraction at the same time. |
 
+## Paired prediction diagnostics
+
+These eight tools use small `reference,predicted` tables but answer different questions. They are descriptive diagnostics rather than replacements for the official scoring implementation.
+
+| Diagnostic | Distinct job |
+|---|---|
+| Agreement Limits Analyzer | Summarize paired signed bias and approximate difference limits; the Concordance Correlation Calculator covers a single agreement coefficient, not the spread of differences. |
+| Concordance Correlation Calculator | Combine association with mean/scale agreement; it adds agreement information beyond Pearson correlation. |
+| Prediction Calibration Fitter | Fit a reference-on-prediction line and show intercept/slope departure from ideal calibration. |
+| Error-by-Range Profiler | Reveal whether bias or error size changes across the reference range. |
+| Replicate Error Stability Auditor | Preserve group-level error patterns so a pooled cell count does not hide between-sample variation. |
+| Tolerance Coverage Analyzer | Report the empirical fraction inside explicitly user-chosen absolute-error cutoffs, without inventing an official threshold. |
+| Bias–Variance Error Decomposer | Verify the empirical MSE identity for mean bias and error variance; it is not the broader learning-theory decomposition. |
+| Prediction Distribution Shift Comparator | Compare marginal distributions without matching pairs, a different question from paired agreement or prediction error. |
+
 The community catalog changes over time. Before extending these pages or filing a later version, check the current [community resources](https://virtualembryo.ai/challenge/resources) and prefer improving an existing item when the actual workflow overlaps.
 
 ## Language access
 
-All 29 analysis pages share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index translates cards for the 21 core analysis tools; the eight additional audit cards are labeled in English and link to pages with translated tool descriptions, labels, and input guidance. This adds language access to distinct workflows rather than duplicating analysis tools. Calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. Each page states this limitation before analysis. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.
+The 29 original analysis pages share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index translates cards for the 21 core analysis tools; the eight additional audit cards are labeled in English and link to pages with translated tool descriptions, labels, and input guidance. The eight paired prediction diagnostics are currently English-only. Calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.
