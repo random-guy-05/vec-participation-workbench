@@ -854,3 +854,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/panel-intersection/
 - **What it is, and who it helps:** Compares two or more exact gene-identifier lists, showing unique counts, pairwise intersections, Jaccard overlap, and the all-panel shared set. It helps participants plan feature reuse across task or dataset panels while keeping identifier coverage explicit.
 - **How someone else runs it:** Paste each panel's identifiers, label each panel, and compare. Review duplicate entries and exact case-sensitive matching; download the all-panel intersection or full membership matrix. The tool does not resolve aliases, orthology, gene-symbol changes, or biological relevance.
+
+### 122. VEC Gene Rank Stability Reporter
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/rank-stability/
+- **What it is, and who it helps:** Compares effect tables across replicates on shared genes using pairwise Spearman rank correlation, top-k Jaccard overlap, and agreement in nonzero effect signs. It helps participants see whether a selected gene set is robust to replicate variation rather than relying on one result table.
+- **How someone else runs it:** Paste `replicate_id,gene,effect` rows, choose absolute- or signed-effect ranking and a top-k cutoff, then analyze. Review shared-gene counts and ties, and download the pairwise report. These are descriptive statistics, not an official score or significance test.
