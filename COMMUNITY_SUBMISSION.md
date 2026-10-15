@@ -1260,3 +1260,38 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/multiclass-metrics/
 - **What it is, and who it helps:** A browser-local calculator accepts a square actual-by-predicted class-count matrix and reports per-class precision, recall, F1, actual support, and predicted count alongside accuracy, macro precision/recall/F1, and support-weighted F1. Undefined class-specific denominators remain visible. It helps cell-label and other multiclass evaluation teams communicate rare-class performance without hiding support. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste a matrix with predicted class names across the header and actual classes in the first field of each row, keeping both label sets identical. Calculate, review class support and undefined cases, and download the class table.
+
+### 180. VEC Prediction Interval Coverage Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/interval-coverage/
+- **What it is, and who it helps:** A local summary for paired observed values and prediction bounds. It reports empirical coverage at a selected nominal level, below/above-bound counts, mean and median width, and the mean Winkler interval score. It helps contributors describe interval performance beyond a single coverage fraction, while stating that coverage is marginal and the score rewards narrower ranges. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste one `actual,lower,upper` row per held-out prediction, choose the nominal interval level, and summarize. Report the sampling unit and do not treat observed coverage as a conditional guarantee.
+
+### 181. VEC Quantile Prediction Pinball Loss Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/quantile-loss/
+- **What it is, and who it helps:** A browser-local evaluator groups actual/quantile/prediction rows and reports mean asymmetric pinball loss and empirical outcome coverage for each quantile. It helps participants assess forecast penalty and quantile calibration across held-out cases without uploading rows. The page explains ties, outcome-scale dependence, and the need to use the same examples at each quantile. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste `actual,quantile,prediction` rows for the held-out set, calculate the grouped table, and download it. Compare quantiles on a common outcome scale and inspect coverage alongside loss.
+
+### 182. VEC Groupwise Missingness Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/group-missingness/
+- **What it is, and who it helps:** A browser-local structural audit compares missing counts and fractions for each non-group field across user-selected groups. Blank cells and participant-listed tokens are configurable; the report does not display nonmissing cell values. It helps contributors notice group-dependent collection or import gaps, while warning that a pattern does not identify a missingness mechanism or justify imputation. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a CSV, enter the exact grouping column name, set any additional missing tokens, and compare. Review group and field names before sharing the count summary.
+
+### 183. VEC Cross-Validation Fold Metric Summary
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/fold-metrics/
+- **What it is, and who it helps:** A summary tool for one already-computed metric per fold. It reports fold spread, median, extrema, an unweighted mean, and a sample-count-weighted mean, and explains why the latter is not necessarily the metric computed from pooled predictions. It helps teams communicate cross-validation variation without treating overlapping folds as independent replicates. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter one unique `fold,n,metric` row per fold using the same metric and split procedure, summarize, and optionally download the fold table. Report the aggregation rule and do not call fold SD a confidence interval.
+
+### 184. VEC ROC AUC Bootstrap Interval Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/auc-bootstrap/
+- **What it is, and who it helps:** A browser-local, tie-aware ROC AUC estimator and seeded stratified percentile-bootstrap interval. It resamples positive and negative held-out scores separately, preserving observed class counts, and bounds pairwise work to keep the page responsive. It helps contributors communicate ranking uncertainty without uploading predictions. The page distinguishes ranking from calibration and states small-sample, tie, and clustering limits. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste binary actual labels paired with finite scores, choose confidence level, resample count, and seed, then estimate the interval. Use independent held-out examples and report that the bootstrap is stratified on observed class counts.
