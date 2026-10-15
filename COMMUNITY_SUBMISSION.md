@@ -889,3 +889,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/unequal-clusters/
 - **What it is, and who it helps:** A browser-local educational calculator comparing the balanced-cluster design effect with an unequal-size approximation that includes the coefficient of variation of per-sample observation counts. Participants choose an assumed intraclass correlation and see the resulting design effects and effective observation counts. The interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste one positive count per independent sample or a two-column sample-ID/count list, enter an assumed ICC from zero to one, and compare. Use counts of cells, spots, or other repeated observations, with biological samples as clusters. The ICC is not estimated, the result is not a power analysis, and an effective observation count is not a biological replicate count.
+
+### 127. VEC Permutation Monte Carlo Precision Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/permutation-precision/
+- **What it is, and who it helps:** A browser-local calculator that summarizes an observed count of extreme random shuffles with the add-one tail estimate, its finite-resolution floor, and an approximate Monte Carlo standard error. A separate planning calculation estimates how many independent shuffles would target a user-selected Monte Carlo error at an assumed tail probability. It helps participants distinguish simulation precision from scientific-data uncertainty.
+- **How someone else runs it:** Enter the shuffle count and extreme-count from an existing run, then provide a planning probability and target standard error. The page does not run a permutation test, select a statistic or shuffle scheme, check exchangeability, account for dependent draws, or replace a suitable interval method; its normal range is especially rough at boundary counts.
