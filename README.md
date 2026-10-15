@@ -1,6 +1,6 @@
 # VEC Participation Workbench
 
-Seventy-two offline-first tools and eight interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, paired prediction diagnostics, and spatial graph diagnostics; the simulations teach core reasoning about study design, evaluation, and analysis choices.
+Seventy-two offline-first tools and sixteen interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, paired prediction diagnostics, and spatial graph diagnostics; the simulations teach core reasoning about study design, evaluation, and analysis choices.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
@@ -91,6 +91,22 @@ These deterministic, browser-local demonstrations make assumptions visible and h
 | [Batch Confounding Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/batch-confounding/) | Exact treatment–batch aliasing in a two-factor design and the limits of a full-rank check. |
 | [Dose Response Shape Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/dose-shape/) | How measurement range can make synthetic linear, saturating, and transient responses harder to distinguish. |
 | [Spatial Neighborhood Scale Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/spatial-scale/) | How a radius-defined spatial graph changes in density and label mixing as the scale changes. |
+
+
+### Additional methods-literacy simulations
+
+These eight deterministic demonstrations focus on selection, missingness, measurement, and transformation assumptions. Each uses synthetic values only and explains the limits of its model.
+
+| Simulation | Concept it demonstrates |
+|---|---|
+| [Regression-to-the-Mean Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/regression-to-mean/) | Why a group selected for an extreme noisy baseline can move toward the average at follow-up without an intervention effect. |
+| [Range Restriction Correlation Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/range-restriction/) | How narrowing the observed predictor range changes correlation even when the underlying relationship is unchanged. |
+| [Winner’s Curse Selection Simulator](https://random-guy-05.github.io/vec-participation-workbench/simulations/winner-curse/) | How choosing the best of many noisy validation estimates creates selection optimism. |
+| [Optional Stopping Demonstrator](https://random-guy-05.github.io/vec-participation-workbench/simulations/optional-stopping/) | How repeatedly checking accumulating null data can increase the chance of crossing a nominal threshold. |
+| [Missing-Data Bias Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/missing-data/) | How complete-case and zero-filled group differences respond to random, group-dependent, and outcome-dependent missingness. |
+| [Measurement Error Attenuation Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/measurement-error/) | Why classical noise in a predictor tends to pull its estimated slope toward zero. |
+| [Batch Adjustment Trade-off Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/batch-adjustment/) | How treatment–batch overlap affects identifiability and the stability of a batch-adjusted effect. |
+| [Log-Transform Compression Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/log-compression/) | How the same fold change appears on raw-count and log2(1 + count) scales. |
 
 ## Prediction agreement and error diagnostics
 

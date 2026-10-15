@@ -574,3 +574,59 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-axis-slices/
 - **What it is, and who it helps:** Splits the observed range of a chosen coordinate axis into equal-width slices and reports point counts and optional label composition, including empty label-by-slice combinations. It helps participants inspect coarse positional distributions while clearly describing the result as a field-of-view-dependent summary.
 - **How someone else runs it:** Paste unique 3D point rows with an optional `label` column, choose X, Y, or Z and 2–20 bins, then inspect or download the slice table.
+
+### 82. VEC Regression-to-the-Mean Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/regression-to-mean/
+- **What it is, and who it helps:** An interactive deterministic example selects subjects with extreme noisy baseline values and compares their follow-up with the full cohort. The stable latent value and independent measurement noise make regression to the mean visible without any treatment effect, helping participants distinguish selection effects from intervention effects.
+- **How someone else runs it:** Adjust synthetic cohort size, measurement-noise SD, and the selected fraction; compare selected baseline and follow-up means with the full-cohort follow-up.
+
+### 83. VEC Range Restriction Correlation Explorer
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/range-restriction/
+- **What it is, and who it helps:** Restricts a synthetic predictor’s observed range while keeping its outcome-generating slope and noise fixed. It demonstrates why correlation can change when a study samples a narrower population, without implying that the underlying relationship changed.
+- **How someone else runs it:** Adjust the retained predictor half-range and outcome-noise SD; compare the full-sample and restricted-sample correlations and sample sizes.
+
+### 84. VEC Winner’s Curse Selection Simulator
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/winner-curse/
+- **What it is, and who it helps:** Gives every synthetic candidate the same true quality, adds validation noise, selects the top estimate, and evaluates it with independent noise. This makes selection optimism distinct from the expected false-positive count of a multiple-testing calculation.
+- **How someone else runs it:** Choose the number of candidates and validation-noise SD; compare true quality, the selected validation estimate, and the independent evaluation averaged across fixed-seed repeats.
+
+### 85. VEC Optional Stopping Demonstrator
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/optional-stopping/
+- **What it is, and who it helps:** Simulates null observations with repeated interim checks on the same accumulating sample and compares threshold crossing with a single pre-specified final look. It helps researchers recognize how data-dependent stopping can alter a nominal threshold while explicitly stating the model’s limits.
+- **How someone else runs it:** Choose 2–10 scheduled looks; compare the empirical rejection rates from 1,200 deterministic null simulations.
+
+### 86. VEC Missing-Data Bias Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/missing-data/
+- **What it is, and who it helps:** Compares the true synthetic group difference with complete-case and deliberately naive zero-filled estimates under independent, group-dependent, and outcome-dependent missingness. The caveat distinguishes missing values from observed zeros and makes no universal imputation recommendation.
+- **How someone else runs it:** Choose a missingness mechanism and base missing fraction; inspect the resulting estimates and group-specific missing counts.
+
+### 87. VEC Measurement Error Attenuation Explorer
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/measurement-error/
+- **What it is, and who it helps:** Adds classical mean-zero error to a synthetic predictor and compares its fitted slope with the slope using the latent predictor. It gives participants an intuitive view of attenuation while warning that real measurement error may be differential or correlated.
+- **How someone else runs it:** Adjust predictor measurement-error SD and compare the generating slope with the latent- and noisy-predictor estimates.
+
+### 88. VEC Batch Adjustment Trade-off Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/batch-adjustment/
+- **What it is, and who it helps:** Adds a synthetic treatment effect, batch shift, and sample noise under adjustable condition–batch overlap. At zero overlap it identifies perfect confounding; as overlap increases it compares the raw difference with an additive batch-adjusted estimate and notes that full rank is not sufficient for valid inference.
+- **How someone else runs it:** Set off-diagonal sample counts and batch shift; inspect whether the treatment effect is identifiable and how raw and adjusted estimates compare.
+
+### 89. VEC Log-Transform Compression Explorer
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/log-compression/
+- **What it is, and who it helps:** Shows the same fold change on raw-count and log2(1 + count) scales across selectable baselines. It teaches how logarithms compress high values while stating that transformation alone does not normalize library size, remove all mean–variance structure, or guarantee normality.
+- **How someone else runs it:** Adjust baseline count and fold change; compare the before-and-after bar pairs, each shown on its own scale.

@@ -38,7 +38,7 @@ The community already has substantial resources for onboarding, score calculatio
 
 ## Interactive learning simulations
 
-These eight pages are deterministic teaching demonstrations, separate from the user-input analysis tools above. Each states its assumptions and warns against treating synthetic output as a biological result.
+These sixteen pages are deterministic teaching demonstrations, separate from the user-input analysis tools above. Each states its assumptions and warns against treating synthetic output as a biological result.
 
 | Simulation | Neighboring concept or resource | Distinct learning job |
 |---|---|---|
@@ -50,6 +50,16 @@ These eight pages are deterministic teaching demonstrations, separate from the u
 | Batch Confounding Playground | Design Confounding Auditor analyzes a supplied categorical design. | Make the treatment-by-batch aliasing pattern visible and show why restoring matrix rank is necessary but not sufficient. |
 | Dose Response Shape Explorer | Perturbation Dose Consistency Explorer summarizes supplied replicate trends. | Contrast three deterministic curve shapes and teach why dose range and replication affect what can be inferred. |
 | Spatial Neighborhood Scale Playground | Spatial Cell-Contact Explorer analyzes supplied labeled points. | Show how a radius choice changes an example graph's edge density and cross-label fraction at the same time. |
+
+
+| Regression-to-the-Mean Playground | Pseudoreplication Visualizer explains clustered observations. | Show selection on an extreme noisy baseline followed by remeasurement, with no intervention effect. |
+| Range Restriction Correlation Explorer | Metric Behavior Playground changes prediction values and metrics. | Keep the generating relationship fixed while restricting the predictor range and comparing observed correlations. |
+| Winner’s Curse Selection Simulator | Multiple Testing Expectation Explorer counts expected false positives. | Demonstrate the optimism from selecting the maximum of noisy candidate estimates and checking it independently. |
+| Optional Stopping Demonstrator | Multiple Testing Expectation Explorer examines a family of tests. | Simulate repeated looks at the same accumulating null sample and contrast with one pre-specified final look. |
+| Missing-Data Bias Playground | Single-Cell QC Threshold Explorer applies explicit row-level filters. | Compare complete-case and zero-filled group contrasts under MCAR, group-dependent, and outcome-dependent missingness. |
+| Measurement Error Attenuation Explorer | Gene Detection Rate Analyzer separates detection prevalence from positive magnitude. | Show classical predictor measurement error pulling a fitted slope toward zero in a fixed synthetic model. |
+| Batch Adjustment Trade-off Playground | Batch Confounding Playground shows design-matrix rank. | Show how condition–batch overlap affects the raw contrast and the separately estimated additive treatment effect. |
+| Log-Transform Compression Explorer | LogCheck warns about raw-count representation. | Visualize how one fold change maps to raw and log2(1 + count) scales without claiming normalization or normality. |
 
 ## Paired prediction diagnostics
 
