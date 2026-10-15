@@ -728,3 +728,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/label-harmonizer/
 - **What it is, and who it helps:** Audits a participant-proposed mapping from stage-specific cell labels to shared analysis groups, summarizes mapped cell counts and stage proportions, and flags unmapped rows or inconsistent aliases. It helps teams avoid mistaking annotation vocabulary changes for cell-state turnover while keeping all original labels visible.
 - **How someone else runs it:** Paste rows with stage, raw label, cell count, and proposed canonical label. Run the audit, review unresolved rows and mapping conflicts, then download the mapped composition CSV. The tool does not infer biological equivalence or lineage.
+
+### 104. VEC Data Release Map
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-release-map/
+- **What it is, and who it helps:** An interactive visual guide to the released and held-out stages and conditions for Tasks 1–3. It distinguishes interpolation from extrapolation, shows matched wild-type references for Task 3, and calls out local spatial frames and the held-out embryo stage that can otherwise make the split hard to follow.
+- **How someone else runs it:** Choose a task from the selector to view its stage/condition sequence and split roles. Follow the official data-page links for current schemas and eligibility rules; this visual is an orientation aid, not a data release or answer key.

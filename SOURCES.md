@@ -44,6 +44,7 @@ Checked 14 October 2026. These pages are authoritative and may change after this
 | Stage Trend & Forecast Explorer | No challenge-specific facts. Linear/quadratic fits and leave-one-stage-out diagnostics are descriptive, not independent validation. |
 | Cell-Label Transition Explorer | No challenge-specific facts. The output describes supplied source/target labels; it does not establish lineage. |
 | Cell-Label Mapping Auditor | [Official data page](https://virtualembryo.ai/challenge/data) notes that annotation vocabulary differs across stages and a harmonized mapping is being developed. The tool only aggregates according to user-entered mappings; no label equivalence is official or inferred. |
+| VEC Data Release Map | [Official data page](https://virtualembryo.ai/challenge/data) and [Tasks](https://virtualembryo.ai/challenge/tasks) describe the stage/condition splits, modalities, and held-out targets shown. Current sources control if the map becomes stale. |
 | Gene Detection Rate Analyzer | No challenge-specific facts. Detection fractions and positive-value means depend on user-selected data scale and zero threshold. |
 | Replicate Concordance Reporter | No challenge-specific facts. Pearson/Spearman correlations are descriptive and do not justify dropping samples. |
 | 3D Coordinate Alignment Explorer | No challenge-specific facts. PCA centering/rotation is a coordinate transform and does not register anatomy to a reference atlas. |
