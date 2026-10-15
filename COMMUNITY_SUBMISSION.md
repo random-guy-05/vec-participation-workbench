@@ -945,3 +945,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/temporal-split-audit/
 - **What it is, and who it helps:** A browser-local audit for sample-level manifests that checks whether numeric stage-order values are strictly separated across user-labeled train, optional validation, and test partitions. It can also count an optional subject or lineage group appearing in multiple partitions. This fills a temporal-order check not provided by a general group-overlap audit.
 - **How someone else runs it:** Paste one row per sample with sample ID, numeric stage order, and split label; read headers, choose columns, set partition labels, and audit. Optionally select a correlated-unit ID. The tool reports unconfigured labels separately and does not infer stage order, biological trajectory, or a task-specific validation design.
+
+### 135. VEC Reference Match-Set Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/reference-match-audit/
+- **What it is, and who it helps:** A browser-local comparison of exact user-selected metadata keys across target and reference samples. It reports shared keys, one-sided coverage, multiple samples per key, and incomplete keys without pairing replicates arbitrarily. Its interface, instructions, and results are available in English, Spanish, and Simplified Chinese. It complements simple stage-coverage counts by making a composite comparison design inspectable.
+- **How someone else runs it:** Choose a language, paste one row per sample, read headers, select the sample and group columns, check the metadata fields that scientifically define comparability, and enter target/reference values. Audit and download the key counts. Exact string agreement does not establish a valid control, biological pairing, or exchangeability.
