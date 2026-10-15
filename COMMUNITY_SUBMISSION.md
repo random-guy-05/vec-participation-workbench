@@ -1008,3 +1008,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/claim-evidence/
 - **What it is, and who it helps:** A browser-local Markdown builder for research updates, posters, and project discussions. It connects each proposed claim to an observation/result, method or source, limitation or alternative explanation, and next reproduction check. It helps new contributors write transparent, reviewable summaries without implying that the tool validates a claim. Interface and exported headings are available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Add one card per proposed claim, fill in the statement and supporting observation/result, and record the source/method, caveat, and next check. Build and review the Markdown preview, then copy or download it. Have a knowledgeable peer review the evidence and interpretation before publishing.
+
+### 144. VEC Markdown Accessibility Quick Scan
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/markdown-accessibility/
+- **What it is, and who it helps:** A browser-local quick scan for Markdown guides and resource pages. It flags skipped heading levels, multiple or missing top-level headings, vague or empty inline link text, empty image alt text, blank headings, and unclosed fenced code blocks. Findings show line numbers but exclude source text. It provides a concrete first check for new documentation contributors and complements a broader manual accessibility checklist. Interface and findings are available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a draft Markdown document, scan it, review each line-specific prompt in context, and download the findings CSV if useful. Fix issues manually and ask people who use assistive technology to review the final resource. The quick scan does not evaluate color, keyboard access, semantic HTML, reference links, or conformance.
