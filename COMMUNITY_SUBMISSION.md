@@ -57,3 +57,61 @@ All eight tools are standalone static pages with no dependencies, login, upload,
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-use/
 - **What it is, and who it helps:** An offline recordkeeping checklist for external-source disclosure, license/source notes, Challenge-data acknowledgement, and prior written approval before publishing or publicly presenting the unpublished Challenge dataset. It makes the distinction between participant recordkeeping and actual organiser/data-generator approval explicit.
 - **How someone else runs it:** Mark confirmed items, add source and approval-record references without pasting private correspondence, and download Markdown. It is not a legal opinion or data-eligibility decision.
+
+## Second set: community participation tools
+
+### 9. Good First Contribution Finder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/contribution-finder/
+- **What it is, and who it helps:** A private idea matcher for people who want to help but do not know where to start. Time, interests, and available resources filter concrete tasks with a suggested finish artifact. It includes options that need only a browser and prompts contributors to check the existing directory.
+- **How someone else runs it:** Choose time, interest, and resources; select a suggested idea; fill in the intended audience and “done” check; then copy or download a Markdown plan. Nothing is sent to a server.
+
+### 10. Help Request Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/help-request/
+- **What it is, and who it helps:** A structured support-request composer that records expected and actual behavior, steps to reproduce, environment, smallest safe example, and previous attempts. A privacy checklist reminds participants to remove Challenge data, unpublished results, credentials, and private correspondence. It helps newcomers ask questions others can answer.
+- **How someone else runs it:** Fill in the labeled fields, confirm the sharing checks, generate the Markdown issue/question, and choose the public destination yourself. The page does not send the request.
+
+### 11. Contribution Brief Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/contribution-brief/
+- **What it is, and who it helps:** A scope worksheet for turning an observed community barrier into one bounded deliverable. It prompts intended audience, out-of-scope work, observable acceptance checks, evidence of usefulness, accessibility, and maintenance. This helps a first-time contributor propose something reviewable rather than an open-ended idea.
+- **How someone else runs it:** Describe the user need, select one deliverable, fill in acceptance and access checks, then export a Markdown brief to share or use privately.
+
+### 12. Community Resource Review
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/resource-review/
+- **What it is, and who it helps:** A reproducible review template for a public VEC guide, tutorial, or tool. It captures the intended audience, setup conditions, actual outcome, concrete blocker, and one proposed fix. It helps participants improve existing resources and keeps reviews grounded in what the reviewer actually tried.
+- **How someone else runs it:** Enter the exact public resource and test conditions, mark only checks completed, describe the blocker and fix, then export the review note. Do not include private data or credentials.
+
+### 13. Accessibility Review Checklist
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/accessibility-review/
+- **What it is, and who it helps:** A first-pass accessibility review for public tools, tutorials, visual materials, and sessions. It prompts concrete checks for keyboard use, focus, labels, zoom, color, alt text/captions, plain language, compute/bandwidth access, and motion. Reviewers record conditions and fixes without making diagnoses or claiming certification.
+- **How someone else runs it:** Record the public item and test setup, mark only the checks performed, describe observed barriers and a small fix, then export the note. It is a practical review aid, not a formal conformance audit.
+
+### 14. Peer Session Agenda Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/workshop-agenda/
+- **What it is, and who it helps:** A time-budgeting tool for peer walkthroughs, reading groups, and troubleshooting sessions. It divides a selected session length into welcome, context, demonstration, hands-on practice, and debrief, and prompts a low-setup access plan. It helps community members host focused learning sessions without designing an agenda from scratch.
+- **How someone else runs it:** Choose a 30–180 minute session, edit the segment names and access plan, generate the schedule, then export it as Markdown. It is a planning aid, not an official curriculum.
+
+### 15. Discussion-to-Action Notes
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/decision-actions/
+- **What it is, and who it helps:** A lightweight note template that separates agreed decisions from open questions and actions after a peer discussion. Actions include an observable finish and role/alias, without collecting private contact details. It helps small volunteer groups avoid losing work between sessions.
+- **How someone else runs it:** Record the shared question, decisions, open issues, next actions, blockers, and public references; complete the privacy checks; export Markdown for the group.
+
+### 16. Project Handoff Card
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/handoff-card/
+- **What it is, and who it helps:** A reusable handoff document for a community tool, guide, or analysis. It captures a clean start, current state, key public artifacts, decisions, next steps, blockers, verification method, and freshness limits. It reduces reliance on private walkthroughs and makes it easier for a new volunteer to take one bounded step.
+- **How someone else runs it:** Fill in public links, exact setup steps, status, next action, and verification details; confirm the safety checks; export and share the Markdown handoff with the intended group.

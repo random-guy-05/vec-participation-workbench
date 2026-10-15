@@ -1,6 +1,6 @@
 # VEC Participation Workbench
 
-Eight small, offline-first tools for the work around a Virtual Embryo Challenge submission: planning board coverage, checking Generality Award architecture fit, recording genuine team contributions, sizing memory, exporting the official schedule, preregistering experiments, checking team eligibility, and tracking data-use permissions.
+Sixteen small, offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, planning peer sessions, and handing work off clearly.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
@@ -16,6 +16,14 @@ Each tool runs in a browser with no account, server, analytics, dependency insta
 | [Experiment Plan Card](https://random-guy-05.github.io/vec-participation-workbench/tools/experiment-card/) | Record a falsifiable hypothesis, permitted inputs, evaluation plan, and selection rule before running an experiment. |
 | [Team Eligibility Checklist](https://random-guy-05.github.io/vec-participation-workbench/tools/team-check/) | Walk through the main team formation and track eligibility questions without entering personal details. |
 | [Data-use Readiness Checklist](https://random-guy-05.github.io/vec-participation-workbench/tools/data-use/) | Track disclosure, acknowledgement, and written-approval steps before using Challenge data in public work. |
+| [Good First Contribution Finder](https://random-guy-05.github.io/vec-participation-workbench/tools/contribution-finder/) | Match available time, interests, and resources to small tasks with a concrete finish. |
+| [Help Request Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/help-request/) | Prepare a reproducible public support request and check it for sensitive content. |
+| [Contribution Brief Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/contribution-brief/) | Scope a community barrier into a deliverable, acceptance checks, and access plan. |
+| [Community Resource Review](https://random-guy-05.github.io/vec-participation-workbench/tools/resource-review/) | Record the conditions, outcome, blocker, and proposed fix when reviewing a public resource. |
+| [Accessibility Review Checklist](https://random-guy-05.github.io/vec-participation-workbench/tools/accessibility-review/) | Capture accessibility checks and actionable findings for a public artifact or event. |
+| [Peer Session Agenda Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/workshop-agenda/) | Generate a time-budgeted peer walkthrough agenda with a low-setup access plan. |
+| [Discussion-to-Action Notes](https://random-guy-05.github.io/vec-participation-workbench/tools/decision-actions/) | Separate decisions, open questions, and agreed tasks after a community discussion. |
+| [Project Handoff Card](https://random-guy-05.github.io/vec-participation-workbench/tools/handoff-card/) | Give the next contributor a clean start, known limits, and a clear first action. |
 
 ## Run locally
 
