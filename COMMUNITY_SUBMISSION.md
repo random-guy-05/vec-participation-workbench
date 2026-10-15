@@ -861,3 +861,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/rank-stability/
 - **What it is, and who it helps:** Compares effect tables across replicates on shared genes using pairwise Spearman rank correlation, top-k Jaccard overlap, and agreement in nonzero effect signs. It helps participants see whether a selected gene set is robust to replicate variation rather than relying on one result table.
 - **How someone else runs it:** Paste `replicate_id,gene,effect` rows, choose absolute- or signed-effect ranking and a top-k cutoff, then analyze. Review shared-gene counts and ties, and download the pairwise report. These are descriptive statistics, not an official score or significance test.
+
+### 123. VEC Feature-Selection Leakage Walkthrough
+
+- **Kind:** teach
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tutorials/feature-selection-leakage.html
+- **What it is, and who it helps:** A tutorial and runnable script demonstrating how a supervised feature selector fit using all labels can inflate test accuracy on a dataset with no signal. It contrasts that result with a pipeline that fits feature selection on training data only, helping newcomers avoid a common evaluation mistake.
+- **How someone else runs it:** Open the page, install NumPy and scikit-learn, download the script, and run `python feature-selection-leakage.py`. Compare the two scores with chance and read the code. The demo is synthetic, varies by seed, and does not prescribe a VEC split or model.
