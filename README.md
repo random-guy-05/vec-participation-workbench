@@ -1,10 +1,10 @@
 # VEC Participation Workbench
 
-Forty-eight offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, creating safe examples, teaching, maintaining shared resources, diagnosing compute jobs, forecasting runtime, and transferring data safely.
+Fifty-six offline-first tools for joining, analyzing, and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, auditing study records and analysis assumptions, finding a first community task, writing safe help requests, reviewing resources, teaching, maintaining shared resources, diagnosing compute jobs, forecasting runtime, and transferring data safely.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
-The 21 analysis tools offer Spanish and Simplified Chinese interface labels, descriptions, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs.
+The 21 core analysis cards in the catalog and all 29 analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional audit cards are listed in English in the catalog.
 
 ## Tools
 
@@ -58,6 +58,14 @@ The 21 analysis tools offer Spanish and Simplified Chinese interface labels, des
 | [Metric Contract Diff](https://random-guy-05.github.io/vec-participation-workbench/tools/metric-contract-diff/) | Compare two JSON panel or scorer snapshots by nested key path, value, and missing key. |
 | [Metadata Schema & Drift Comparator](https://random-guy-05.github.io/vec-participation-workbench/tools/metadata-drift/) | Compare metadata snapshots for changed columns, inferred types, missingness, and categorical levels. |
 | [Challenge Service Incident Packet](https://random-guy-05.github.io/vec-participation-workbench/tools/service-incident-packet/) | Draft a privacy-conscious support report for sign-in, upload, scoring, or service incidents. |
+| [Replicate Influence Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-influence/) | Recompute two-group sample-level contrasts after omitting each biological replicate to expose effect sensitivity without recommending exclusions. |
+| [Spatial Cell-Contact Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-contact/) | Summarize labeled 3D neighbor contacts, pairwise contact frequencies, and per-label neighborhood density at a user-defined radius. |
+| [Perturbation Dose Consistency Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/dose-consistency/) | Compare per-replicate dose rank trends and between-replicate dose means for one user-selected perturbation. |
+| [Gene-Set Redundancy Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/gene-set-overlap/) | Calculate exact Jaccard and overlap-coefficient measures to identify connected groups of overlapping gene sets. |
+| [Cross-Species Mapping Audit](https://random-guy-05.github.io/vec-participation-workbench/tools/orthology-audit/) | Audit user-supplied gene mappings for missing source IDs, one-to-many mappings, shared targets, and duplicate pairs. |
+| [Sample Manifest Integrity Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/manifest-integrity/) | Find duplicated sample IDs, contradictory metadata assignments, blank values, and repeated records without exposing row contents in duplicate summaries. |
+| [Stage-by-Condition Coverage Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/stage-coverage/) | Make expected developmental stages and conditions explicit, then flag combinations below a chosen independent-sample minimum. |
+| [Cell Annotation Concordance Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/annotation-concordance/) | Compare paired annotations with adjusted Rand agreement, contingency counts, and majority-label purity without judging biological correctness. |
 
 ## Run locally
 

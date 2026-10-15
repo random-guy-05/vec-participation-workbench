@@ -499,6 +499,281 @@
         return { summary: "Compared " + a.length + " rows in snapshot A and " + b.length + " rows in snapshot B. Value types are inferred from observed text, and categorical level changes are exact string differences.", tables: [{ title: "Metadata drift", columns: ["column", "change", "type_A", "type_B", "missing_fraction_A", "missing_fraction_B", "levels_added", "levels_removed"], rows: out }], warnings: ["The comparison does not match rows by sample or cell ID. Filter to comparable populations and align observation identities before interpreting level changes as true release drift. Numeric-like inference is heuristic."] };
       }
     },
+    influence: {
+      title: "Replicate Influence Explorer",
+      eyebrow: "Effect robustness",
+      description: "Measure how much each biological replicate changes a two-group feature contrast by recomputing the difference after leaving out one replicate at a time. This is a sensitivity diagnostic, not a significance test or an outlier-removal rule.",
+      inputs: [
+        { id: "data", label: "Sample-level values (CSV)", type: "textarea", rows: 8, placeholder: "sample,group,feature,value", example: "sample,group,feature,value\ns1,control,GeneA,1.0\ns2,control,GeneA,1.2\ns3,control,GeneA,0.9\ns4,treated,GeneA,2.0\ns5,treated,GeneA,1.8\ns6,treated,GeneA,3.4\ns1,control,GeneB,3.1\ns2,control,GeneB,3.0\ns3,control,GeneB,3.2\ns4,treated,GeneB,2.4\ns5,treated,GeneB,2.7\ns6,treated,GeneB,1.2" },
+        { id: "a", label: "Group A", type: "text", value: "control" },
+        { id: "b", label: "Group B", type: "text", value: "treated" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data); requireColumns(rows, ["sample", "group", "feature", "value"]);
+        const aName = v.a.trim(), bName = v.b.trim();
+        if (!aName || !bName || aName === bName) throw new Error("Enter two distinct group labels.");
+        const sampleGroups = new Map(), values = new Map();
+        rows.forEach((r, i) => {
+          if (!r.sample || !r.group || !r.feature) throw new Error("Sample, group, and feature labels cannot be blank (row " + (i + 2) + ").");
+          if (sampleGroups.has(r.sample) && sampleGroups.get(r.sample) !== r.group) throw new Error("Sample " + r.sample + " appears in more than one group; this tool expects independent groups.");
+          sampleGroups.set(r.sample, r.group);
+          if (r.group !== aName && r.group !== bName) return;
+          if (!values.has(r.feature)) values.set(r.feature, { a: new Map(), b: new Map() });
+          const side = r.group === aName ? "a" : "b", bucket = values.get(r.feature)[side], x = numeric(r.value, "value", i);
+          if (!bucket.has(r.sample)) bucket.set(r.sample, []); bucket.get(r.sample).push(x);
+        });
+        const out = [];
+        values.forEach((groups, feature) => {
+          const A = Array.from(groups.a, ([sample, xs]) => ({ sample, value: mean(xs) })), B = Array.from(groups.b, ([sample, xs]) => ({ sample, value: mean(xs) }));
+          if (A.length < 2 || B.length < 2) return;
+          const full = mean(B.map((x) => x.value)) - mean(A.map((x) => x.value)), omitted = [];
+          A.concat(B).forEach((left) => {
+            const nextA = A.filter((x) => x.sample !== left.sample).map((x) => x.value);
+            const nextB = B.filter((x) => x.sample !== left.sample).map((x) => x.value);
+            if (nextA.length && nextB.length) omitted.push({ sample: left.sample, group: A.some((x) => x.sample === left.sample) ? aName : bName, effect: mean(nextB) - mean(nextA) });
+          });
+          const effects = omitted.map((x) => x.effect), signFlips = full === 0 ? 0 : omitted.filter((x) => Math.sign(x.effect) !== Math.sign(full)).length;
+          const strongest = omitted.slice().sort((x, y) => Math.abs(y.effect - full) - Math.abs(x.effect - full))[0];
+          out.push({ feature, n_A: A.length, n_B: B.length, difference_B_minus_A: round(full), leave_one_out_min: round(Math.min(...effects)), leave_one_out_max: round(Math.max(...effects)), max_absolute_change: round(Math.max(...omitted.map((x) => Math.abs(x.effect - full)))), sign_flips_when_omitted: signFlips, most_influential_sample: strongest ? strongest.sample : "", influential_group: strongest ? strongest.group : "" });
+        });
+        if (!out.length) throw new Error("Each feature needs at least two independent samples in both selected groups.");
+        return { summary: "Calculated leave-one-replicate-out contrasts for " + out.length + " features. A sign flip or large range flags sensitivity to the sampled biological replicates; it does not identify a bad sample.", tables: [{ title: "Replicate influence", columns: ["feature", "n_A", "n_B", "difference_B_minus_A", "leave_one_out_min", "leave_one_out_max", "max_absolute_change", "sign_flips_when_omitted", "most_influential_sample", "influential_group"], rows: out }], warnings: ["Values are averaged within sample before comparing groups. Use independent biological replicates on a consistent scale; no p-values, confidence intervals, or automatic exclusions are produced."] };
+      }
+    },
+    contact: {
+      title: "Spatial Cell-Contact Explorer",
+      eyebrow: "Spatial neighborhood composition",
+      description: "Summarize which labeled cell types fall within a chosen 3D radius of one another. The output separates graph edge counts, pairwise contact frequency, and per-label neighbor counts without assigning a significance test.",
+      inputs: [
+        { id: "data", label: "Cell coordinates and labels (CSV)", type: "textarea", rows: 8, placeholder: "cell_id,x,y,z,label", example: "cell_id,x,y,z,label\nc1,0,0,0,epithelium\nc2,0.5,0,0,epithelium\nc3,1.1,0,0,mesenchyme\nc4,0,1.1,0,mesenchyme\nc5,2.2,0,0,mesenchyme\nc6,0,0,2.4,epithelium" },
+        { id: "radius", label: "Contact radius (coordinate units)", type: "number", value: "1.2", min: "0", step: "any" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data); requireColumns(rows, ["cell_id", "x", "y", "z", "label"]);
+        const radius = Number(v.radius); if (!(radius > 0) || !Number.isFinite(radius)) throw new Error("Enter a positive finite radius in the same units as the coordinates.");
+        if (rows.length > 3000) throw new Error("This pairwise explorer accepts at most 3,000 cells. Subsample or summarize locally first.");
+        const ids = new Set(), points = rows.map((r, i) => {
+          if (!r.cell_id || !r.label) throw new Error("Cell IDs and labels cannot be blank (row " + (i + 2) + ").");
+          if (ids.has(r.cell_id)) throw new Error("Duplicate cell ID: " + r.cell_id + "."); ids.add(r.cell_id);
+          return { id: r.cell_id, label: r.label, xyz: [numeric(r.x, "x", i), numeric(r.y, "y", i), numeric(r.z, "z", i)], degree: 0 };
+        });
+        const labelCounts = new Map(); points.forEach((p) => labelCounts.set(p.label, (labelCounts.get(p.label) || 0) + 1));
+        const contacts = new Map(); let edgeCount = 0;
+        for (let i = 0; i < points.length; i++) for (let j = i + 1; j < points.length; j++) {
+          const a = points[i], b = points[j], d = Math.hypot(a.xyz[0] - b.xyz[0], a.xyz[1] - b.xyz[1], a.xyz[2] - b.xyz[2]);
+          if (d <= radius) {
+            const pair = [a.label, b.label].sort(), key = JSON.stringify(pair);
+            if (!contacts.has(key)) contacts.set(key, { label_a: pair[0], label_b: pair[1], contacts: 0 });
+            contacts.get(key).contacts++; a.degree++; b.degree++; edgeCount++;
+          }
+        }
+        const labels = Array.from(labelCounts.keys()).sort(), contactRows = [];
+        for (let i = 0; i < labels.length; i++) for (let j = i; j < labels.length; j++) {
+          const a = labels[i], b = labels[j], found = contacts.get(JSON.stringify([a, b])), nA = labelCounts.get(a), nB = labelCounts.get(b);
+          const possible = a === b ? nA * (nA - 1) / 2 : nA * nB, count = found ? found.contacts : 0;
+          contactRows.push({ label_a: a, label_b: b, contact_edges: count, fraction_of_all_edges: edgeCount ? round(count / edgeCount) : 0, possible_cell_pairs: possible, fraction_of_possible_pairs_in_radius: possible ? round(count / possible) : "NA" });
+        }
+        const labelRows = labels.map((label) => { const cells = points.filter((p) => p.label === label); return { label, cells: cells.length, mean_neighbors_within_radius: round(mean(cells.map((p) => p.degree))), zero_neighbor_cells: cells.filter((p) => p.degree === 0).length }; });
+        return { summary: "Found " + edgeCount + " undirected neighbor edges among " + points.length + " cells at radius " + radius + ". Contact fractions describe this sampled point cloud; they are not enrichment statistics.", tables: [{ title: "Label-pair contacts", columns: ["label_a", "label_b", "contact_edges", "fraction_of_all_edges", "possible_cell_pairs", "fraction_of_possible_pairs_in_radius"], rows: contactRows }, { title: "Per-label neighborhood density", columns: ["label", "cells", "mean_neighbors_within_radius", "zero_neighbor_cells"], rows: labelRows }], warnings: ["Coordinates must already share a meaningful 3D frame and scale. Edge frequencies depend on cell density, radius, tissue boundaries, and sampling; no permutation test is performed."] };
+      }
+    },
+    dose: {
+      title: "Perturbation Dose Consistency Explorer",
+      eyebrow: "Perturbation response",
+      description: "Compare feature responses across dose levels and independent replicate series for one perturbation. It reports per-replicate Spearman direction consistency and dose means, without fitting a mechanistic curve or claiming significance.",
+      inputs: [
+        { id: "data", label: "Replicate-level dose values (CSV)", type: "textarea", rows: 8, placeholder: "replicate,perturbation,dose,feature,value", example: "replicate,perturbation,dose,feature,value\nr1,GENE_A,0,GeneX,1.0\nr1,GENE_A,1,GeneX,1.4\nr1,GENE_A,2,GeneX,2.0\nr1,GENE_A,4,GeneX,2.6\nr2,GENE_A,0,GeneX,0.9\nr2,GENE_A,1,GeneX,1.3\nr2,GENE_A,2,GeneX,1.8\nr2,GENE_A,4,GeneX,2.5\nr3,GENE_A,0,GeneX,1.1\nr3,GENE_A,1,GeneX,1.0\nr3,GENE_A,2,GeneX,1.9\nr3,GENE_A,4,GeneX,2.1" },
+        { id: "perturbation", label: "Perturbation label to analyze", type: "text", value: "GENE_A" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data); requireColumns(rows, ["replicate", "perturbation", "dose", "feature", "value"]);
+        const target = v.perturbation.trim(); if (!target) throw new Error("Enter the exact perturbation label to analyze.");
+        const byFeature = new Map();
+        rows.forEach((r, i) => {
+          if (r.perturbation !== target) return;
+          if (!r.replicate || !r.feature) throw new Error("Replicate and feature labels cannot be blank (row " + (i + 2) + ").");
+          const doseValue = numeric(r.dose, "dose", i), value = numeric(r.value, "value", i);
+          if (doseValue < 0) throw new Error("Dose values must be non-negative.");
+          if (!byFeature.has(r.feature)) byFeature.set(r.feature, new Map());
+          const replicates = byFeature.get(r.feature); if (!replicates.has(r.replicate)) replicates.set(r.replicate, new Map());
+          const doses = replicates.get(r.replicate); if (!doses.has(doseValue)) doses.set(doseValue, []); doses.get(doseValue).push(value);
+        });
+        const trends = [], profiles = [];
+        byFeature.forEach((replicates, feature) => {
+          const series = [];
+          replicates.forEach((doseMap, replicate) => {
+            const points = Array.from(doseMap, ([doseValue, xs]) => ({ dose: doseValue, value: mean(xs) })).sort((a, b) => a.dose - b.dose);
+            if (points.length >= 3) { const rho = pearson(ranks(points.map((x) => x.dose)), ranks(points.map((x) => x.value))); series.push({ replicate, rho: Number.isFinite(rho) ? rho : 0 }); }
+          });
+          if (series.length < 2) return;
+          const allDoses = Array.from(new Set(Array.from(replicates.values()).flatMap((m) => Array.from(m.keys())))).sort((a, b) => a - b);
+          allDoses.forEach((doseValue) => {
+            const observed = Array.from(replicates.values()).filter((m) => m.has(doseValue)).map((m) => mean(m.get(doseValue)));
+            profiles.push({ feature, dose: doseValue, replicates: observed.length, mean_value: round(mean(observed)), between_replicate_sd: observed.length > 1 ? round(stdev(observed)) : "NA" });
+          });
+          const rhos = series.map((x) => x.rho).sort((a, b) => a - b), median = rhos.length % 2 ? rhos[(rhos.length - 1) / 2] : mean([rhos[rhos.length / 2 - 1], rhos[rhos.length / 2]]);
+          const positive = series.filter((x) => x.rho > 0.1).length, negative = series.filter((x) => x.rho < -0.1).length;
+          trends.push({ feature, replicates_with_3plus_doses: series.length, median_replicate_spearman: round(median), positive_trends: positive, negative_trends: negative, near_flat_trends: series.length - positive - negative, direction_consistency: Math.max(positive, negative) / series.length });
+        });
+        if (!trends.length) throw new Error("For this perturbation, each reported feature needs at least two independent replicates with three or more distinct dose levels.");
+        return { summary: "Summarized " + trends.length + " features for " + target + ". Replicate-level rank correlations show direction consistency, not dose-response significance or causal effect.", tables: [{ title: "Replicate trend consistency", columns: ["feature", "replicates_with_3plus_doses", "median_replicate_spearman", "positive_trends", "negative_trends", "near_flat_trends", "direction_consistency"], rows: trends }, { title: "Dose means", columns: ["feature", "dose", "replicates", "mean_value", "between_replicate_sd"], rows: profiles }], warnings: ["Repeated rows within replicate and dose are averaged before comparison. Dose scaling, vehicle controls, plate effects, and biological replicate definition must be checked separately. No fitted curve or p-value is produced."] };
+      }
+    },
+    setoverlap: {
+      title: "Gene-Set Redundancy Explorer",
+      eyebrow: "Feature-set interpretation",
+      description: "Quantify overlap among user-supplied gene sets so near-duplicate terms can be recognized before interpreting enrichment results. It reports exact identifier overlap and connected redundancy groups without importing annotations.",
+      inputs: [
+        { id: "data", label: "Gene-set membership (CSV)", type: "textarea", rows: 8, placeholder: "set,gene", example: "set,gene\ncardiac_A,GATA4\ncardiac_A,NKX2-5\ncardiac_A,TBX5\ncardiac_B,GATA4\ncardiac_B,NKX2-5\ncardiac_B,MEF2C\nmesoderm,TBX5\nmesoderm,FOXF1\nmesoderm,PDGFRA" },
+        { id: "threshold", label: "Minimum Jaccard similarity for redundancy groups", type: "number", value: "0.25", min: "0", max: "1", step: "any" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data); requireColumns(rows, ["set", "gene"]);
+        const threshold = Number(v.threshold); if (!Number.isFinite(threshold) || threshold < 0 || threshold > 1) throw new Error("Enter a Jaccard threshold from 0 to 1.");
+        const sets = new Map(); rows.forEach((r) => { if (!r.set || !r.gene) throw new Error("Set and gene identifiers cannot be blank."); if (!sets.has(r.set)) sets.set(r.set, new Set()); sets.get(r.set).add(r.gene); });
+        const names = Array.from(sets.keys()).sort(); if (names.length < 2) throw new Error("Provide at least two named gene sets.");
+        const pairs = [], parent = new Map(names.map((n) => [n, n]));
+        const root = (x) => { while (parent.get(x) !== x) { parent.set(x, parent.get(parent.get(x))); x = parent.get(x); } return x; };
+        const join = (a, b) => { const ra = root(a), rb = root(b); if (ra !== rb) parent.set(rb, ra); };
+        for (let i = 0; i < names.length; i++) for (let j = i + 1; j < names.length; j++) {
+          const a = sets.get(names[i]), b = sets.get(names[j]), shared = Array.from(a).filter((g) => b.has(g)).length;
+          if (!shared) continue;
+          const union = new Set([...a, ...b]).size, jaccard = shared / union, containment = shared / Math.min(a.size, b.size);
+          pairs.push({ set_a: names[i], set_b: names[j], size_a: a.size, size_b: b.size, shared_genes: shared, jaccard: round(jaccard), overlap_coefficient: round(containment), meets_threshold: jaccard >= threshold });
+          if (jaccard >= threshold) join(names[i], names[j]);
+        }
+        pairs.sort((a, b) => b.jaccard - a.jaccard || a.set_a.localeCompare(b.set_a));
+        const components = new Map(); names.forEach((n) => { const r = root(n); if (!components.has(r)) components.set(r, []); components.get(r).push(n); });
+        const groups = Array.from(components.values()).filter((x) => x.length > 1).flatMap((members, i) => members.map((set) => ({ redundancy_group: "G" + (i + 1), set, group_size: members.length, sets: members.join(" | ") })));
+        return { summary: "Compared " + names.length + " gene sets; " + pairs.filter((x) => x.meets_threshold).length + " overlapping pairs meet the chosen Jaccard threshold. Identifier matching is exact.", tables: [{ title: "Pairwise set overlap", columns: ["set_a", "set_b", "size_a", "size_b", "shared_genes", "jaccard", "overlap_coefficient", "meets_threshold"], rows: pairs.length ? pairs : [{ set_a: "", set_b: "", size_a: 0, size_b: 0, shared_genes: 0, jaccard: 0, overlap_coefficient: 0, meets_threshold: false }] }, { title: "Redundancy groups", columns: ["redundancy_group", "set", "group_size", "sets"], rows: groups }], warnings: ["Overlap does not mean gene sets are biologically equivalent. Identifier aliases, species, universe choice, and annotation version are not inferred; interpret enrichment terms with their sources."] };
+      }
+    },
+    orthology: {
+      title: "Cross-Species Mapping Audit",
+      eyebrow: "Identifier mapping integrity",
+      description: "Audit a user-provided source-to-target gene mapping for unmapped identifiers and one-to-many or many-to-one collisions. This exposes mapping structure before cross-species analyses and never invents orthologs.",
+      inputs: [
+        { id: "sources", label: "Expected source identifiers (one per line)", type: "textarea", rows: 5, placeholder: "GeneA\nGeneB", example: "GeneA\nGeneB\nGeneC\nGeneD" },
+        { id: "data", label: "Mapping table (CSV)", type: "textarea", rows: 7, placeholder: "source_id,target_id", example: "source_id,target_id\nGeneA,Target1\nGeneB,Target2\nGeneB,Target3\nGeneC,Target2" }
+      ],
+      run: (v) => {
+        const sources = Array.from(new Set(list(v.sources))), rows = parseCSV(v.data); requireColumns(rows, ["source_id", "target_id"]);
+        if (!sources.length) throw new Error("Provide the expected source identifier universe.");
+        const bySource = new Map(), byTarget = new Map(), pairs = new Set(), duplicates = [];
+        rows.forEach((r, i) => {
+          if (!r.source_id) throw new Error("Mapping source_id cannot be blank (row " + (i + 2) + ").");
+          if (!r.target_id) return;
+          const key = JSON.stringify([r.source_id, r.target_id]); if (pairs.has(key)) { duplicates.push({ source_id: r.source_id, target_id: r.target_id }); return; } pairs.add(key);
+          if (!bySource.has(r.source_id)) bySource.set(r.source_id, new Set()); bySource.get(r.source_id).add(r.target_id);
+          if (!byTarget.has(r.target_id)) byTarget.set(r.target_id, new Set()); byTarget.get(r.target_id).add(r.source_id);
+        });
+        const sourceSet = new Set(sources), outside = Array.from(bySource.keys()).filter((s) => !sourceSet.has(s));
+        const audit = sources.map((source_id) => {
+          const targets = Array.from(bySource.get(source_id) || []), shared = targets.some((t) => (byTarget.get(t) || new Set()).size > 1);
+          let status = "unmapped";
+          if (targets.length === 1) status = shared ? "many-to-one target" : "one-to-one";
+          else if (targets.length > 1) status = shared ? "many-to-many" : "one-to-many source";
+          return { source_id, target_count: targets.length, mapping_status: status, target_ids: targets.join(" | ") };
+        });
+        const collisions = Array.from(byTarget, ([target_id, sourceSet]) => ({ target_id, source_count: sourceSet.size, source_ids: Array.from(sourceSet).join(" | ") })).filter((x) => x.source_count > 1);
+        const mapped = audit.filter((x) => x.target_count > 0).length;
+        return { summary: mapped + " of " + sources.length + " expected source IDs have at least one target mapping; " + collisions.length + " target IDs receive mappings from multiple sources. Duplicate mapping rows: " + duplicates.length + ".", tables: [{ title: "Source mapping cardinality", columns: ["source_id", "target_count", "mapping_status", "target_ids"], rows: audit }, { title: "Many-to-one target collisions", columns: ["target_id", "source_count", "source_ids"], rows: collisions }, { title: "Mapping rows outside expected source universe", columns: ["source_id"], rows: outside.map((source_id) => ({ source_id })) }, { title: "Exact duplicate mappings", columns: ["source_id", "target_id"], rows: duplicates }], warnings: ["The audit checks only the supplied mapping table. It does not score orthology confidence, resolve identifier aliases, or determine whether a cross-species mapping is biologically appropriate."] };
+      }
+    },
+    manifest: {
+      title: "Sample Manifest Integrity Auditor",
+      eyebrow: "Data intake quality",
+      description: "Find duplicate sample IDs, contradictory metadata assignments, blank fields, and exact repeated rows in a sample manifest before modeling. It checks record integrity, not whether the experimental design is identifiable.",
+      inputs: [
+        { id: "data", label: "One-row-per-sample manifest (CSV)", type: "textarea", rows: 8, placeholder: "sample,condition,batch,stage", example: "sample,condition,batch,stage\ns1,control,b1,E8.5\ns2,control,b1,E8.5\ns3,treated,b2,E9.5\ns3,treated,b3,E9.5\ns4,treated,b2,E9.5\ns4,treated,b2,E9.5" },
+        { id: "id", label: "Sample identifier column", type: "text", value: "sample" },
+        { id: "metadata", label: "Metadata columns to audit (comma-separated)", type: "text", value: "condition,batch,stage" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data), idColumn = v.id.trim(), metadata = list(v.metadata); requireColumns(rows, [idColumn, ...metadata]);
+        if (!idColumn || !metadata.length) throw new Error("Name a sample ID column and at least one metadata column.");
+        const grouped = new Map(), rowCounts = new Map();
+        rows.forEach((r) => {
+          const key = JSON.stringify(Object.keys(r).sort().map((k) => r[k])); rowCounts.set(key, (rowCounts.get(key) || 0) + 1);
+          const id = r[idColumn]; if (!id) return;
+          if (!grouped.has(id)) grouped.set(id, []); grouped.get(id).push(r);
+        });
+        const ids = Array.from(grouped, ([sample_id, items]) => ({ sample_id, rows: items.length, status: items.length > 1 ? "duplicate ID" : "unique ID" }));
+        const conflicts = [];
+        grouped.forEach((items, sample_id) => {
+          if (items.length < 2) return;
+          metadata.forEach((column) => { const values = Array.from(new Set(items.map((r) => r[column]))); if (values.length > 1) conflicts.push({ sample_id, metadata_column: column, distinct_values: values.join(" | ") }); });
+        });
+        const fields = [idColumn, ...metadata].map((column) => {
+          const values = rows.map((r) => r[column]), nonblank = values.filter((x) => x !== "");
+          return { column, rows: rows.length, blank_values: rows.length - nonblank.length, unique_nonblank_values: new Set(nonblank).size };
+        });
+        const repeatedRows = Array.from(rowCounts.values()).filter((count) => count > 1).map((count, i) => ({ duplicate_group: "D" + (i + 1), repeated_copies: count }));
+        return { summary: rows.length + " records, " + ids.filter((x) => x.status === "duplicate ID").length + " duplicated sample IDs, " + conflicts.length + " conflicting ID/metadata assignments, and " + repeatedRows.length + " exact repeated row patterns.", tables: [{ title: "Sample ID counts", columns: ["sample_id", "rows", "status"], rows: ids.concat(rows.filter((r) => !r[idColumn]).map(() => ({ sample_id: "(blank)", rows: 1, status: "blank ID" }))) }, { title: "Contradictory metadata by sample ID", columns: ["sample_id", "metadata_column", "distinct_values"], rows: conflicts }, { title: "Field completeness", columns: ["column", "rows", "blank_values", "unique_nonblank_values"], rows: fields }, { title: "Exact repeated row patterns", columns: ["duplicate_group", "repeated_copies"], rows: repeatedRows }], warnings: ["Resolve identity and record errors against the source records. Duplicate rows can represent either accidental repeats or legitimate structure; this tool does not delete or rewrite data."] };
+      }
+    },
+    stagecover: {
+      title: "Stage-by-Condition Coverage Planner",
+      eyebrow: "Temporal study design",
+      description: "Build an explicit stage-by-condition sample-count grid and flag combinations that miss a chosen biological-replicate minimum. Supply an expected stage order to expose gaps; the tool does not infer developmental ordering from labels.",
+      inputs: [
+        { id: "data", label: "One row per biological sample (CSV)", type: "textarea", rows: 8, placeholder: "sample,stage,condition", example: "sample,stage,condition\ns1,E8.5,control\ns2,E8.5,control\ns3,E8.5,treated\ns4,E9.5,control\ns5,E9.5,treated\ns6,E9.5,treated\ns7,E10.5,control" },
+        { id: "stages", label: "Expected stage order (optional, comma-separated)", type: "text", value: "E8.5,E9.5,E10.5" },
+        { id: "conditions", label: "Expected conditions (optional, comma-separated)", type: "text", value: "control,treated" },
+        { id: "minimum", label: "Minimum independent samples per stage-condition cell", type: "number", value: "2", min: "1", step: "1" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data); requireColumns(rows, ["sample", "stage", "condition"]);
+        const minimum = Number(v.minimum); if (!Number.isInteger(minimum) || minimum < 1) throw new Error("Minimum independent sample count must be a positive integer.");
+        const seen = new Set(), observedStages = [], observedConditions = [];
+        rows.forEach((r, i) => {
+          if (!r.sample || !r.stage || !r.condition) throw new Error("Sample, stage, and condition cannot be blank (row " + (i + 2) + ").");
+          if (seen.has(r.sample)) throw new Error("Sample ID " + r.sample + " occurs more than once; provide one row per biological sample."); seen.add(r.sample);
+          if (!observedStages.includes(r.stage)) observedStages.push(r.stage); if (!observedConditions.includes(r.condition)) observedConditions.push(r.condition);
+        });
+        const expectedStages = Array.from(new Set(list(v.stages))), expectedConditions = Array.from(new Set(list(v.conditions)));
+        const stages = expectedStages.length ? expectedStages : observedStages, conditions = expectedConditions.length ? expectedConditions : observedConditions;
+        const absentStages = observedStages.filter((x) => !stages.includes(x)), absentConditions = observedConditions.filter((x) => !conditions.includes(x));
+        if (absentStages.length || absentConditions.length) throw new Error("Expected stage/condition lists omit observed labels: " + absentStages.concat(absentConditions).join(", ") + ".");
+        const counts = new Map(); rows.forEach((r) => { const key = JSON.stringify([r.stage, r.condition]); counts.set(key, (counts.get(key) || 0) + 1); });
+        const grid = stages.flatMap((stage) => conditions.map((condition) => { const samples = counts.get(JSON.stringify([stage, condition])) || 0; return { stage, condition, biological_samples: samples, minimum_required: minimum, status: samples >= minimum ? "meets minimum" : samples === 0 ? "no samples" : "below minimum" }; }));
+        const covered = grid.filter((x) => x.biological_samples >= minimum).length;
+        const stageRows = stages.map((stage) => { const cells = grid.filter((x) => x.stage === stage); return { stage, conditions_meeting_minimum: cells.filter((x) => x.biological_samples >= minimum).length, total_conditions: conditions.length, stage_complete: cells.every((x) => x.biological_samples >= minimum) }; });
+        return { summary: covered + " of " + grid.length + " planned stage-condition cells meet the chosen minimum of " + minimum + " independent samples.", tables: [{ title: "Stage-condition coverage", columns: ["stage", "condition", "biological_samples", "minimum_required", "status"], rows: grid }, { title: "Stage completeness", columns: ["stage", "conditions_meeting_minimum", "total_conditions", "stage_complete"], rows: stageRows }], warnings: ["Use independent embryos or other true biological units, not cells, as sample counts. Coverage is not a power calculation; stage order is taken exactly from the provided list."] };
+      }
+    },
+    labelagreement: {
+      title: "Cell Annotation Concordance Auditor",
+      eyebrow: "Annotation version comparison",
+      description: "Compare two cell-label assignments on shared cell IDs using an adjusted Rand index, a contingency table, and majority-mapped label purity. Scores are invariant to label names and do not declare either annotation to be correct.",
+      inputs: [
+        { id: "data", label: "Paired cell annotations (CSV)", type: "textarea", rows: 8, placeholder: "cell_id,label_a,label_b", example: "cell_id,label_a,label_b\nc1,cardiac,cardiomyocyte\nc2,cardiac,cardiomyocyte\nc3,cardiac,progenitor\nc4,mesoderm,mesenchyme\nc5,mesoderm,mesenchyme\nc6,mesoderm,mesenchyme\nc7,endoderm,endoderm" }
+      ],
+      run: (v) => {
+        const rows = parseCSV(v.data); requireColumns(rows, ["cell_id", "label_a", "label_b"]);
+        const ids = new Set(), table = new Map(), totalsA = new Map(), totalsB = new Map(), aToB = new Map(), bToA = new Map();
+        rows.forEach((r, i) => {
+          if (!r.cell_id || !r.label_a || !r.label_b) throw new Error("Cell IDs and both labels cannot be blank (row " + (i + 2) + ").");
+          if (ids.has(r.cell_id)) throw new Error("Cell ID " + r.cell_id + " is duplicated; provide one paired label per cell."); ids.add(r.cell_id);
+          const key = JSON.stringify([r.label_a, r.label_b]); table.set(key, (table.get(key) || 0) + 1);
+          totalsA.set(r.label_a, (totalsA.get(r.label_a) || 0) + 1); totalsB.set(r.label_b, (totalsB.get(r.label_b) || 0) + 1);
+          if (!aToB.has(r.label_a)) aToB.set(r.label_a, new Set()); aToB.get(r.label_a).add(r.label_b);
+          if (!bToA.has(r.label_b)) bToA.set(r.label_b, new Set()); bToA.get(r.label_b).add(r.label_a);
+        });
+        const n = rows.length; if (n < 2) throw new Error("At least two paired cell annotations are required.");
+        const choose2 = (x) => x * (x - 1) / 2, index = Array.from(table.values()).reduce((s, x) => s + choose2(x), 0);
+        const sumA = Array.from(totalsA.values()).reduce((s, x) => s + choose2(x), 0), sumB = Array.from(totalsB.values()).reduce((s, x) => s + choose2(x), 0), totalPairs = choose2(n);
+        const expected = sumA * sumB / totalPairs, denominator = 0.5 * (sumA + sumB) - expected;
+        const samePartition = Array.from(aToB.values()).every((labels) => labels.size === 1) && Array.from(bToA.values()).every((labels) => labels.size === 1);
+        const ari = Math.abs(denominator) < 1e-12 ? (samePartition ? 1 : 0) : (index - expected) / denominator;
+        const cross = Array.from(table, ([key, count]) => { const [label_a, label_b] = JSON.parse(key); return { label_a, label_b, cells: count }; });
+        const mapped = Array.from(totalsB.keys()).map((label_b) => {
+          const candidates = cross.filter((x) => x.label_b === label_b).sort((x, y) => y.cells - x.cells), majority = candidates[0];
+          return { label_b, majority_label_a: majority.label_a, cells: totalsB.get(label_b), majority_overlap: majority.cells, purity: round(majority.cells / totalsB.get(label_b)) };
+        });
+        return { summary: "Compared " + n + " cells across " + totalsA.size + " labels in A and " + totalsB.size + " labels in B. Adjusted Rand index: " + round(ari) + " (1 indicates identical partitions; values near 0 indicate chance-level pair agreement).", tables: [{ title: "Label contingency", columns: ["label_a", "label_b", "cells"], rows: cross }, { title: "B-to-A majority mapping", columns: ["label_b", "majority_label_a", "cells", "majority_overlap", "purity"], rows: mapped }], warnings: ["Both assignments must cover the same cell IDs and represent comparable observations. Adjusted Rand index measures partition agreement, not biological validity, lineage, or the correctness of either label set."] };
+      }
+    },
     incident: {
       title: "Challenge Service Incident Packet",
       eyebrow: "Operational support",

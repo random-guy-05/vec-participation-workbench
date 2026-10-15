@@ -346,7 +346,63 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 
 ### 49. VEC Analysis Workbench — Spanish and Simplified Chinese interfaces
 
-- **Kind:** build
+- **Kind:** expand
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/
 - **What it is, and who it helps:** A shared language-access layer across the 21 analysis tools. It translates the analysis catalog, tool titles, descriptions, input labels, guidance, and controls into Spanish and Simplified Chinese. Result summaries, validation messages, table columns, and data values remain in English to preserve technical identifiers; each page discloses this before analysis. It does not create duplicate analysis workflows or store pasted data.
 - **How someone else runs it:** Choose English, Español, or 简体中文 in the workbench’s analysis section or on any analysis page. Open a tool, load its synthetic example, replace it with a small public or synthetic table, and run the analysis. Changing the interface language preserves current inputs; the selected language is reflected in the URL only.
+
+### 50. VEC Replicate Influence Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-influence/
+- **What it is, and who it helps:** Recomputes an unpaired two-group contrast after omitting each biological sample, showing the leave-one-out range, maximum change, and any direction flips. It helps teams see whether a summary effect is dominated by one replicate without labeling samples as bad or producing inferential statistics.
+- **How someone else runs it:** Paste sample-level `sample,group,feature,value` data, name two groups, and review the per-feature influence table. Repeated measurements within a sample are averaged first.
+
+### 51. VEC Spatial Cell-Contact Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-contact/
+- **What it is, and who it helps:** Summarizes categorical cell-label contact pairs on a 3D point cloud using a chosen radius, reporting edge counts, pair fractions, and per-label neighbor density. It extends geometry checks to label-resolved spatial neighborhood composition without claiming enrichment.
+- **How someone else runs it:** Paste unique cell IDs, x/y/z coordinates, and labels; enter a radius in the coordinate units; inspect contact and neighborhood tables.
+
+### 52. VEC Perturbation Dose Consistency Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/dose-consistency/
+- **What it is, and who it helps:** Reports per-replicate Spearman trends and between-replicate feature means over dose for one perturbation, helping participants distinguish consistent direction from variable or flat responses. It does not fit a dose-response curve or calculate p-values.
+- **How someone else runs it:** Paste `replicate,perturbation,dose,feature,value` data, enter the exact perturbation label, and inspect replicate trends and dose means.
+
+### 53. VEC Gene-Set Redundancy Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/gene-set-overlap/
+- **What it is, and who it helps:** Calculates pairwise Jaccard similarity and overlap coefficient for supplied gene sets and groups connected terms above a selected threshold. It helps readers recognize redundant terms before interpreting over-representation results.
+- **How someone else runs it:** Paste `set,gene` membership rows, choose a Jaccard threshold, and review pairwise overlap and connected redundancy groups.
+
+### 54. VEC Cross-Species Mapping Audit
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/orthology-audit/
+- **What it is, and who it helps:** Audits a supplied source identifier universe and mapping table for unmapped IDs, one-to-many source mappings, many-to-one target collisions, exact duplicate pairs, and mapping rows outside the expected universe.
+- **How someone else runs it:** Paste the expected source IDs and a `source_id,target_id` CSV, then inspect mapping cardinality and collision reports. Mapping evidence and release provenance remain the user’s responsibility.
+
+### 55. VEC Sample Manifest Integrity Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/manifest-integrity/
+- **What it is, and who it helps:** Identifies duplicate sample IDs, conflicting metadata assignments, blank field counts, and exact repeated-record patterns before analysis. Duplicate group summaries avoid echoing entire rows back into the results.
+- **How someone else runs it:** Paste a sample manifest, name its sample-ID column and metadata fields, then reconcile flagged records against their source.
+
+### 56. VEC Stage-by-Condition Coverage Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/stage-coverage/
+- **What it is, and who it helps:** Builds a planned stage-by-condition sample-count grid, including expected stages with no observed samples, and flags cells below a chosen biological-replicate minimum. It helps teams find temporal design gaps before fitting trends.
+- **How someone else runs it:** Paste one row per biological sample with stage and condition, provide the expected stage order and conditions, and set a minimum independent-sample count.
+
+### 57. VEC Cell Annotation Concordance Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/annotation-concordance/
+- **What it is, and who it helps:** Compares two cell-label partitions for the same cells using adjusted Rand index, contingency counts, and majority label purity. It helps teams assess annotation-version agreement without requiring identical label names or implying biological correctness.
+- **How someone else runs it:** Paste unique `cell_id,label_a,label_b` rows from two annotations and inspect the partition score and label-level mapping table.
