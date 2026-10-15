@@ -749,3 +749,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/metric-invariance-audit/
 - **What it is, and who it helps:** A browser-local worksheet that compares paired baseline and transformed synthetic-control scores against a participant-specified expectation, absolute tolerance, and relative tolerance. It helps contributors record reproducible metric-behavior checks without assuming unresolved official semantics or claiming that a failed check proves a scorer defect.
 - **How someone else runs it:** Paste metric, transformation, baseline score, transformed score, expectation, and tolerances. Review the comparison table, document scorer version/commit, seed, and transformation details, then download a Markdown audit record.
+
+### 107. VEC Prediction Schema Fixture Generator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/schema-fixture/
+- **What it is, and who it helps:** Generates a deterministic, local Python script that validates the selected task's official one-gene-per-line panel length and creates a sparse, non-negative synthetic AnnData fixture with the expected shape and, for spatial tasks, the `obsm["spatial_3D"]` key. This helps contributors smoke-test file-writing and pipeline wiring without using held-out answers, real participant data, or fabricated biological predictions.
+- **How someone else runs it:** Choose Task 1, Task 2 embryo, Task 2 heart, or Task 3 and generate/download the script. Run it in a Python environment with NumPy, pandas, SciPy, and AnnData, passing the matching official local panel file with `--panel-file`; optionally set `--output`. The fixture is not a valid scored prediction or leaderboard submission.
