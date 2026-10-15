@@ -819,3 +819,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/seed-stability/
 - **What it is, and who it helps:** Summarizes the score distribution for repeated method/seed runs and reports paired candidate-minus-baseline differences on shared seed values. It helps teams see whether a claimed improvement appears consistently across training randomness rather than from a single favorable run.
 - **How someone else runs it:** Paste `method,seed,score` rows, enter the two method names, choose which score direction is better, and analyze. Use paired results only if a shared seed means comparable randomness; verify that data splits and metric versions match. The output is descriptive and does not estimate biological-sample uncertainty or statistical significance.
+
+### 117. VEC Matched Reference Coverage Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/reference-coverage/
+- **What it is, and who it helps:** Summarizes whether user-selected target and reference values occur within each stage, reporting both row counts and distinct sample-ID counts when available. It helps teams catch stages with no comparison side before preparing stage-aware perturbation or condition contrasts.
+- **How someone else runs it:** Paste a sample- or cell-level CSV, select its stage and group columns, enter the exact reference and target labels, and run the audit. Review the per-stage summary and export it if useful. The counts do not establish biological matching, independent replication, or official Challenge compliance.
