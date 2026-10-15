@@ -20,3 +20,11 @@ Checked 14 October 2026. These pages are authoritative and may change after this
 | Peer Session Agenda Builder | [Community resources](https://virtualembryo.ai/challenge/resources): published resources can be selected as session material. The time allocation is editable and is not an official curriculum. |
 | Discussion-to-Action Notes | No rule-specific facts. The template encourages public references and privacy-conscious meeting notes. |
 | Project Handoff Card | No rule-specific facts. The template is for public artifacts and excludes credentials, private data, and unpublished results. |
+| Synthetic Data Lab | No Challenge data or task-schema facts. It creates deterministic generic toy counts and explicitly does not produce valid Challenge inputs or submissions. |
+| Quickstart Guide Builder | [Official data page](https://virtualembryo.ai/challenge/data) and [community resources](https://virtualembryo.ai/challenge/resources) are examples of authoritative sources a guide author can link; outputs are templates. |
+| Micro-Lesson Blueprint | [Official rules](https://virtualembryo.ai/challenge/rules) and [community resources](https://virtualembryo.ai/challenge/resources) are suggested primary references for challenge-specific lessons. |
+| Scientific Figure Description Builder | [W3C image accessibility tutorial](https://www.w3.org/WAI/tutorials/images/) gives general advice on text alternatives; the generated text still needs human review. |
+| Source Freshness Tracker | [Official rules](https://virtualembryo.ai/challenge/rules) and [official timeline](https://virtualembryo.ai/challenge/timeline) are examples of time-sensitive pages to recheck. The reminder does not fetch or validate links. |
+| Feedback Triage Planner | No official prioritization score. The formula is an explicit local discussion heuristic only. |
+| Community Project Starter | [Citation File Format schema guide](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md): CFF requires author metadata; generated collective-author placeholder should be replaced or edited for actual creators. |
+| Community Release Notes Builder | No rule-specific facts. The form prompts maintainers to link current official sources for challenge-specific statements. |

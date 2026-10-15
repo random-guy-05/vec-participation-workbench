@@ -9,7 +9,8 @@
   }
 
   function generate() {
-    const title = document.querySelector('h1').textContent.trim();
+    const titleField = document.body.dataset.titleField ? document.getElementById(document.body.dataset.titleField) : null;
+    const title = titleField?.value.trim() || document.querySelector('h1').textContent.trim();
     const lines = [`# ${title}`, '', `Created locally: ${new Date().toLocaleDateString()}`, ''];
     const done = new Set();
     for (const field of form.querySelectorAll('input, textarea, select')) {

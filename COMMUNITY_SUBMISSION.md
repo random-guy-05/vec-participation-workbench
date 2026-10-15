@@ -1,6 +1,6 @@
 # Community contribution filing drafts
 
-All eight tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to the official source for the facts each uses. File each tool page as a separate `build` only after its hosted URL is available.
+All twenty-four tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to official sources for facts they reference. File each tool page as a separate `build` only after its hosted URL is available.
 
 ## 1. VEC Board Coverage Planner
 
@@ -115,3 +115,61 @@ All eight tools are standalone static pages with no dependencies, login, upload,
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/handoff-card/
 - **What it is, and who it helps:** A reusable handoff document for a community tool, guide, or analysis. It captures a clean start, current state, key public artifacts, decisions, next steps, blockers, verification method, and freshness limits. It reduces reliance on private walkthroughs and makes it easier for a new volunteer to take one bounded step.
 - **How someone else runs it:** Fill in public links, exact setup steps, status, next action, and verification details; confirm the safety checks; export and share the Markdown handoff with the intended group.
+
+## Third set: safe examples and maintainable learning resources
+
+### 17. Synthetic Data Lab
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/synthetic-data-lab/
+- **What it is, and who it helps:** A browser-only deterministic generator for small toy expression matrices, cell/feature metadata, and optional x/y/z coordinates. It also creates a readme and optional Python loader for AnnData. It lets contributors demonstrate or prototype data-processing code without copying Challenge data into examples. The generated files are generic toys, not biological data, official task inputs, or valid submissions.
+- **How someone else runs it:** Choose cell/gene/group counts, dropout, seed, and coordinate option; generate the preview; then download expression CSV, cell metadata CSV, feature metadata CSV, and the readme. If desired, download the helper and run it locally with pandas and anndata installed.
+
+### 18. Quickstart Guide Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/quickstart-builder/
+- **What it is, and who it helps:** A structured quickstart template for documenting prerequisites, exact clean setup steps, first command, expected result, low-resource route, recovery hints, privacy boundaries, and authoritative sources. It helps maintainers write a first-run path that a new participant can follow and verify.
+- **How someone else runs it:** Fill the labeled fields, create the Markdown preview, then copy or download it for review and adaptation. The browser does not publish the guide.
+
+### 19. Micro-Lesson Blueprint
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/lesson-blueprint/
+- **What it is, and who it helps:** A blueprint for a short asynchronous lesson built around a measurable learner outcome, prerequisite knowledge, ordered concepts, worked example, practice task, answer and rationale, troubleshooting, and accessibility/source notes. It helps community educators make focused self-paced materials rather than broad, hard-to-finish tutorials.
+- **How someone else runs it:** Enter one topic and outcome, add the example and practice, write an answer key and recovery hint, then export the Markdown outline for authoring and peer review.
+
+### 20. Scientific Figure Description Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/figure-caption/
+- **What it is, and who it helps:** A template for short alt text and a longer figure description that records layout, axes, visual encodings, supported observation, caveats, and source. It helps authors make workshop and tool visuals understandable to people who cannot inspect the image and guards against overclaiming what a plot establishes.
+- **How someone else runs it:** Describe the figure purpose, short alternative text, panel order, encodings, observation and limits; export the draft, then review it alongside the actual visual and current source.
+
+### 21. Source Freshness Tracker
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/source-freshness/
+- **What it is, and who it helps:** A local reminder and note generator for a time-sensitive claim, its authoritative source, last human check, and next recheck date. It makes stale rules, dates, and setup claims easier for resource maintainers to find. It calculates dates only; it does not fetch a page or certify its contents.
+- **How someone else runs it:** Record one claim, public source, last checked date and recheck interval; calculate the reminder; add what to verify; then export a freshness note for the resource maintainers.
+
+### 22. Feedback Triage Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/feedback-prioritizer/
+- **What it is, and who it helps:** A local backlog discussion aid that records one barrier, affected workflow, evidence, and a suggested response. Its visible frequency × impact × urgency ÷ effort heuristic makes assumptions explicit for volunteer maintainers. It is not an official or objective ranking and should be revisited with affected participants.
+- **How someone else runs it:** Describe an anonymized issue, enter consistent 1–5 ratings, calculate the heuristic, record the reason and smallest useful response, then export a Markdown triage note.
+
+### 23. Community Project Starter
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/project-starter/
+- **What it is, and who it helps:** A browser-only starter that drafts a public project README, contribution guide, and CITATION.cff metadata. It prompts for a first run, expected output, data boundaries, setup, and limitations so a new tool is easier to try, review, maintain, and cite. It does not create a repository or publish any files.
+- **How someone else runs it:** Enter the project details and safe example, preview/copy/download README.md, then separately download CONTRIBUTING.md and CITATION.cff. Replace the author placeholder, check the CFF metadata, review license rights, and inspect all files before publication.
+
+### 24. Community Release Notes Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/release-notes/
+- **What it is, and who it helps:** A release-note template centered on user-visible improvements, migration steps, verification evidence, unresolved limits, and sources. It helps maintainers tell participants whether an update changes their workflow and what to recheck.
+- **How someone else runs it:** Enter the public version/link, intended audience, changes, breakage/migration, verification evidence, limitations, and next freshness check; export the Markdown notes and publish them with the release after review.

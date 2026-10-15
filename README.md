@@ -1,6 +1,6 @@
 # VEC Participation Workbench
 
-Sixteen small, offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, planning peer sessions, and handing work off clearly.
+Twenty-four small, offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, creating safe examples, teaching, and maintaining shared resources.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
@@ -24,6 +24,14 @@ Each tool runs in a browser with no account, server, analytics, dependency insta
 | [Peer Session Agenda Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/workshop-agenda/) | Generate a time-budgeted peer walkthrough agenda with a low-setup access plan. |
 | [Discussion-to-Action Notes](https://random-guy-05.github.io/vec-participation-workbench/tools/decision-actions/) | Separate decisions, open questions, and agreed tasks after a community discussion. |
 | [Project Handoff Card](https://random-guy-05.github.io/vec-participation-workbench/tools/handoff-card/) | Give the next contributor a clean start, known limits, and a clear first action. |
+| [Synthetic Data Lab](https://random-guy-05.github.io/vec-participation-workbench/tools/synthetic-data-lab/) | Generate deterministic toy expression, metadata, and a local AnnData loader for safe software examples. |
+| [Quickstart Guide Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/quickstart-builder/) | Draft exact first-run steps, expected output, recovery, and low-setup routes. |
+| [Micro-Lesson Blueprint](https://random-guy-05.github.io/vec-participation-workbench/tools/lesson-blueprint/) | Structure a short lesson around an outcome, worked example, practice, and answer. |
+| [Scientific Figure Description Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/figure-caption/) | Prepare concise alt text and a longer, evidence-bounded description for a scientific visual. |
+| [Source Freshness Tracker](https://random-guy-05.github.io/vec-participation-workbench/tools/source-freshness/) | Set a local reminder to recheck a time-sensitive claim against its source. |
+| [Feedback Triage Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/feedback-prioritizer/) | Compare reported barriers with a transparent impact/frequency/urgency/effort heuristic. |
+| [Community Project Starter](https://random-guy-05.github.io/vec-participation-workbench/tools/project-starter/) | Generate a README, contributor guide, and citation metadata files for a new public artifact. |
+| [Community Release Notes Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/release-notes/) | Explain user-visible changes, migration steps, evidence, and limits for an update. |
 
 ## Run locally
 
