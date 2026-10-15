@@ -721,3 +721,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/external-data-eligibility/
 - **What it is, and who it helps:** Screens an external source's organism, stage, held-out data lineage, and Task 3 genotype/phenocopy information against the current published boundaries. It flags clear prohibited windows and uncertain cases separately, helping teams avoid inadvertent leakage and prepare a source-disclosure record.
 - **How someone else runs it:** Select the target task and setting, enter the source organism and stage, answer the held-out lineage prompts, and record the source citation/version. Review the local screening result, download the Markdown record if useful, and follow the linked official rules or ask the organizers for uncertain cases.
+
+### 103. VEC Cell-Label Mapping Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/label-harmonizer/
+- **What it is, and who it helps:** Audits a participant-proposed mapping from stage-specific cell labels to shared analysis groups, summarizes mapped cell counts and stage proportions, and flags unmapped rows or inconsistent aliases. It helps teams avoid mistaking annotation vocabulary changes for cell-state turnover while keeping all original labels visible.
+- **How someone else runs it:** Paste rows with stage, raw label, cell count, and proposed canonical label. Run the audit, review unresolved rows and mapping conflicts, then download the mapped composition CSV. The tool does not infer biological equivalence or lineage.

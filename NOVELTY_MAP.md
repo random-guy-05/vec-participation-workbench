@@ -18,6 +18,7 @@ The community already has substantial resources for onboarding, score calculatio
 | Per-Cell Signature Scorer | Marker-consistency tools inspect curated markers. | Score a participant-selected signature relative to a small pasted matrix. |
 | Stage Trend & Forecast Explorer | Task-specific model labs explore full predictive methods. | Compare two simple univariate stage trends with leave-one-stage-out error on a small summary table. |
 | Cell-Label Transition Explorer | Cell-type vocabulary tools identify label renames and harmonization candidates. | Quantify source-to-target label transitions as observed counts and normalized fractions. |
+| Cell-Label Mapping Auditor | Cell-Label Transition Explorer | Aggregates counts after a participant-supplied canonical mapping and reports unresolved labels; it does not infer stage-to-stage identity or lineage. |
 | Gene Detection Rate Analyzer | Count-recovery and log-scale tools inspect file representation. | Separate per-gene detection prevalence from mean positive expression by group. |
 | Replicate Concordance Reporter | [VEC Replicate Range](https://github.com/random-guy-05/vec-replicate-range) reports differences in official Task 3 scores across two target replicates. | Compare participant sample-level expression profiles over shared genes. |
 | 3D Coordinate Alignment Explorer | [VEC SpatialQC](https://github.com/random-guy-05/vec-spatialqc) detects degenerate clouds; the submission viewer visualizes coordinates. | Produce centered principal-axis coordinates and state the ambiguity of PCA orientation. |
