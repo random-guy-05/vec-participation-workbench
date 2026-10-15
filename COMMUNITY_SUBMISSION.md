@@ -769,4 +769,11 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Kind:** build
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/hierarchical-bootstrap/
 - **What it is, and who it helps:** A browser-local two-group uncertainty calculator for nested observations. It resamples independent sample IDs within each group, then resamples observations inside each selected sample, and reports a percentile interval for the equal-sample mean difference. It also shows the pooled-observation difference so teams can see how unequal cell counts change the estimand.
-- **How someone else runs it:** Paste rows with `sample_id,group,value`, set the two group names, iteration count, and seed, then estimate uncertainty. Review the per-sample means and small-sample caveat; download the summary table if needed. Use the biological replicate as the sample ID. This descriptive calculation is not a model-based analysis or official Challenge score.
+- **How someone else runs it:** Paste rows with `sample_id,group,value`, set the two group names, iteration count, and seed, then estimate uncertainty. Review the per-sample means and small-sample caveat; download the summary table if needed. Use the biological replicate as the sample ID. It assumes independent groups; use a paired method for matched samples. This descriptive calculation is not a model-based analysis or official Challenge score.
+
+### 110. VEC Cell-Label Ontology Crosswalk Curator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/ontology-crosswalk/
+- **What it is, and who it helps:** A local review tool for connecting labels already present in an annotation vocabulary to participant-proposed ontology CURIEs. It keeps unmapped labels visible, attaches evidence and team-entered status, calculates label/cell-count coverage, and flags many-to-one targets that need biological review.
+- **How someone else runs it:** Paste a label vocabulary CSV and a mapping CSV with label, curie, status, and evidence. Review missing or extra rows, status, syntax, and merged targets; then export a crosswalk. CURIE syntax is checked without network lookup, so participants must verify ontology release, identifier existence, and biological equivalence.
