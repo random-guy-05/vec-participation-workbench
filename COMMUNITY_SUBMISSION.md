@@ -882,3 +882,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sparse-memory/
 - **What it is, and who it helps:** A browser-local estimator comparing the raw numeric-array payload of dense, CSR, CSC, and COO representations from matrix dimensions, stored nonzero count, value dtype, and sparse-index width. It helps participants planning local AnnData workflows distinguish sparse input-matrix storage from the dense prediction-array estimate. The interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Enter rows, columns, stored nnz, value dtype, index width, and a scenario for simultaneous copies; choose Estimate. Compare the four raw-array estimates and use the limits note when planning real runs. The page does not read an H5AD, infer nnz, include other AnnData slots or temporary arrays, or claim to predict peak RAM or on-disk size.
+
+### 126. VEC Unequal Cluster Design Effect Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/unequal-clusters/
+- **What it is, and who it helps:** A browser-local educational calculator comparing the balanced-cluster design effect with an unequal-size approximation that includes the coefficient of variation of per-sample observation counts. Participants choose an assumed intraclass correlation and see the resulting design effects and effective observation counts. The interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste one positive count per independent sample or a two-column sample-ID/count list, enter an assumed ICC from zero to one, and compare. Use counts of cells, spots, or other repeated observations, with biological samples as clusters. The ICC is not estimated, the result is not a power analysis, and an effective observation count is not a biological replicate count.
