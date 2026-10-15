@@ -1,6 +1,6 @@
 # Community contribution filing drafts
 
-All twenty-four tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to official sources for facts they reference. File each tool page as a separate `build` only after its hosted URL is available.
+All twenty-seven tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to official sources for facts they reference. File each tool page as a separate `build` only after its hosted URL is available.
 
 ## 1. VEC Board Coverage Planner
 
@@ -173,3 +173,26 @@ All twenty-four tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/release-notes/
 - **What it is, and who it helps:** A release-note template centered on user-visible improvements, migration steps, verification evidence, unresolved limits, and sources. It helps maintainers tell participants whether an update changes their workflow and what to recheck.
 - **How someone else runs it:** Enter the public version/link, intended audience, changes, breakage/migration, verification evidence, limitations, and next freshness check; export the Markdown notes and publish them with the release after review.
+
+## Additional set: compute access and safe data transfer
+
+### 25. HPC Job Log Doctor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/job-log-doctor/
+- **What it is, and who it helps:** A browser-only triage tool for common Slurm, PBS/Torque, LSF, CUDA, storage, environment, and HDF5 failure clues. It identifies matched line numbers, gives bounded next checks, and never sends or displays the pasted log text in its result. It helps participants who are new to research clusters turn a failed job into a focused, privacy-conscious support request. Pattern matches are hints, not a cluster diagnosis.
+- **How someone else runs it:** Paste a small, redacted excerpt from the job log, choose or detect the scheduler, and run triage. Review the matched line numbers and suggestions against the local cluster documentation before changing a job.
+
+### 26. Runtime Forecast Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/runtime-forecast/
+- **What it is, and who it helps:** A local planner that fits a log-log scaling curve to participant-measured cell-by-gene run sizes and elapsed times, applies the largest observed underprediction plus a configurable safety multiplier, and checks the result against a queue wall-time limit. It helps teams use short pilots to avoid submitting jobs that cannot finish. It labels sparse, weak-fit, or long-range extrapolations as uncertain and does not claim to predict memory or queue wait.
+- **How someone else runs it:** Enter at least two completed, comparable pilot measurements as cells, genes, and minutes; enter the intended size and wall-time limit; then review the fitted scaling, buffer, extrapolation range, and warning before scheduling.
+
+### 27. Verified Download Script Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/verified-download/
+- **What it is, and who it helps:** A client-side generator for a Bash script that downloads public HTTPS files with retry and resume support, refuses to overwrite an existing final file, and checks a user-supplied SHA-256 digest before finalizing a file. It helps participants on slower connections or cluster login nodes avoid silently using an interrupted data transfer. It rejects credential-bearing and signed URLs, never runs the script, and distinguishes a transfer without a checksum from a verified download.
+- **How someone else runs it:** Enter a trusted public HTTPS URL per line and, when published by the source, its expected SHA-256 and filename. Generate and inspect the script, save it locally, then run it in an environment with Bash and curl after confirming cluster policy and storage location.

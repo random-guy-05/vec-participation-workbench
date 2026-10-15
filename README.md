@@ -1,6 +1,6 @@
 # VEC Participation Workbench
 
-Twenty-four small, offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, creating safe examples, teaching, and maintaining shared resources.
+Twenty-seven small, offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, creating safe examples, teaching, maintaining shared resources, diagnosing compute jobs, forecasting runtime, and transferring data safely.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
@@ -32,10 +32,13 @@ Each tool runs in a browser with no account, server, analytics, dependency insta
 | [Feedback Triage Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/feedback-prioritizer/) | Compare reported barriers with a transparent impact/frequency/urgency/effort heuristic. |
 | [Community Project Starter](https://random-guy-05.github.io/vec-participation-workbench/tools/project-starter/) | Generate a README, contributor guide, and citation metadata files for a new public artifact. |
 | [Community Release Notes Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/release-notes/) | Explain user-visible changes, migration steps, evidence, and limits for an update. |
+| [HPC Job Log Doctor](https://random-guy-05.github.io/vec-participation-workbench/tools/job-log-doctor/) | Triage common Slurm, PBS, LSF, accelerator, storage, and environment errors from a pasted log excerpt, locally. |
+| [Runtime Forecast Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/runtime-forecast/) | Fit a simple scaling curve to measured runs, add a buffer, and compare the projection with a queue wall-time limit. |
+| [Verified Download Script Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/verified-download/) | Generate a resumable HTTPS Bash downloader that refuses to overwrite files and can check supplied SHA-256 digests. |
 
 ## Run locally
 
-Clone the repository and open any `tools/<name>/index.html` in a modern browser. The apps use only local HTML, CSS, and JavaScript. They do not fetch Challenge data or send form contents anywhere.
+Clone the repository and open `docs/index.html` or any `docs/tools/<name>/index.html` in a modern browser. The apps use only local HTML, CSS, and JavaScript. They do not fetch Challenge data or send form contents anywhere.
 
 ## Sources and maintenance
 

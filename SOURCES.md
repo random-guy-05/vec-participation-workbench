@@ -28,3 +28,6 @@ Checked 14 October 2026. These pages are authoritative and may change after this
 | Feedback Triage Planner | No official prioritization score. The formula is an explicit local discussion heuristic only. |
 | Community Project Starter | [Citation File Format schema guide](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md): CFF requires author metadata; generated collective-author placeholder should be replaced or edited for actual creators. |
 | Community Release Notes Builder | No rule-specific facts. The form prompts maintainers to link current official sources for challenge-specific statements. |
+| HPC Job Log Doctor | No rule-specific facts. The parser matches common error text; cluster administrators' documentation is authoritative for site-specific diagnosis and commands. |
+| Runtime Forecast Planner | No rule-specific facts. It extrapolates only from participant-provided pilot timings and does not estimate queue wait, peak memory, or guaranteed runtime. |
+| Verified Download Script Builder | The [official data page](https://virtualembryo.ai/challenge/data) is where users should obtain current public data links. The builder does not provide URLs or checksums; users must verify the source and checksum independently. |
