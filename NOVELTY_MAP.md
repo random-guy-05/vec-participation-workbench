@@ -93,6 +93,25 @@ These eight browser-only point-table tools use a shared 3D coordinate format. Th
 | Spatial Axis-Scale Sensitivity Auditor | 3D Coordinate Alignment Explorer rotates and centers point clouds. | Quantify how user-supplied per-axis physical spacing factors change k-nearest-neighbor identities. |
 | Spatial Axis Slice Profiler | Stage-by-Condition Coverage Planner counts table combinations, not spatial location. | Summarize cell counts and label composition in equal-width bins along a selected coordinate axis. |
 
+## Task Metric Lab
+
+The [Task Metric Lab](https://random-guy-05.github.io/vec-participation-workbench/metric-lab/) adds small browser-local calculators for the published scoring formulas. These are explanatory, small-data diagnostics, not competing implementations of the official scorer.
+
+| Calculator | Related existing resource | Distinct job |
+|---|---|---|
+| Per-Metric Skill Transformer | MetricLens inspects local score outputs; Board Coverage Planner rolls board scores up. | Apply the published floor/ceiling transform to a raw metric value, including zero-is-ideal metrics. |
+| Metric Weight Budget Auditor | Board Coverage Planner handles per-board task averages. | Check that metric weights sum within groups and group weights sum across the task. |
+| Hierarchical Task Score Reconciler | Board Coverage Planner aggregates boards, not metrics. | Rebuild one task score from per-metric skill values and explicit two-level weights; missing rows count as zero. |
+| DES Signed Top-Set Preview | Gene Signature Coverage Auditor checks exact panel membership. | Preview top/bottom signed DE-gene overlap against a supplied truth set and the reference-only null. |
+| DCS Partial Rank Concordance | Prediction Calibration Fitter compares reference and prediction values. | Rank-transform change and reference vectors, then isolate predicted/true direction agreement conditional on baseline expression. |
+| Unbiased Multi-Bandwidth MMD Explorer | Prediction Distribution Shift Comparator compares one-dimensional marginals. | Explain the unbiased RBF two-sample estimator across five target-based bandwidth scales in a supplied feature space. |
+| Gene Co-Variation Variogram Comparator | Gene Detection Rate Analyzer and per-gene diagnostics inspect individual genes. | Compare pairwise gene variograms so changes in co-variation remain visible when gene marginals look similar. |
+| PSS Perturbation Severity Calculator | Replicate Range summarizes official score variation across samples. | Fit the truth-DE zero-intercept response slope, apply the published fit gate, and report its signed log. |
+| Tissue Scale Ratio Calculator | Spatial Occupancy Grid Comparator compares occupied volume. | Isolate physical tissue scale with the rotation-invariant RMS-radius log ratio. |
+| Shape Distance Distribution Comparator | Spatial Occupancy Grid Comparator compares occupied voxels. | Compare within-cloud, RMS-normalized pair-distance distributions without requiring cell correspondence. |
+| Canonicalized Occupancy Dice Explorer | Spatial Occupancy Grid Comparator uses a shared supplied frame. | Demonstrate PCA canonicalization, proper sign flips, and the fixed occupancy grid used by the public shape metric. |
+| Neighborhood Fidelity Profile Comparator | Spatial Cell-Contact Explorer counts categorical label contacts. | Build each cell's 15-neighbor expression profile and compare the resulting profile distributions without assuming cell matching. |
+
 ## Language access
 
-The 29 original analysis pages share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index translates cards for the 21 core analysis tools; the eight additional audit cards are labeled in English and link to pages with translated tool descriptions, labels, and input guidance. The eight paired prediction diagnostics and eight spatial graph diagnostics are currently English-only. Calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.
+The 29 original analysis pages share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index translates cards for the 21 core analysis tools; the eight additional audit cards are labeled in English and link to pages with translated tool descriptions, labels, and input guidance. The eight paired prediction diagnostics, eight spatial graph diagnostics, and Task Metric Lab are currently English-only. Calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.

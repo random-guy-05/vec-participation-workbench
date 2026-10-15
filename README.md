@@ -1,10 +1,10 @@
 # VEC Participation Workbench
 
-Seventy-two offline-first tools and sixteen interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, paired prediction diagnostics, and spatial graph diagnostics; the simulations teach core reasoning about study design, evaluation, and analysis choices.
+Offline-first tools and interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, data handling, paired prediction diagnostics, spatial graph diagnostics, and task-metric interpretation.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
-The 21 core analysis cards in the catalog and the 29 original analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional research-audit cards are listed in English in the catalog; their controls offer Spanish and Simplified Chinese. The eight paired prediction diagnostics and eight spatial graph diagnostics are currently English-only.
+The 21 core analysis cards in the catalog and the 29 original analysis pages offer Spanish and Simplified Chinese titles, descriptions, labels, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs. The eight additional research-audit cards are listed in English in the catalog; their controls offer Spanish and Simplified Chinese. The eight paired prediction diagnostics, eight spatial graph diagnostics, and Task Metric Lab are currently English-only.
 
 ## Tools
 
@@ -37,6 +37,7 @@ The 21 core analysis cards in the catalog and the 29 original analysis pages off
 | [HPC Job Log Doctor](https://random-guy-05.github.io/vec-participation-workbench/tools/job-log-doctor/) | Triage common Slurm, PBS, LSF, accelerator, storage, and environment errors from a pasted log excerpt, locally. |
 | [Runtime Forecast Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/runtime-forecast/) | Fit a simple scaling curve to measured runs, add a buffer, and compare the projection with a queue wall-time limit. |
 | [Verified Download Script Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/verified-download/) | Generate a resumable HTTPS Bash downloader that refuses to overwrite files and can check supplied SHA-256 digests. |
+| [VEC Task Metric Lab](https://random-guy-05.github.io/vec-participation-workbench/metric-lab/) | Explore the published metric transformations, hierarchical score weights, gene-change diagnostics, and spatial score components with small browser-local examples. |
 | [Pseudobulk Aggregator](https://random-guy-05.github.io/vec-participation-workbench/tools/pseudobulk/) | Aggregate cell-level numeric measurements within user-selected sample, condition, and cell-state columns. |
 | [Design Confounding Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/design-confounding/) | Build a categorical one-hot design from a sample manifest and calculate its matrix rank. |
 | [Rare-State Sampling Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/rare-state-sampling/) | Calculate binomial probabilities that a cell state at a chosen prevalence is captured at least a target number of times in one sample, every replicate, or any replicate. |
@@ -70,6 +71,10 @@ The 21 core analysis cards in the catalog and the 29 original analysis pages off
 ## Run locally
 
 Clone the repository and open `docs/index.html` or any `docs/tools/<name>/index.html` in a modern browser. The apps use only local HTML, CSS, and JavaScript. They do not fetch Challenge data or send form contents anywhere.
+
+## Task Metric Lab
+
+The [Task Metric Lab](https://random-guy-05.github.io/vec-participation-workbench/metric-lab/) currently contains twelve small calculators for per-metric skill scaling, weight checks, task-score aggregation, DES, DCS, MMD, CSS, PSS, TSR, SDD, ODS, and neighborhood fidelity. Each calculator links back to the official scoring reference and states where its small-data preview differs from the full scorer. Use synthetic or permitted data; the lab runs in the browser and does not upload inputs.
 
 ## Sources and maintenance
 

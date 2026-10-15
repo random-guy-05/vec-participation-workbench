@@ -630,3 +630,87 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/log-compression/
 - **What it is, and who it helps:** Shows the same fold change on raw-count and log2(1 + count) scales across selectable baselines. It teaches how logarithms compress high values while stating that transformation alone does not normalize library size, remove all mean–variance structure, or guarantee normality.
 - **How someone else runs it:** Adjust baseline count and fold change; compare the before-and-after bar pairs, each shown on its own scale.
+
+### 90. VEC Per-Metric Skill Transformer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=metric-skill
+- **What it is, and who it helps:** Applies the published floor-and-ceiling skill transform to user-supplied raw metric values, including lower-is-better and zero-is-ideal terms. It helps participants understand how raw scores map to the task scale.
+- **How someone else runs it:** Open the calculator, paste rows with metric, raw value, floor, ceiling, and direction, then inspect or download the calculated skill values. Use anchors from the matching official board.
+
+### 91. VEC Metric Weight Budget Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=weight-audit
+- **What it is, and who it helps:** Checks that within-group metric weights and across-group task weights each sum to one, and flags inconsistent group weights or duplicate metrics. It helps participants audit a hand-entered scoring table before aggregating results.
+- **How someone else runs it:** Paste group, metric, group-weight, and metric-weight columns; inspect the per-group and total weight sums.
+
+### 92. VEC Hierarchical Task Score Reconciler
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=task-score
+- **What it is, and who it helps:** Rebuilds a task score from per-metric skills using explicit metric-within-group and group-within-task weights. Missing or non-numeric metric skills count as zero, matching the published missing-metric rule.
+- **How someone else runs it:** Paste group, metric, skill, group-weight, and metric-weight rows; verify the weight totals and inspect each group contribution and overall score.
+
+### 93. VEC DES Signed Top-Set Preview
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=des-preview
+- **What it is, and who it helps:** Previews signed top-up/bottom-down gene overlap for a supplied truth DE set and compares it with the reference-expression-only null in both directions. It makes the chance correction and sign matching visible.
+- **How someone else runs it:** Paste one row per truth DE gene with direction, predicted change, and reference expression; inspect the overlap and adjusted preview. The page explains that it does not call DE genes from cell-level data.
+
+### 94. VEC DCS Partial Rank Concordance
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=dcs-preview
+- **What it is, and who it helps:** Rank-transforms reference expression and predicted/true changes, then computes their partial correlation while controlling for reference-expression rank. This helps participants see the distinction between raw direction agreement and baseline-associated signal.
+- **How someone else runs it:** Paste one row per gene with reference, true delta, and predicted delta; inspect the three rank correlations and the resulting partial concordance.
+
+### 95. VEC Unbiased Multi-Bandwidth MMD Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=mmd-preview
+- **What it is, and who it helps:** Calculates an unbiased RBF two-sample MMD estimate across five bandwidths around a median-heuristic target scale. It helps participants understand multi-scale population-distribution comparisons and finite-sample negative estimates.
+- **How someone else runs it:** Paste small true and predicted feature-space populations, one row per cell and one numeric column per supplied feature; inspect the per-bandwidth estimates and caveat.
+
+### 96. VEC Gene Co-Variation Variogram Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=css-preview
+- **What it is, and who it helps:** Compares pairwise gene variograms between true and predicted cell tables, highlighting covariance-structure mismatches that individual gene marginals can miss.
+- **How someone else runs it:** Paste small wide tables labelled true or predicted, with numeric gene columns; inspect the mean squared pairwise variogram difference and the largest mismatching pairs.
+
+### 97. VEC PSS Perturbation Severity Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=pss-preview
+- **What it is, and who it helps:** Fits the zero-intercept predicted-on-observed response slope on a supplied truth DE set, calculates the variance-explanation gate, and reports the signed log-slope when defined. It helps participants separate response direction from response magnitude.
+- **How someone else runs it:** Paste one row per truth DE gene with observed and predicted perturbation deltas; inspect beta, R-squared, and the gated PSS result.
+
+### 98. VEC Tissue Scale Ratio Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=tsr-preview
+- **What it is, and who it helps:** Computes the RMS radius of true and predicted point clouds and the signed log ratio, isolating tissue scale from shape.
+- **How someone else runs it:** Paste true and predicted x,y,z coordinates in a common physical unit; inspect the RMS radii and signed log ratio.
+
+### 99. VEC Shape Distance Distribution Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=sdd-preview
+- **What it is, and who it helps:** Compares within-cloud pair-distance distributions after normalizing each cloud by its RMS radius. It illustrates a shape comparison that does not require registering frames or matching cells.
+- **How someone else runs it:** Paste true and predicted coordinate rows, then inspect the normalized distance distributions and approximate Wasserstein-1 comparison.
+
+### 100. VEC Canonicalized Occupancy Dice Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=ods-preview
+- **What it is, and who it helps:** Demonstrates centering, PCA alignment, RMS scaling, a 16-cubed occupancy grid, and proper PCA sign-flip maximization for an exploratory occupancy Dice comparison.
+- **How someone else runs it:** Paste small true and predicted 3D point clouds; inspect occupied-voxel counts, best Dice, and the voxel-spacing diagnostic.
+
+### 101. VEC Neighborhood Fidelity Profile Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=nfs-preview
+- **What it is, and who it helps:** Builds a mean-expression profile from each cell’s 15 nearest spatial neighbors and compares the resulting true and predicted profile distributions. It illustrates a joint expression-and-location metric without assuming cell-to-cell correspondence.
+- **How someone else runs it:** Paste at least 16 cells per cloud with coordinates and a few expression columns; calculate the neighborhood-profile MMD and review the limits on sample size and scorer equivalence.
