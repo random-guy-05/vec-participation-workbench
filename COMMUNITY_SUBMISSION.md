@@ -847,3 +847,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-provenance/
 - **What it is, and who it helps:** Creates Markdown and JSON records for each dataset or release used in a project, including source, version, DOI/accession, provider-stated license, access date, optional file SHA-256, and a team-entered usage note. It helps collaborators reproduce citations and track provenance without leaving those details in scattered notes.
 - **How someone else runs it:** Add a record for each source, copy metadata directly from the provider, enter any local checksum and project-use note, then build and download both manifest formats. Verify records with their sources; this page does not validate licenses, checksums, data-use rules, or eligibility.
+
+### 121. VEC Gene Panel Intersection Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/panel-intersection/
+- **What it is, and who it helps:** Compares two or more exact gene-identifier lists, showing unique counts, pairwise intersections, Jaccard overlap, and the all-panel shared set. It helps participants plan feature reuse across task or dataset panels while keeping identifier coverage explicit.
+- **How someone else runs it:** Paste each panel's identifiers, label each panel, and compare. Review duplicate entries and exact case-sensitive matching; download the all-panel intersection or full membership matrix. The tool does not resolve aliases, orthology, gene-symbol changes, or biological relevance.
