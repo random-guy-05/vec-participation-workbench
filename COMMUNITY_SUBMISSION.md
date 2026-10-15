@@ -959,3 +959,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/submission-attempts/
 - **What it is, and who it helps:** A browser-local ledger and phase-aware cap display for scored Challenge submissions. It distinguishes unlimited format checks and rejected uploads from scored attempts, tracks P1/P2 by task and UTC day and P3 by board for the phase, and exports a local backup. Its interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Check the live official rules, select the current phase and task, use consistent team and board labels, then record each format check, rejection, or scored submission. The saved records stay in this browser. The tool is not connected to the portal and does not track the separate daily upload limit.
+
+### 137. VEC Agent Run Lock & Evidence Record
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/agent-run-record/
+- **What it is, and who it helps:** A multilingual, browser-local Markdown builder for an Agent Team run's pre-run configuration lock and post-run evidence packet. It checks whether the marked portal attachments include a trajectory plus another evidence kind and compares self-reported file sizes to the published caps. It does not inspect or upload artifacts and does not decide eligibility.
+- **How someone else runs it:** Before a run, record its task, framework, model, harness commit, prompt reference, fixed tools/permissions/budget, allowed input scope, and actual lock time. Afterward, add locations or hashes for the exact run's trajectory and other evidence, note portal attachment state, and enter actual bundle sizes. Recheck Official Rules §9.
