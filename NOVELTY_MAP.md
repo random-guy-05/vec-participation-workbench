@@ -7,6 +7,7 @@ The community already has substantial resources for onboarding, score calculatio
 | New build | Related existing resource | Distinct job |
 |---|---|---|
 | Pseudobulk Aggregator | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles metadata only. | Aggregate numeric cell measurements within sample and cell-state groups before downstream comparisons. |
+| Sparse Matrix Footprint Estimator | Compute Budget Estimator estimates a dense prediction array; VEC Profile measures an actual scoring run. | Compare raw dense, CSR, CSC, and COO payload arithmetic for a user-supplied matrix shape, nonzero count, dtypes, and copy scenario; it omits object/AnnData overhead and does not predict peak RAM. |
 | Design Confounding Auditor | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles sample composition. | Check exact rank deficiency in a user-selected categorical study design. |
 | Sample Covariate Balance Auditor | Design Confounding Auditor checks exact categorical design rank; VEC Cohort Audit describes sample composition. | Compare two groups' sample-level continuous means and categorical proportions with missingness and standardized differences; it does not test hypotheses, infer confounding, set thresholds, or recommend adjustment. |
 | Rare-State Sampling Planner | Existing sample and scoring sensitivity tools analyze observed runs. | Estimate a binomial capture probability before choosing a sampling target. |
