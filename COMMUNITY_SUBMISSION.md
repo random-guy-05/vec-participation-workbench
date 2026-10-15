@@ -938,3 +938,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/h5ad-structure/
 - **What it is, and who it helps:** A downloadable Python and h5py script that opens an H5AD read-only and reports matrix dimensions and storage encoding, observation and variable column names, array keys, dtypes, and compression metadata. It avoids reading expression values or identifier values into the report, helping participants inspect file layout before choosing an analysis workflow or requesting help.
 - **How someone else runs it:** Install h5py in the local Python environment, then run `python vec_h5ad_structure_report.py path/to/file.h5ad`; add `--output report.json` to write the report locally. The inventory does not validate biological meaning, data eligibility, or submission compatibility. Review field names before sharing the report.
+
+### 134. VEC Chronological Holdout Split Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/temporal-split-audit/
+- **What it is, and who it helps:** A browser-local audit for sample-level manifests that checks whether numeric stage-order values are strictly separated across user-labeled train, optional validation, and test partitions. It can also count an optional subject or lineage group appearing in multiple partitions. This fills a temporal-order check not provided by a general group-overlap audit.
+- **How someone else runs it:** Paste one row per sample with sample ID, numeric stage order, and split label; read headers, choose columns, set partition labels, and audit. Optionally select a correlated-unit ID. The tool reports unconfigured labels separately and does not infer stage order, biological trajectory, or a task-specific validation design.
