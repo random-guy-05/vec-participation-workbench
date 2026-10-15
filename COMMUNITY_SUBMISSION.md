@@ -1232,3 +1232,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sample-weighting/
 - **What it is, and who it helps:** A browser-local comparison of an observation-weighted pooled mean and an equal-sample mean from each sample's observation count and mean. It reports the total observation count, pooled weight by sample, difference between estimands, and a downloadable sample summary. It helps single-cell contributors see how unequal cell counts can change the summary without mistaking cells for independent biological replicates. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste one unique `sample_id,n,mean` row per biological sample, compare weighting, and inspect the mean difference and sample weights. Confirm all means use the same measurement scale and do not use the within-sample observation counts as biological replicate counts.
+
+### 176. VEC Classification Threshold Trade-Off Table
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/threshold-sweep/
+- **What it is, and who it helps:** A browser-local threshold table for paired binary labels and continuous scores. For participant-chosen cutoffs it reports TP/FP/FN/TN, sensitivity, specificity, precision, F1, and predicted-positive fraction, making decision trade-offs reviewable before selecting a threshold. It does not choose the threshold or account for costs, uncertainty, or population shift. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste `actual,score` pairs and one or more thresholds from 0 to 1, calculate the table, and export it if useful. Select a threshold using training/validation data and report held-out performance.
+
+### 177. VEC Probability Calibration Summary
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/calibration-summary/
+- **What it is, and who it helps:** A browser-local summary of binary probability predictions: Brier score, observed prevalence, and equal-width bin counts with mean prediction, event rate, and absolute gap. It gives participants a compact reliability view and an ECE value whose bin dependence is stated. It does not recalibrate probabilities or compute uncertainty intervals. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste `actual,probability` pairs from a held-out set, choose 5, 10, or 20 bins, and inspect or download the nonempty-bin table. Report the bin rule, sample size, and prevalence.
+
+### 178. VEC Prevalence-Shift Predictive Value Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/prevalence-shift/
+- **What it is, and who it helps:** A scenario calculator derives positive predictive value, negative predictive value, and predicted-positive fraction from supplied sensitivity, specificity, and target prevalence. It helps participants see how predictive values can change when the intended population's class prevalence differs from the evaluation sample. It makes the fixed-sensitivity/specificity transport assumption explicit and does not estimate target prevalence. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter sensitivity and specificity from an evaluation set and a set of target prevalence scenarios, calculate, and export the table. Justify the scenario prevalence and check whether test characteristics plausibly transfer.
+
+### 179. VEC Multiclass Confusion-Matrix Metrics
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/multiclass-metrics/
+- **What it is, and who it helps:** A browser-local calculator accepts a square actual-by-predicted class-count matrix and reports per-class precision, recall, F1, actual support, and predicted count alongside accuracy, macro precision/recall/F1, and support-weighted F1. Undefined class-specific denominators remain visible. It helps cell-label and other multiclass evaluation teams communicate rare-class performance without hiding support. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a matrix with predicted class names across the header and actual classes in the first field of each row, keeping both label sets identical. Calculate, review class support and undefined cases, and download the class table.
