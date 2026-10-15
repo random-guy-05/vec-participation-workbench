@@ -917,3 +917,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/de-table-audit/
 - **What it is, and who it helps:** A browser-local structural audit for gene-level result tables. It reports blank or repeated gene identifiers, missing or nonnumeric effect values, p-value missingness and range problems, and effect-direction counts. It helps analysts catch table-format and identifier issues before ranking genes or comparing outputs; it does not validate the statistical model or correct the results.
 - **How someone else runs it:** Paste a CSV with one row per reported gene, read the headers, select gene ID and effect columns and optionally raw and adjusted p-value columns, then audit. Download the compact summary. Review duplicate IDs, contrasts, test families, and modeling assumptions with the analysis source; the tool never removes or reorders result rows.
+
+### 131. VEC Sample-Level Cell-State Prevalence Intervals
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/state-prevalence-intervals/
+- **What it is, and who it helps:** A browser-local calculator for per-sample state-cell proportions and Wilson binomial intervals, with an explicit comparison between the equal-sample mean and the pooled cell fraction. It helps participants see both sampling resolution within samples and the effect of unequal cell totals without implying that pooling cells creates replicates.
+- **How someone else runs it:** Enter one row per independent sample with nonnegative integer state and total cell counts, select 90%, 95%, or 99%, then calculate and download. The interval is within-sample only and assumes a cell-level binomial approximation; it does not capture between-sample uncertainty or account for within-sample dependence.
