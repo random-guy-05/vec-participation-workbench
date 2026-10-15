@@ -777,3 +777,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/ontology-crosswalk/
 - **What it is, and who it helps:** A local review tool for connecting labels already present in an annotation vocabulary to participant-proposed ontology CURIEs. It keeps unmapped labels visible, attaches evidence and team-entered status, calculates label/cell-count coverage, and flags many-to-one targets that need biological review.
 - **How someone else runs it:** Paste a label vocabulary CSV and a mapping CSV with label, curie, status, and evidence. Review missing or extra rows, status, syntax, and merged targets; then export a crosswalk. CURIE syntax is checked without network lookup, so participants must verify ontology release, identifier existence, and biological equivalence.
+
+### 111. VEC Grouped Validation Walkthrough
+
+- **Kind:** teach
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tutorials/grouped-validation.html
+- **What it is, and who it helps:** A concise tutorial and downloadable scikit-learn script that uses synthetic cell-like observations to compare row-wise validation with GroupKFold over held-out biological samples. It helps participants see how related observations can make a random cell split answer a narrower question than performance on a new sample.
+- **How someone else runs it:** Open the tutorial, install NumPy and scikit-learn in a local Python environment, download `grouped-validation.py`, and run `python grouped-validation.py`. Review the printed fold scores and adapt the grouping principle to the actual deployment question and current official task rules. The toy labels and sample signatures are synthetic and intentionally constructed.
