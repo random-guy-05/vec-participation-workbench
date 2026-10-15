@@ -994,3 +994,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/env-snapshot/
 - **What it is, and who it helps:** A multilingual browser tool that generates a small, reviewable Python script for gathering package versions and basic runtime details for a focused support request. The script avoids user names, hostnames, paths, environment variables, tokens, and data values; an optional PyTorch probe reports CUDA availability, runtime version, and device count without printing device names. It helps participants share enough environment context to investigate setup issues without pasting entire logs or package inventories.
 - **How someone else runs it:** Enter pip distribution names, choose whether to include the optional accelerator probe, generate and inspect the Python script, then download or copy it. Run it only in the target environment after review, and inspect the resulting JSON before sharing. It uses no network service and does not install or update packages.
+
+### 142. VEC CSV Join Cardinality Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/join-cardinality/
+- **What it is, and who it helps:** A browser-local pre-join audit for two CSV samples. It reports blank-key rows, distinct and repeated keys, left/right-only and shared-key counts, many-to-many overlaps, and estimated inner/left/full output rows. Key values are not shown or exported. It complements the sample-to-cell crosswalk by estimating arbitrary two-table join cardinality before a merge. The interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a representative sample of each table, name the exact key column on each side, choose a join type and optional whitespace trimming, then audit. Review duplicate and unmatched counts before using the corresponding complete tables. The report estimates row counts only; it does not create a joined dataset or validate the scientific meaning of a key.
