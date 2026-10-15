@@ -8,6 +8,7 @@ The community already has substantial resources for onboarding, score calculatio
 |---|---|---|
 | Pseudobulk Aggregator | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles metadata only. | Aggregate numeric cell measurements within sample and cell-state groups before downstream comparisons. |
 | Design Confounding Auditor | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles sample composition. | Check exact rank deficiency in a user-selected categorical study design. |
+| Sample Covariate Balance Auditor | Design Confounding Auditor checks exact categorical design rank; VEC Cohort Audit describes sample composition. | Compare two groups' sample-level continuous means and categorical proportions with missingness and standardized differences; it does not test hypotheses, infer confounding, set thresholds, or recommend adjustment. |
 | Rare-State Sampling Planner | Existing sample and scoring sensitivity tools analyze observed runs. | Estimate a binomial capture probability before choosing a sampling target. |
 | Cell Composition Distance Explorer | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) summarizes per-sample composition. | Calculate pairwise composition distances, including within- and between-group comparisons. |
 | Composition–Expression Decomposer | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) summarizes composition but not expression. | Attribute a two-condition mean shift to composition versus within-cell-type means. |

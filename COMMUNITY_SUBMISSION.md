@@ -1,6 +1,6 @@
 # Community contribution filing drafts
 
-All forty-eight tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to official sources for facts they reference. File each tool page as a separate `build` only after its hosted URL is available.
+This file records filing drafts for the standalone public resources in the workbench. Each entry describes the actual linked work. File a resource only after its public URL is available.
 
 ## 1. VEC Board Coverage Planner
 
@@ -868,3 +868,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tutorials/feature-selection-leakage.html
 - **What it is, and who it helps:** A tutorial and runnable script demonstrating how a supervised feature selector fit using all labels can inflate test accuracy on a dataset with no signal. It contrasts that result with a pipeline that fits feature selection on training data only, helping newcomers avoid a common evaluation mistake.
 - **How someone else runs it:** Open the page, install NumPy and scikit-learn, download the script, and run `python feature-selection-leakage.py`. Compare the two scores with chance and read the code. The demo is synthetic, varies by seed, and does not prescribe a VEC split or model.
+
+### 124. VEC Sample Covariate Balance Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/covariate-balance/
+- **What it is, and who it helps:** A browser-local interface in English, Spanish, and Simplified Chinese that compares sample-level continuous means and categorical proportions between two groups. It reports per-covariate missingness and standardized differences, helping participants inspect group composition before deciding whether a study design needs closer review. It is distinct from the Design Confounding Auditor's exact matrix-rank check and does not infer confounding, run hypothesis tests, set balance thresholds, or recommend adjustment.
+- **How someone else runs it:** Paste one row per independent biological sample or other independent unit, read the columns, choose the group column, two exact group values, an optional unit-ID column, and covariates, then analyze and download the summary CSV. Continuous standardized differences use the pooled sample SD; categorical differences are calculated per level using the pooled Bernoulli SD. Use public or synthetic data. The page processes rows locally, checks optional unit IDs for missing or repeated values, and makes no causal or Challenge-eligibility claims.
