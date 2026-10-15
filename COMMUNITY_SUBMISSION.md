@@ -840,3 +840,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/library-size/
 - **What it is, and who it helps:** An interactive single-feature simulation that varies per-cell library depth and true transcript fraction independently, then compares raw counts, counts-per-10,000, and per-cell log1p values. It helps newcomers distinguish depth rescaling from log compression and see how a real relative-abundance change remains in this simplified setup.
 - **How someone else runs it:** Set cell count, Group A depth, Group B:A depth ratio, feature fraction, true feature-fraction ratio, and seed. Simulate, inspect the three scales and zero fractions, then optionally download the synthetic cell table. It is not a normalization recommendation or Challenge score model.
+
+### 120. VEC Dataset Provenance Manifest Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-provenance/
+- **What it is, and who it helps:** Creates Markdown and JSON records for each dataset or release used in a project, including source, version, DOI/accession, provider-stated license, access date, optional file SHA-256, and a team-entered usage note. It helps collaborators reproduce citations and track provenance without leaving those details in scattered notes.
+- **How someone else runs it:** Add a record for each source, copy metadata directly from the provider, enter any local checksum and project-use note, then build and download both manifest formats. Verify records with their sources; this page does not validate licenses, checksums, data-use rules, or eligibility.
