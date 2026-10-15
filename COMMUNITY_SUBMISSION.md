@@ -784,3 +784,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tutorials/grouped-validation.html
 - **What it is, and who it helps:** A concise tutorial and downloadable scikit-learn script that uses synthetic cell-like observations to compare row-wise validation with GroupKFold over held-out biological samples. It helps participants see how related observations can make a random cell split answer a narrower question than performance on a new sample.
 - **How someone else runs it:** Open the tutorial, install NumPy and scikit-learn in a local Python environment, download `grouped-validation.py`, and run `python grouped-validation.py`. Review the printed fold scores and adapt the grouping principle to the actual deployment question and current official task rules. The toy labels and sample signatures are synthetic and intentionally constructed.
+
+### 112. VEC Independent Replicate Precision Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-precision/
+- **What it is, and who it helps:** Uses pilot measurements taken once per independent replicate and a user-selected confidence level/absolute half-width to estimate a rough count for the precision of a single mean. It makes the normal-approximation assumptions visible and warns about small or zero-variance pilot sets. This helps researchers reason about replication without treating cells as independent samples.
+- **How someone else runs it:** Paste one numeric endpoint summary per independent biological replicate, choose the target half-width and confidence level, and estimate. Interpret the output as a precision scenario only; it is not a power calculation, a model-based sample-size recommendation, or a Challenge requirement.
