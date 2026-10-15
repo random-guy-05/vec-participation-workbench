@@ -343,3 +343,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/service-incident-packet/
 - **What it is, and who it helps:** Draft a privacy-conscious support report for sign-in, upload, scoring, or service incidents. It structures timestamps, checks, user impact, and a clear separation of observed facts from inference.
 - **How someone else runs it:** Fill each field, use “not checked” where appropriate, review the report, and remove identifiers, cookies, tokens, and private paths before sharing.
+
+### 49. VEC Analysis Workbench — Spanish and Simplified Chinese interfaces
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/
+- **What it is, and who it helps:** A shared language-access layer across the 21 analysis tools. It translates the analysis catalog, tool titles, descriptions, input labels, guidance, and controls into Spanish and Simplified Chinese. Result summaries, validation messages, table columns, and data values remain in English to preserve technical identifiers; each page discloses this before analysis. It does not create duplicate analysis workflows or store pasted data.
+- **How someone else runs it:** Choose English, Español, or 简体中文 in the workbench’s analysis section or on any analysis page. Open a tool, load its synthetic example, replace it with a small public or synthetic table, and run the analysis. Changing the interface language preserves current inputs; the selected language is reflected in the URL only.

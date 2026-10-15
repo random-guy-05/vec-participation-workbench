@@ -2,6 +2,19 @@
   "use strict";
   const byId = (id) => document.getElementById(id);
   const commonNote = "This is an exploratory analysis aid, not an official VEC score or biological conclusion. Use public or synthetic data, retain biological replicates, and check assumptions before interpreting results.";
+  const locales = window.VEC_ANALYSIS_LOCALES || {};
+  const englishUI = {
+    language: "Interface language", back: "← Participation Workbench", community: "Community resources", official: "Official data page",
+    analyze: "Analyze", example: "Load synthetic example", clear: "Clear inputs", scope: "Scope and interpretation",
+    privacy: commonNote,
+    localData: "Inputs are processed in this browser tab. The page does not upload, store, or fetch pasted data. Summarize large AnnData files locally before using these small-table tools.",
+    initial: "Choose “Load synthetic example” to see the expected input shape, then replace it with a small public or synthetic data extract.",
+    outputLanguage: "Interface labels and instructions are translated. Result summaries, validation messages, table column names, and category values remain in English to preserve technical identifiers and interoperability. Pasted data is processed only in your browser.",
+    clearResult: "Inputs cleared. Your data is not saved by this page.", unknown: "Unknown analysis page.", note: "Note:",
+    showRows: "Showing the first 200 rows; download the full table below.", download: "Download",
+    communityFooter: "Check existing community resources", sourceFooter: "Source code and issue tracker"
+  };
+  let currentLanguage = "en", currentUI = englishUI, currentLabLocale = null, hasAnalysisResult = false;
   const labs = {
     pseudobulk: {
       title: "Pseudobulk Aggregator",
@@ -625,14 +638,15 @@
   function render(result) {
     const out=byId("result");out.replaceChildren();out.className="output";
     const p=document.createElement("p");p.textContent=result.summary;out.append(p);
-    (result.warnings||[]).forEach((w)=>{const n=document.createElement("p");n.className="hint";n.textContent="Note: "+w;out.append(n);});
+    (result.warnings||[]).forEach((w)=>{const n=document.createElement("p");n.className="hint";n.textContent=currentUI.note+" "+w;out.append(n);});
     (result.tables||[]).forEach((t,index)=>{
-      const section=document.createElement("section"),h=document.createElement("h3");h.textContent=t.title;section.append(h);
+      const displayTitle=currentLabLocale&&currentLabLocale.tables&&currentLabLocale.tables[index]||t.title;
+      const section=document.createElement("section"),h=document.createElement("h3");h.textContent=displayTitle;section.append(h);
       const wrap=document.createElement("div");wrap.className="table-wrap";const table=document.createElement("table"),thead=document.createElement("thead"),tr=document.createElement("tr");
       t.columns.forEach((c)=>{const th=document.createElement("th");th.scope="col";th.textContent=c;tr.append(th);});thead.append(tr);table.append(thead);
       const tbody=document.createElement("tbody");t.rows.slice(0,200).forEach((r)=>{const row=document.createElement("tr");t.columns.forEach((c)=>{const td=document.createElement("td");td.textContent=String(r[c]===undefined?"":r[c]);row.append(td);});tbody.append(row);});table.append(tbody);wrap.append(table);section.append(wrap);
-      if(t.rows.length>200){const note=document.createElement("p");note.className="hint";note.textContent="Showing the first 200 rows; download the full table below.";section.append(note);}
-      const btn=document.createElement("button");btn.className="secondary";btn.textContent="Download "+t.title+" CSV";btn.addEventListener("click",()=>downloadCSV(t));section.append(btn);out.append(section);
+      if(t.rows.length>200){const note=document.createElement("p");note.className="hint";note.textContent=currentUI.showRows;section.append(note);}
+      const btn=document.createElement("button");btn.className="secondary";btn.textContent=currentUI.download+" "+displayTitle+" CSV";btn.addEventListener("click",()=>downloadCSV(t));section.append(btn);out.append(section);
     });
   }
   function csvCell(x) { const s=String(x===undefined||x===null?"":x);return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s; }
@@ -642,9 +656,7 @@
   }
   function init() {
     const name=document.body.dataset.lab,lab=labs[name];
-    if(!lab){byId("result").textContent="Unknown analysis page.";return;}
-    document.title=lab.title+" · VEC";
-    byId("eyebrow").textContent=lab.eyebrow;byId("title").textContent=lab.title;byId("description").textContent=lab.description;byId("privacy-note").textContent=commonNote;
+    if(!lab){byId("result").textContent=englishUI.unknown;return;}
     const form=byId("lab-inputs");
     lab.inputs.forEach((f)=>{
       const wrap=document.createElement("div"),label=document.createElement("label");label.htmlFor=f.id;label.textContent=f.label;wrap.append(label);
@@ -656,9 +668,45 @@
       if(f.help){const small=document.createElement("p");small.className="hint";small.textContent=f.help;wrap.append(label,el,small);}else wrap.append(label,el);
       form.append(wrap);
     });
-    byId("analyze").addEventListener("click",()=>{try{const values={};lab.inputs.forEach((f)=>values[f.id]=byId(f.id).value);render(lab.run(values));}catch(e){const out=byId("result");out.className="output error";out.textContent=e.message||String(e);}});
+    const selectorWrap=document.createElement("div");selectorWrap.className="language-control";
+    const selectorLabel=document.createElement("label");selectorLabel.htmlFor="interface-language";
+    const selector=document.createElement("select");selector.id="interface-language";selector.setAttribute("aria-label","Interface language / Idioma de la interfaz / 界面语言");
+    const languageOptions=[ ["en","English"], ["es",locales.es.label], ["zh-CN",locales["zh-CN"].label] ];
+    languageOptions.forEach(([value,label])=>{const option=document.createElement("option");option.value=value;option.textContent=label;selector.append(option);});
+    selectorWrap.append(selectorLabel,selector);
+    const header=document.querySelector(".tool-head"),nav=header.querySelector("nav");nav.after(selectorWrap);
+    const result=byId("result"),resultNote=document.createElement("p");resultNote.id="result-language-note";resultNote.className="hint";result.parentNode.insertBefore(resultNote,result);
+    const requested=new URLSearchParams(location.search).get("lang");
+    currentLanguage=requested&&locales[requested]?requested:"en";
+    selector.value=currentLanguage;
+    function applyLanguage(code){
+      currentLanguage=code;currentUI=code==="en"?englishUI:locales[code].ui;currentLabLocale=code==="en"?null:locales[code].labs[name]||null;
+      const copy=currentLabLocale||lab;
+      document.documentElement.lang=code==="zh-CN"?"zh-Hans":code;
+      document.title=copy.title+" · VEC";
+      byId("eyebrow").textContent=copy.eyebrow;byId("title").textContent=copy.title;byId("description").textContent=copy.description;
+      selectorLabel.textContent=currentUI.language;
+      const anchors=nav.querySelectorAll("a");if(anchors[0]){anchors[0].textContent=currentUI.back;anchors[0].href=code==="en"?"../../":"../../?lang="+encodeURIComponent(code)+"#analysis-tools";}if(anchors[1])anchors[1].textContent=currentUI.community;if(anchors[2])anchors[2].textContent=currentUI.official;
+      byId("analyze").textContent=currentUI.analyze;byId("example").textContent=currentUI.example;byId("clear").textContent=currentUI.clear;
+      byId("privacy-note").textContent=currentUI.privacy;
+      const panels=document.querySelectorAll(".panel");if(panels[1]){const heading=panels[1].querySelector("h2"),paragraphs=panels[1].querySelectorAll("p");if(heading)heading.textContent=currentUI.scope;if(paragraphs[paragraphs.length-1])paragraphs[paragraphs.length-1].textContent=currentUI.localData;}
+      const labels=form.querySelectorAll("label");
+      lab.inputs.forEach((f)=>{
+        const fieldCopy=currentLabLocale&&currentLabLocale.fields&&currentLabLocale.fields[f.id]||{};
+        const fieldLabel=Array.from(labels).find((x)=>x.htmlFor===f.id);if(fieldLabel)fieldLabel.textContent=fieldCopy.label||f.label;
+        const input=byId(f.id);if(input&&input.tagName!=="SELECT")input.placeholder=fieldCopy.placeholder!==undefined?fieldCopy.placeholder:(f.placeholder||"");
+        if(input&&input.tagName==="SELECT")Array.from(input.options).forEach((option)=>{const optionLabel=fieldCopy.options&&fieldCopy.options[option.value];if(optionLabel)option.textContent=optionLabel;else if(code==="en"){const original=f.options.find((x)=>x[0]===option.value);if(original)option.textContent=original[1];}});
+      });
+      const footerLinks=document.querySelectorAll(".foot a");if(footerLinks[0])footerLinks[0].textContent=currentUI.communityFooter;if(footerLinks[1])footerLinks[1].textContent=currentUI.sourceFooter;
+      resultNote.textContent=currentUI.outputLanguage;
+      if(!hasAnalysisResult){result.className="output";result.textContent=currentUI.initial;}
+      const url=new URL(location.href);if(code==="en")url.searchParams.delete("lang");else url.searchParams.set("lang",code);history.replaceState(null,"",url);
+    }
+    selector.addEventListener("change",()=>applyLanguage(selector.value));
+    applyLanguage(currentLanguage);
+    byId("analyze").addEventListener("click",()=>{try{const values={};lab.inputs.forEach((f)=>values[f.id]=byId(f.id).value);render(lab.run(values));hasAnalysisResult=true;}catch(e){const out=byId("result");out.className="output error";out.textContent=e.message||String(e);hasAnalysisResult=true;}});
     byId("example").addEventListener("click",()=>{lab.inputs.forEach((f)=>{const el=byId(f.id);if(f.example!==undefined)el.value=f.example;else if(f.value!==undefined)el.value=f.value;});byId("analyze").click();});
-    byId("clear").addEventListener("click",()=>{lab.inputs.forEach((f)=>{const el=byId(f.id);el.value=f.type==="select"?f.options[0][0]:"";});const out=byId("result");out.className="output";out.textContent="Inputs cleared. Your data is not saved by this page.";});
+    byId("clear").addEventListener("click",()=>{lab.inputs.forEach((f)=>{const el=byId(f.id);el.value=f.type==="select"?f.options[0][0]:"";});hasAnalysisResult=false;const out=byId("result");out.className="output";out.textContent=currentUI.clearResult;});
   }
   init();
 })();

@@ -4,6 +4,8 @@ Forty-eight offline-first tools for joining and contributing to the Virtual Embr
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
+The 21 analysis tools offer Spanish and Simplified Chinese interface labels, descriptions, and input guidance. Result summaries, validation messages, table columns, and data values remain in English to preserve stable technical identifiers; each page explains this before analysis. The selected interface language appears in the URL, and changing it does not clear entered inputs.
+
 ## Tools
 
 | Tool | Workflow it supports |

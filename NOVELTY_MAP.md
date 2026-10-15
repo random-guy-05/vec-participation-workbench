@@ -29,3 +29,7 @@ The community already has substantial resources for onboarding, score calculatio
 | Challenge Service Incident Packet | [Help Request Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/help-request/) drafts general reproducible questions. | Structure outage evidence, impact, timestamps, and observed-versus-inferred claims for service incidents. |
 
 The community catalog changes over time. Before extending these pages or filing a later version, check the current [community resources](https://virtualembryo.ai/challenge/resources) and prefer improving an existing item when the actual workflow overlaps.
+
+## Language access
+
+The 21 analysis pages now share a client-side language selector for English, Spanish, and Simplified Chinese. The workbench index also translates those 21 tool cards and carries the chosen language into the selected page. This extends access to the same distinct analysis workflows rather than creating duplicate tools. Interface labels, descriptions, and input guidance are translated; calculation summaries, validation messages, table columns, and data values remain in English so machine-readable identifiers stay stable. The page states this limitation before analysis. Language selection is kept in the URL only; pasted inputs are not stored or transmitted.
