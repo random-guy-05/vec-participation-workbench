@@ -1036,3 +1036,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/notebook-cleaner/
 - **What it is, and who it helps:** A browser-local Jupyter notebook cleaner that creates a separate copy with saved code-cell outputs cleared and execution counts reset, with an option to remove notebook-level widget state. It helps participants prepare smaller, less disclosure-prone notebooks for tutorials, issue reports, or resource sharing. It preserves the original input and explicitly warns that code, Markdown, attachments, other metadata, private paths, credentials, and identifying content still need manual review. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Choose a local `.ipynb` file or paste its JSON, decide whether to remove saved widget state, and select Prepare clean copy. Review the summary and the cleaned notebook manually, then download it as a separate file. The notebook is processed only in the browser tab; the tool does not certify anonymity or publication safety.
+
+### 148. VEC Notebook Execution Order Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/notebook-order-audit/
+- **What it is, and who it helps:** A browser-local Jupyter audit that flags decreasing or repeated execution counters, saved output without a counter, missing cell IDs in nbformat 4.5+, and duplicate IDs. Findings expose only cell positions and issue types, not source or output text. It gives contributors a quick clue when a shared notebook may have been run out of order, without claiming that counters prove results are stale. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste the notebook JSON, select Audit notebook, review each flagged cell position, and download the findings CSV if useful. Use a fresh kernel and rerun when appropriate; the audit does not execute code or determine scientific reproducibility.
+
+### 149. VEC Python Dependency Pinning Review
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/requirements-audit/
+- **What it is, and who it helps:** A local requirements-file triage that identifies exact pins, version ranges, wildcards, unpinned packages, editable installs, direct URLs/VCS references, local paths, pip directives, and possible duplicate package names. It helps contributors make setup instructions more reviewable before asking someone else to reproduce a project. It does not use a network, resolve packages, inspect vulnerabilities, or claim that pinned versions guarantee reproducibility. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste `requirements.txt` or pip requirement lines, review each classification and duplicate warning, then download the review CSV. Inspect nested includes and the original file manually before changing dependencies.
+
+### 150. VEC P-Value Adjustment Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pvalue-adjuster/
+- **What it is, and who it helps:** A browser-local calculator for Bonferroni, Benjamini–Hochberg, and Benjamini–Yekutieli adjusted values over one explicitly chosen family of raw p-values. It preserves input order and optional labels while showing all three calculations. It helps analysts make correction choices transparent; it does not choose the family, validate tests, or replace effect sizes and uncertainty intervals. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter one p-value per line, optionally as `label,p`, calculate the adjustments, and download the results CSV. Decide and document the hypothesis family and assumptions before interpreting adjusted values.
+
+### 151. VEC Dataset Checksum Manifest Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sha256-manifest/
+- **What it is, and who it helps:** A multilingual script generator that creates a dependency-free Python utility for recording sorted relative paths, byte sizes, and SHA-256 hashes from a local folder. The generated code streams files in chunks, skips symbolic links, excludes its output manifest, and stops instead of writing a partial manifest after read errors. It helps teams compare the exact files used across runs without uploading data. A checksum is not proof of source authenticity, scientific validity, or data eligibility.
+- **How someone else runs it:** Set the local root folder, file glob, and output name, generate and download the Python script, save it, and run it with Python 3. Review the generated CSV before sharing because relative filenames may reveal project details.
