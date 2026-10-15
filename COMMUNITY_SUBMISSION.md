@@ -714,3 +714,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/metric-lab/?tool=nfs-preview
 - **What it is, and who it helps:** Builds a mean-expression profile from each cell’s 15 nearest spatial neighbors and compares the resulting true and predicted profile distributions. It illustrates a joint expression-and-location metric without assuming cell-to-cell correspondence.
 - **How someone else runs it:** Paste at least 16 cells per cloud with coordinates and a few expression columns; calculate the neighborhood-profile MMD and review the limits on sample size and scorer equivalence.
+
+### 102. VEC External Data Eligibility Checker
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/external-data-eligibility/
+- **What it is, and who it helps:** Screens an external source's organism, stage, held-out data lineage, and Task 3 genotype/phenocopy information against the current published boundaries. It flags clear prohibited windows and uncertain cases separately, helping teams avoid inadvertent leakage and prepare a source-disclosure record.
+- **How someone else runs it:** Select the target task and setting, enter the source organism and stage, answer the held-out lineage prompts, and record the source citation/version. Review the local screening result, download the Markdown record if useful, and follow the linked official rules or ask the organizers for uncertain cases.
