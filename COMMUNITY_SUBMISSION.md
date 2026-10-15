@@ -910,3 +910,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sample-crosswalk/
 - **What it is, and who it helps:** A browser-local join audit between a one-row-per-sample manifest and a cell-to-sample assignment table. It identifies manifest samples with no cells and cell-table sample IDs missing from the manifest, reports distinct cell counts, and can optionally flag repeated cell IDs when the source defines IDs globally. It helps catch broken joins before expression aggregation or group comparisons.
 - **How someone else runs it:** Paste both CSV tables, read each header, select the sample ID columns and cell ID column, then audit and download the manifest with observed cell counts and join status. The tool checks exact trimmed strings, rejects duplicate manifest sample IDs and repeated within-sample cell assignments, and does not infer aliases or establish biological independence.
+
+### 130. VEC Differential-Expression Table Readiness Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/de-table-audit/
+- **What it is, and who it helps:** A browser-local structural audit for gene-level result tables. It reports blank or repeated gene identifiers, missing or nonnumeric effect values, p-value missingness and range problems, and effect-direction counts. It helps analysts catch table-format and identifier issues before ranking genes or comparing outputs; it does not validate the statistical model or correct the results.
+- **How someone else runs it:** Paste a CSV with one row per reported gene, read the headers, select gene ID and effect columns and optionally raw and adjusted p-value columns, then audit. Download the compact summary. Review duplicate IDs, contrasts, test families, and modeling assumptions with the analysis source; the tool never removes or reorders result rows.
