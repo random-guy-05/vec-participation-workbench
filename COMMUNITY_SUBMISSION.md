@@ -896,3 +896,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/permutation-precision/
 - **What it is, and who it helps:** A browser-local calculator that summarizes an observed count of extreme random shuffles with the add-one tail estimate, its finite-resolution floor, and an approximate Monte Carlo standard error. A separate planning calculation estimates how many independent shuffles would target a user-selected Monte Carlo error at an assumed tail probability. It helps participants distinguish simulation precision from scientific-data uncertainty.
 - **How someone else runs it:** Enter the shuffle count and extreme-count from an existing run, then provide a planning probability and target standard error. The page does not run a permutation test, select a statistic or shuffle scheme, check exchangeability, account for dependent draws, or replace a suitable interval method; its normal range is especially rough at boundary counts.
+
+### 128. VEC Sample-Level Pseudobulk Matrix Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pseudobulk-builder/
+- **What it is, and who it helps:** A browser-local utility that sums long-form cell-by-gene values within each sample, reports distinct cell IDs and genes with records per sample, and rejects duplicate sample–cell–gene rows. It helps participants prepare sample-level expression summaries while preserving the sample as the analysis unit.
+- **How someone else runs it:** Paste CSV data, read the headers, select sample, cell, gene, and value columns, then aggregate and download the observed sample–gene sums. A separate wide export requires an explicit confirmation that absent pairs mean measured zero. The page checks nonnegative finite values and flags fractional inputs; it does not normalize, choose biological replicates, or perform differential-expression inference.
