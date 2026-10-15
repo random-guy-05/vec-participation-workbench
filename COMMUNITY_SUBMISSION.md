@@ -1064,3 +1064,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sha256-manifest/
 - **What it is, and who it helps:** A multilingual script generator that creates a dependency-free Python utility for recording sorted relative paths, byte sizes, and SHA-256 hashes from a local folder. The generated code streams files in chunks, skips symbolic links, excludes its output manifest, and stops instead of writing a partial manifest after read errors. It helps teams compare the exact files used across runs without uploading data. A checksum is not proof of source authenticity, scientific validity, or data eligibility.
 - **How someone else runs it:** Set the local root folder, file glob, and output name, generate and download the Python script, save it, and run it with Python 3. Review the generated CSV before sharing because relative filenames may reveal project details.
+
+### 152. VEC CSV Header Harmonizer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-header-harmonizer/
+- **What it is, and who it helps:** A browser-local CSV column renamer that displays the original headers and lets the participant set an explicit destination name for each. It rejects empty or case-insensitive duplicate names, preserves all cell values, and offers a bounded preview and downloadable CSV. It helps collaborators align exports from different pipelines before stacking or comparison without guessing which fields are equivalent. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a CSV, select Inspect columns, edit each destination header, and apply the mapping. Review the preview and download the renamed file. The tool does not infer aliases or merge values; keep the original file.
+
+### 153. VEC Pearson Correlation Interval Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/correlation-interval/
+- **What it is, and who it helps:** A summary-statistic calculator for an approximate Fisher z confidence interval around Pearson r, using a selected confidence level and independent-pair count. It requires finite r strictly between −1 and 1 and n ≥ 4, and explains the independence and approximation assumptions. It helps participants report uncertainty without pasting row-level data; it does not establish causation or Challenge score behavior. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter Pearson r, the number of independent paired observations, and a 90%, 95%, or 99% level, then calculate. Confirm that the design fits the stated assumptions before interpreting the interval.
+
+### 154. VEC Notebook Revision Delta Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/notebook-delta-audit/
+- **What it is, and who it helps:** A browser-local comparison of two Jupyter notebook revisions. It matches by stable cell IDs only when both versions have unique IDs; otherwise it explicitly falls back to position. The report flags added/removed cells, source or type edits, movement, and changed saved-output counts without showing code or output content. It helps teams review the shape of a notebook update before using a separate text diff, but position fallback can become noisy after insertions. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste the earlier and later notebook JSON and compare. Review the change summary and optionally download its CSV, then use a source diff for actual code review. It does not compare metadata, attachments, execution history, or output contents.
+
+### 155. VEC Dataset Transfer Receipt Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-transfer-receipt/
+- **What it is, and who it helps:** A local Markdown builder for a dataset handoff record: artifact/version, sender and receiver roles, transfer date/method, optional supplied and recomputed SHA-256 values, byte counts, and a handling note. It compares provided hashes and sizes when both sides are entered and warns that a match does not establish permission, authenticity, or scientific eligibility. It helps teams record what was transferred without names or private URLs. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter an artifact label and transfer method, then add the details available to your team. Build and review the Markdown receipt, then download it. Use roles rather than personal names and review notes before sharing.
