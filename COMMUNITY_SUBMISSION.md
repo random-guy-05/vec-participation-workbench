@@ -1176,3 +1176,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/median-bootstrap/
 - **What it is, and who it helps:** A browser-local, seeded percentile-bootstrap interval for one sample median. Participants select a confidence level and resample count and can repeat the implementation's resampling sequence with the displayed seed. It helps communicate uncertainty for a robust location summary without pasting rows into a remote service. The page warns that ordinary percentile bootstrap intervals can be unstable with small or highly discrete samples and do not fix dependent or unrepresentative sampling; interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste 5–1,000 finite independent observations, choose the confidence level and number of resamples, set an integer seed, and calculate. Report the percentile method and seed; inspect whether the sampling units and design justify resampling observations independently.
+
+### 168. VEC Multiple-Testing P-Value Adjuster
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pvalue-adjust/
+- **What it is, and who it helps:** A browser-local, labeled p-value table calculator for Holm, Bonferroni, Benjamini–Hochberg, and Benjamini–Yekutieli adjustment. It preserves input order, reports sorted rank and adjusted value for each test, and downloads a CSV for joining back to a results table. Method-specific family and dependence assumptions are explained; the page does not validate the original tests. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste one p-value or `ID,p-value` per line, choose the predeclared family-wide method, adjust, and review or download the table. Keep the family definition and original p-values with the report.
+
+### 169. VEC Matched Binary Outcome Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/mcnemar-pairs/
+- **What it is, and who it helps:** A browser-local exact McNemar calculator for matched binary outcomes. It reports all four paired cells, each outcome's yes rate, the paired rate difference, discordant-pair count, and a two-sided exact binomial p-value conditional on discordances. It helps participants compare two methods on the same units without treating paired outcomes as independent. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste `A,B` binary pairs with 1/0 values, optionally with an `A,B` header, then compare. Define success consistently and confirm one independent matched pair per unit; the test does not model clustering or missing pairs.
+
+### 170. VEC Binary Confusion-Matrix Metrics
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/confusion-metrics/
+- **What it is, and who it helps:** A four-count calculator for binary classification that reports prevalence, predicted-positive fraction, accuracy, sensitivity, specificity, precision, negative predictive value, F1, balanced accuracy, and Matthews correlation coefficient. Undefined denominators remain visible. It helps contributors describe class-imbalanced results without hiding which metric depends on prevalence. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter true-positive, false-positive, false-negative, and true-negative counts from the same held-out set and calculate. State the positive class and threshold; do not tune on the final evaluation set.
+
+### 171. VEC Paired Median-Difference Bootstrap
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/paired-median-bootstrap/
+- **What it is, and who it helps:** A seeded percentile-bootstrap interval for the median of complete within-pair differences. It preserves pairing by resampling the derived differences as units and reports the seed, resample count, and quantile method. This offers a robust alternative when a paired mean summary is not the intended estimand; limits for small, discrete, clustered, or biased samples are explicit. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter one consistently directed A−B difference per independent pair, choose confidence level and resample count, set an integer seed, and calculate. Report the sampling unit and do not treat nested repeated measures as independent pairs.
