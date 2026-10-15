@@ -1,6 +1,6 @@
 # Community contribution filing drafts
 
-All twenty-seven tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to official sources for facts they reference. File each tool page as a separate `build` only after its hosted URL is available.
+All forty-eight tools are standalone static pages with no dependencies, login, upload, analytics, or server-side processing. The tools are English-first and link to official sources for facts they reference. File each tool page as a separate `build` only after its hosted URL is available.
 
 ## 1. VEC Board Coverage Planner
 
@@ -196,3 +196,150 @@ All twenty-seven tools are standalone static pages with no dependencies, login, 
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/verified-download/
 - **What it is, and who it helps:** A client-side generator for a Bash script that downloads public HTTPS files with retry and resume support, refuses to overwrite an existing final file, and checks a user-supplied SHA-256 digest before finalizing a file. It helps participants on slower connections or cluster login nodes avoid silently using an interrupted data transfer. It rejects credential-bearing and signed URLs, never runs the script, and distinguishes a transfer without a checksum from a verified download.
 - **How someone else runs it:** Enter a trusted public HTTPS URL per line and, when published by the source, its expected SHA-256 and filename. Generate and inspect the script, save it locally, then run it in an environment with Bash and curl after confirming cluster policy and storage location.
+
+### 28. VEC Pseudobulk Aggregator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pseudobulk/
+- **What it is, and who it helps:** Aggregate cell-level numeric measurements within user-selected sample, condition, and cell-state columns. It reports cells per aggregate and supports sums for raw counts or means for normalized values, helping analysts preserve the biological sample as the replicate.
+- **How someone else runs it:** Paste a small cell-by-feature CSV, list grouping and feature columns, choose sum or mean, then analyze and download the aggregate CSV.
+
+### 29. VEC Design Confounding Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/design-confounding/
+- **What it is, and who it helps:** Build a categorical one-hot design from a sample manifest and calculate its matrix rank. It flags exact aliasing among condition, stage, batch, and other factors before model fitting.
+- **How someone else runs it:** Paste one row per biological sample and name the categorical factors. Review factor levels, observed pair support, and design rank.
+
+### 30. VEC Rare-State Sampling Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/rare-state-sampling/
+- **What it is, and who it helps:** Calculate binomial probabilities that a cell state at a chosen prevalence is captured at least a target number of times in one sample, every replicate, or any replicate. It helps plan exploratory sampling while stating that it is not a power calculation.
+- **How someone else runs it:** Enter expected prevalence, cells per sample, number of independent samples, and minimum state-cell count; compare the resulting probabilities.
+
+### 31. VEC Cell Composition Distance Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/composition-distance/
+- **What it is, and who it helps:** Convert per-sample cell-type counts to proportions and compare all sample pairs using Bray–Curtis dissimilarity and Jensen–Shannon distance. It provides descriptive population differences while keeping samples as the replicates.
+- **How someone else runs it:** Paste a long CSV with sample, group, cell_type, and count; review pairwise distances and download the table.
+
+### 32. VEC Composition–Expression Decomposer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/composition-expression/
+- **What it is, and who it helps:** Apply a symmetric Shapley decomposition to separate a two-condition overall mean-expression change into cell-composition and within-cell-type components. It helps distinguish population-mixture shifts from expression changes within annotated states.
+- **How someone else runs it:** Paste one row per cell type with proportions and means for conditions A and B; review each component and the total.
+
+### 33. VEC Gene Signature Coverage Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/signature-coverage/
+- **What it is, and who it helps:** Compare a candidate marker or gene signature with a supplied assay panel, report exact present/missing identifiers, and flag duplicates. It performs no alias or ortholog guessing.
+- **How someone else runs it:** Paste one gene identifier per line for the signature and panel; analyze and download the coverage table.
+
+### 34. VEC Gene Set Enrichment Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/gene-set-enrichment/
+- **What it is, and who it helps:** Run a one-sided hypergeometric over-representation analysis on user-supplied gene sets and a clearly specified assay universe, then calculate Benjamini–Hochberg adjusted values. It helps keep the background universe explicit.
+- **How someone else runs it:** Paste the selected genes, the complete eligible universe, and a set,gene membership CSV; review overlap counts and adjusted p-values.
+
+### 35. VEC Replicate-Aware Contrast Reporter
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/contrast-reporter/
+- **What it is, and who it helps:** Summarize sample-level gene differences for two conditions, including paired direction agreement where sample IDs match. It reports descriptive effect sizes without treating cells as replicates or presenting significance claims.
+- **How someone else runs it:** Paste a long CSV of sample, condition, gene, value; enter the two condition labels and pseudocount; download the comparison table.
+
+### 36. VEC Single-Cell QC Threshold Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/cell-qc/
+- **What it is, and who it helps:** Apply user-chosen count, detected-gene, and mitochondrial-fraction thresholds to a small cell-level QC table, displaying every pass/fail decision and all exclusion reasons.
+- **How someone else runs it:** Paste cell_id,n_counts,n_genes,mito_pct rows, set cutoffs, and inspect the per-cell decision table.
+
+### 37. VEC Per-Cell Signature Scorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/signature-score/
+- **What it is, and who it helps:** Compute mean gene-wise z-scores for an exact supplied signature on a small already-normalized cell-by-gene matrix. Scores are explicitly relative to the pasted matrix, not calibrated pathway activity.
+- **How someone else runs it:** Paste a cell-by-gene matrix and signature gene IDs, choose an optional group column, then analyze and export cell scores.
+
+### 38. VEC Stage Trend & Forecast Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/stage-trend/
+- **What it is, and who it helps:** Fit linear and quadratic models to replicate-level values across numeric stages, compare training and leave-one-stage-out RMSE, and project to a chosen stage. It exposes extrapolation uncertainty.
+- **How someone else runs it:** Paste stage,value rows (replicate IDs are optional), enter a target stage, and compare the observed stage means and model projections.
+
+### 39. VEC Cell-Label Transition Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/label-transition/
+- **What it is, and who it helps:** Summarize supplied source-to-target label counts with row and column fractions, making refinement, splitting, and merging visible without inventing a biological mapping.
+- **How someone else runs it:** Paste source_label,target_label,count rows; inspect the transition table and download it for further review.
+
+### 40. VEC Gene Detection Rate Analyzer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/gene-detection/
+- **What it is, and who it helps:** For each group and gene in a small matrix, calculate the fraction of cells above zero separately from mean expression among detected cells. This distinguishes prevalence from positive-value magnitude.
+- **How someone else runs it:** Paste a cell-by-gene matrix, specify the group and gene columns, then compare detection prevalence.
+
+### 41. VEC Replicate Concordance Reporter
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-concordance/
+- **What it is, and who it helps:** Calculate pairwise Pearson and Spearman correlations of sample-level gene profiles within each condition, report shared feature counts, and highlight limited coverage without recommending replicate deletion.
+- **How someone else runs it:** Paste sample,condition,gene,value rows and review correlations between samples in the same condition.
+
+### 42. VEC 3D Coordinate Alignment Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/coordinate-alignment/
+- **What it is, and who it helps:** Center a point cloud and rotate it onto its principal axes using an eigendecomposition. It exports transformed coordinates while documenting PCA sign ambiguity and the absence of atlas registration.
+- **How someone else runs it:** Paste a point cloud with x,y,z columns and an optional cell_id; download the centered principal-axis coordinates.
+
+### 43. VEC Spatial Neighborhood Radius Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/neighborhood-radius/
+- **What it is, and who it helps:** For each point, count neighbors within a selected Euclidean radius and report its nearest-neighbor distance. It helps participants make neighborhood scale choices explicit.
+- **How someone else runs it:** Paste x,y,z coordinates and enter a radius in the same coordinate units; review per-point neighborhoods.
+
+### 44. VEC Spatial Occupancy Grid Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/occupancy-comparison/
+- **What it is, and who it helps:** Compare two point clouds in a shared coordinate frame using occupied-voxel Jaccard and Dice scores at four resolutions. The multi-resolution report makes discretization sensitivity visible.
+- **How someone else runs it:** Paste two CSV point clouds with x,y,z coordinates; review and download the resolution-sensitivity table.
+
+### 45. VEC 3D Spatial Autocorrelation Explorer
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-autocorrelation/
+- **What it is, and who it helps:** Calculate descriptive global Moran’s I for one feature on a 3D directed k-nearest-neighbor graph and report its randomization reference expectation. It deliberately does not invent a permutation p-value.
+- **How someone else runs it:** Paste x,y,z,value rows, choose k, and inspect the statistic and graph size.
+
+### 46. VEC Metric Contract Diff
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/metric-contract-diff/
+- **What it is, and who it helps:** Compare two JSON panel or scorer snapshots by nested key path, value, and missing key. It supports careful inspection of public contract drift but does not decide which source is canonical.
+- **How someone else runs it:** Paste two JSON objects and review the differing paths; record source URLs, package version, and commit separately.
+
+### 47. VEC Metadata Schema & Drift Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/metadata-drift/
+- **What it is, and who it helps:** Compare two metadata CSV snapshots for added or removed columns, inferred type changes, missingness shifts, and new or removed categorical levels. It does not match observation rows or assert that differences are biologically meaningful.
+- **How someone else runs it:** Paste two metadata CSV exports, compare the schema and observed levels, then align row identities and populations before interpreting drift.
+
+### 48. VEC Challenge Service Incident Packet
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/service-incident-packet/
+- **What it is, and who it helps:** Draft a privacy-conscious support report for sign-in, upload, scoring, or service incidents. It structures timestamps, checks, user impact, and a clear separation of observed facts from inference.
+- **How someone else runs it:** Fill each field, use “not checked” where appropriate, review the report, and remove identifiers, cookies, tokens, and private paths before sharing.

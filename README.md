@@ -1,6 +1,6 @@
 # VEC Participation Workbench
 
-Twenty-seven small, offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, creating safe examples, teaching, maintaining shared resources, diagnosing compute jobs, forecasting runtime, and transferring data safely.
+Forty-eight offline-first tools for joining and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, finding a first community task, writing safe help requests, reviewing resources, creating safe examples, teaching, maintaining shared resources, diagnosing compute jobs, forecasting runtime, and transferring data safely.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
@@ -35,6 +35,27 @@ Each tool runs in a browser with no account, server, analytics, dependency insta
 | [HPC Job Log Doctor](https://random-guy-05.github.io/vec-participation-workbench/tools/job-log-doctor/) | Triage common Slurm, PBS, LSF, accelerator, storage, and environment errors from a pasted log excerpt, locally. |
 | [Runtime Forecast Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/runtime-forecast/) | Fit a simple scaling curve to measured runs, add a buffer, and compare the projection with a queue wall-time limit. |
 | [Verified Download Script Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/verified-download/) | Generate a resumable HTTPS Bash downloader that refuses to overwrite files and can check supplied SHA-256 digests. |
+| [Pseudobulk Aggregator](https://random-guy-05.github.io/vec-participation-workbench/tools/pseudobulk/) | Aggregate cell-level numeric measurements within user-selected sample, condition, and cell-state columns. |
+| [Design Confounding Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/design-confounding/) | Build a categorical one-hot design from a sample manifest and calculate its matrix rank. |
+| [Rare-State Sampling Planner](https://random-guy-05.github.io/vec-participation-workbench/tools/rare-state-sampling/) | Calculate binomial probabilities that a cell state at a chosen prevalence is captured at least a target number of times in one sample, every replicate, or any replicate. |
+| [Cell Composition Distance Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/composition-distance/) | Convert per-sample cell-type counts to proportions and compare all sample pairs using Bray–Curtis dissimilarity and Jensen–Shannon distance. |
+| [Composition–Expression Decomposer](https://random-guy-05.github.io/vec-participation-workbench/tools/composition-expression/) | Apply a symmetric Shapley decomposition to separate a two-condition overall mean-expression change into cell-composition and within-cell-type components. |
+| [Gene Signature Coverage Auditor](https://random-guy-05.github.io/vec-participation-workbench/tools/signature-coverage/) | Compare a candidate marker or gene signature with a supplied assay panel, report exact present/missing identifiers, and flag duplicates. |
+| [Gene Set Enrichment Calculator](https://random-guy-05.github.io/vec-participation-workbench/tools/gene-set-enrichment/) | Run a one-sided hypergeometric over-representation analysis on user-supplied gene sets and a clearly specified assay universe, then calculate Benjamini–Hochberg adjusted values. |
+| [Replicate-Aware Contrast Reporter](https://random-guy-05.github.io/vec-participation-workbench/tools/contrast-reporter/) | Summarize sample-level gene differences for two conditions, including paired direction agreement where sample IDs match. |
+| [Single-Cell QC Threshold Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/cell-qc/) | Apply user-chosen count, detected-gene, and mitochondrial-fraction thresholds to a small cell-level QC table, displaying every pass/fail decision and all exclusion reasons. |
+| [Per-Cell Signature Scorer](https://random-guy-05.github.io/vec-participation-workbench/tools/signature-score/) | Compute mean gene-wise z-scores for an exact supplied signature on a small already-normalized cell-by-gene matrix. |
+| [Stage Trend & Forecast Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/stage-trend/) | Fit linear and quadratic models to replicate-level values across numeric stages, compare training and leave-one-stage-out RMSE, and project to a chosen stage. |
+| [Cell-Label Transition Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/label-transition/) | Summarize supplied source-to-target label counts with row and column fractions, making refinement, splitting, and merging visible without inventing a biological mapping. |
+| [Gene Detection Rate Analyzer](https://random-guy-05.github.io/vec-participation-workbench/tools/gene-detection/) | For each group and gene in a small matrix, calculate the fraction of cells above zero separately from mean expression among detected cells. |
+| [Replicate Concordance Reporter](https://random-guy-05.github.io/vec-participation-workbench/tools/replicate-concordance/) | Calculate pairwise Pearson and Spearman correlations of sample-level gene profiles within each condition, report shared feature counts, and highlight limited coverage without recommending replicate deletion. |
+| [3D Coordinate Alignment Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/coordinate-alignment/) | Center a point cloud and rotate it onto its principal axes using an eigendecomposition. |
+| [Spatial Neighborhood Radius Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/neighborhood-radius/) | For each point, count neighbors within a selected Euclidean radius and report its nearest-neighbor distance. |
+| [Spatial Occupancy Grid Comparator](https://random-guy-05.github.io/vec-participation-workbench/tools/occupancy-comparison/) | Compare two point clouds in a shared coordinate frame using occupied-voxel Jaccard and Dice scores at four resolutions. |
+| [3D Spatial Autocorrelation Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/spatial-autocorrelation/) | Calculate descriptive global Moran’s I for one feature on a 3D directed k-nearest-neighbor graph and report its randomization reference expectation. |
+| [Metric Contract Diff](https://random-guy-05.github.io/vec-participation-workbench/tools/metric-contract-diff/) | Compare two JSON panel or scorer snapshots by nested key path, value, and missing key. |
+| [Metadata Schema & Drift Comparator](https://random-guy-05.github.io/vec-participation-workbench/tools/metadata-drift/) | Compare metadata snapshots for changed columns, inferred types, missingness, and categorical levels. |
+| [Challenge Service Incident Packet](https://random-guy-05.github.io/vec-participation-workbench/tools/service-incident-packet/) | Draft a privacy-conscious support report for sign-in, upload, scoring, or service incidents. |
 
 ## Run locally
 
@@ -43,6 +64,8 @@ Clone the repository and open `docs/index.html` or any `docs/tools/<name>/index.
 ## Sources and maintenance
 
 The current source links and the facts each tool uses are collected in [`SOURCES.md`](SOURCES.md). Recheck those official pages before relying on date- or rules-sensitive output. Last checked: 14 October 2026.
+
+The analysis tools’ distinct purposes and neighboring community resources are mapped in [NOVELTY_MAP.md](NOVELTY_MAP.md).
 
 ## Scope
 

@@ -1,0 +1,31 @@
+# Novelty and scope map
+
+These 21 pages are separate analysis jobs with independent inputs and outputs. They use small user-supplied CSV/JSON extracts so a participant can explore a concrete question without installing a notebook stack or sharing the data. The pages are not intended to replace specialist statistical packages or official Challenge services.
+
+The community already has substantial resources for onboarding, score calculation, submission validation, broad data inspection, and geometric sanity checks. The distinctions below are the intended boundaries of this new set.
+
+| New build | Related existing resource | Distinct job |
+|---|---|---|
+| Pseudobulk Aggregator | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles metadata only. | Aggregate numeric cell measurements within sample and cell-state groups before downstream comparisons. |
+| Design Confounding Auditor | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles sample composition. | Check exact rank deficiency in a user-selected categorical study design. |
+| Rare-State Sampling Planner | Existing sample and scoring sensitivity tools analyze observed runs. | Estimate a binomial capture probability before choosing a sampling target. |
+| Cell Composition Distance Explorer | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) summarizes per-sample composition. | Calculate pairwise composition distances, including within- and between-group comparisons. |
+| Composition–Expression Decomposer | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) summarizes composition but not expression. | Attribute a two-condition mean shift to composition versus within-cell-type means. |
+| Gene Signature Coverage Auditor | [VEC PanelGuard](https://github.com/random-guy-05/vec-panelguard) repairs exact submission panel order; external-data tools map genes. | Check exact presence, absence, and duplication for a user-defined signature without mapping aliases. |
+| Gene Set Enrichment Calculator | Existing marker and pathway resources provide biological interpretation. | Compute a transparent over-representation statistic against an explicit supplied universe. |
+| Replicate-Aware Contrast Reporter | [VEC Diff](https://github.com/random-guy-05/vec-diff) compares prediction files and [Replicate Range](https://github.com/random-guy-05/vec-replicate-range) summarizes Task 3 score spread. | Summarize sample-level gene effects and paired direction consistency before scoring. |
+| Single-Cell QC Threshold Explorer | Community data inspectors focus on file/schema review and common data pitfalls. | Apply user-selected per-cell count/gene/mitochondrial thresholds and expose every exclusion reason. |
+| Per-Cell Signature Scorer | Marker-consistency tools inspect curated markers. | Score a participant-selected signature relative to a small pasted matrix. |
+| Stage Trend & Forecast Explorer | Task-specific model labs explore full predictive methods. | Compare two simple univariate stage trends with leave-one-stage-out error on a small summary table. |
+| Cell-Label Transition Explorer | Cell-type vocabulary tools identify label renames and harmonization candidates. | Quantify source-to-target label transitions as observed counts and normalized fractions. |
+| Gene Detection Rate Analyzer | Count-recovery and log-scale tools inspect file representation. | Separate per-gene detection prevalence from mean positive expression by group. |
+| Replicate Concordance Reporter | [VEC Replicate Range](https://github.com/random-guy-05/vec-replicate-range) reports differences in official Task 3 scores across two target replicates. | Compare participant sample-level expression profiles over shared genes. |
+| 3D Coordinate Alignment Explorer | [VEC SpatialQC](https://github.com/random-guy-05/vec-spatialqc) detects degenerate clouds; the submission viewer visualizes coordinates. | Produce centered principal-axis coordinates and state the ambiguity of PCA orientation. |
+| Spatial Neighborhood Radius Explorer | [VEC SpatialQC](https://github.com/random-guy-05/vec-spatialqc) checks degeneracy and nearest-neighbor distances. | Report counts within an explicitly chosen physical radius for every point. |
+| Spatial Occupancy Grid Comparator | Existing spatial tools visualize submissions or compute official scoring metrics. | Compare two user-provided point clouds at multiple voxel resolutions with exploratory Jaccard/Dice. |
+| 3D Spatial Autocorrelation Explorer | Existing spatial tools focus on shape and score diagnostics. | Calculate Moran's I for a supplied feature on a stated 3D k-nearest-neighbor graph. |
+| Metric Contract Diff | [VEC Rules and Contract Watch](https://github.com/xxx12e/vec-community-kit/tree/main/vec_rules_watch) watches public pages; [veckit issue #1](https://github.com/aristoteleo/veckit/issues/1) and [issue #3](https://github.com/aristoteleo/veckit/issues/3) discuss scorer scope. | Compare two local JSON snapshots without claiming which is authoritative. |
+| Metadata Schema & Drift Comparator | [VEC Cohort Audit](https://github.com/random-guy-05/vec-cohort-audit) profiles one dataset; cell-type vocabulary tools focus on label harmonization. | Compare two metadata CSV snapshots for changed columns, inferred types, missingness, and categories; it deliberately does not match rows. |
+| Challenge Service Incident Packet | [Help Request Builder](https://random-guy-05.github.io/vec-participation-workbench/tools/help-request/) drafts general reproducible questions. | Structure outage evidence, impact, timestamps, and observed-versus-inferred claims for service incidents. |
+
+The community catalog changes over time. Before extending these pages or filing a later version, check the current [community resources](https://virtualembryo.ai/challenge/resources) and prefer improving an existing item when the actual workflow overlaps.

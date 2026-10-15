@@ -31,3 +31,24 @@ Checked 14 October 2026. These pages are authoritative and may change after this
 | HPC Job Log Doctor | No rule-specific facts. The parser matches common error text; cluster administrators' documentation is authoritative for site-specific diagnosis and commands. |
 | Runtime Forecast Planner | No rule-specific facts. It extrapolates only from participant-provided pilot timings and does not estimate queue wait, peak memory, or guaranteed runtime. |
 | Verified Download Script Builder | The [official data page](https://virtualembryo.ai/challenge/data) is where users should obtain current public data links. The builder does not provide URLs or checksums; users must verify the source and checksum independently. |
+| Pseudobulk Aggregator | No challenge-specific facts. The user selects grouping columns and aggregation; the page warns to preserve biological samples as replicates. |
+| Design Confounding Auditor | No challenge-specific facts. The categorical design rank is an algebraic diagnostic, not a claim about biological identifiability beyond the supplied factors. |
+| Rare-State Sampling Planner | No challenge-specific facts. Uses a binomial sampling model with fixed prevalence; it is not a power analysis. |
+| Cell Composition Distance Explorer | No challenge-specific facts. Bray–Curtis and Jensen–Shannon distances are computed from user-entered per-sample counts. |
+| Composition–Expression Decomposer | No challenge-specific facts. Uses a symmetric two-condition decomposition of user-supplied means and composition proportions. |
+| Gene Signature Coverage Auditor | No challenge-specific facts. Exact identifiers are compared; aliases and orthologs are not inferred. |
+| Gene Set Enrichment Calculator | No challenge-specific facts. Hypergeometric over-representation depends on a user-supplied eligible universe and user-supplied sets. |
+| Replicate-Aware Contrast Reporter | No challenge-specific facts. Descriptive sample-level effects only; it does not compute p-values. |
+| Single-Cell QC Threshold Explorer | No challenge-specific facts. Thresholds are user-specified and are not recommended by the tool. |
+| Per-Cell Signature Scorer | No challenge-specific facts. Uses within-matrix gene-wise z-scores from user-provided normalized values. |
+| Stage Trend & Forecast Explorer | No challenge-specific facts. Linear/quadratic fits and leave-one-stage-out diagnostics are descriptive, not independent validation. |
+| Cell-Label Transition Explorer | No challenge-specific facts. The output describes supplied source/target labels; it does not establish lineage. |
+| Gene Detection Rate Analyzer | No challenge-specific facts. Detection fractions and positive-value means depend on user-selected data scale and zero threshold. |
+| Replicate Concordance Reporter | No challenge-specific facts. Pearson/Spearman correlations are descriptive and do not justify dropping samples. |
+| 3D Coordinate Alignment Explorer | No challenge-specific facts. PCA centering/rotation is a coordinate transform and does not register anatomy to a reference atlas. |
+| Spatial Neighborhood Radius Explorer | No challenge-specific facts. Euclidean distances use the input coordinate units and scale. |
+| Spatial Occupancy Grid Comparator | No challenge-specific facts. Voxel Jaccard/Dice are exploratory and not official VEC scores. |
+| 3D Spatial Autocorrelation Explorer | No challenge-specific facts. Moran’s I is descriptive; the tool does not calculate a permutation p-value. |
+| Metric Contract Diff | [Official reference rows and panel contracts](https://virtualembryo.ai/challenge/baselines); [veckit issue #1](https://github.com/aristoteleo/veckit/issues/1) and [issue #3](https://github.com/aristoteleo/veckit/issues/3) document open questions about canonical versions and metric/panel scope. The diff does not resolve them. |
+| Metadata Schema & Drift Comparator | No challenge-specific facts. The comparator checks user-supplied metadata snapshots and does not match rows by identifier. |
+| Challenge Service Incident Packet | [veckit issue #10](https://github.com/aristoteleo/veckit/issues/10) records a reported sign-in/service outage. The packet builder does not check live availability; use the official [Challenge account](https://virtualembryo.ai/challenge/account) and support channels for current status. |
