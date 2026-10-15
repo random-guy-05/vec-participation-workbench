@@ -952,3 +952,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/reference-match-audit/
 - **What it is, and who it helps:** A browser-local comparison of exact user-selected metadata keys across target and reference samples. It reports shared keys, one-sided coverage, multiple samples per key, and incomplete keys without pairing replicates arbitrarily. Its interface, instructions, and results are available in English, Spanish, and Simplified Chinese. It complements simple stage-coverage counts by making a composite comparison design inspectable.
 - **How someone else runs it:** Choose a language, paste one row per sample, read headers, select the sample and group columns, check the metadata fields that scientifically define comparability, and enter target/reference values. Audit and download the key counts. Exact string agreement does not establish a valid control, biological pairing, or exchangeability.
+
+### 136. VEC Scored Submission Budget Tracker
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/submission-attempts/
+- **What it is, and who it helps:** A browser-local ledger and phase-aware cap display for scored Challenge submissions. It distinguishes unlimited format checks and rejected uploads from scored attempts, tracks P1/P2 by task and UTC day and P3 by board for the phase, and exports a local backup. Its interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Check the live official rules, select the current phase and task, use consistent team and board labels, then record each format check, rejection, or scored submission. The saved records stay in this browser. The tool is not connected to the portal and does not track the separate daily upload limit.
