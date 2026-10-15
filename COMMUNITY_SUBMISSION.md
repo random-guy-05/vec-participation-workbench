@@ -763,3 +763,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/source-overlap-audit/
 - **What it is, and who it helps:** A browser-local CSV audit that groups exact sample or cell identifiers by named source and flags repeated rows within a source or IDs shared across sources. It helps participants spot possible accidental reuse before integrating public atlases or other training datasets. Case folding is optional and clearly disclosed; aliases and biological identity are never inferred.
 - **How someone else runs it:** Prepare a text manifest with `source` and `id` columns, paste it, choose whether to trim whitespace or ignore case, and run the audit. Review and download the candidate report, then confirm each match against its original accession/sample metadata. The tool does not delete records or decide whether external data are permitted.
+
+### 109. VEC Hierarchical Replicate Bootstrap
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/hierarchical-bootstrap/
+- **What it is, and who it helps:** A browser-local two-group uncertainty calculator for nested observations. It resamples independent sample IDs within each group, then resamples observations inside each selected sample, and reports a percentile interval for the equal-sample mean difference. It also shows the pooled-observation difference so teams can see how unequal cell counts change the estimand.
+- **How someone else runs it:** Paste rows with `sample_id,group,value`, set the two group names, iteration count, and seed, then estimate uncertainty. Review the per-sample means and small-sample caveat; download the summary table if needed. Use the biological replicate as the sample ID. This descriptive calculation is not a model-based analysis or official Challenge score.
