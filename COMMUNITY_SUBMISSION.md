@@ -1001,3 +1001,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/join-cardinality/
 - **What it is, and who it helps:** A browser-local pre-join audit for two CSV samples. It reports blank-key rows, distinct and repeated keys, left/right-only and shared-key counts, many-to-many overlaps, and estimated inner/left/full output rows. Key values are not shown or exported. It complements the sample-to-cell crosswalk by estimating arbitrary two-table join cardinality before a merge. The interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste a representative sample of each table, name the exact key column on each side, choose a join type and optional whitespace trimming, then audit. Review duplicate and unmatched counts before using the corresponding complete tables. The report estimates row counts only; it does not create a joined dataset or validate the scientific meaning of a key.
+
+### 143. VEC Claim–Evidence Matrix Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/claim-evidence/
+- **What it is, and who it helps:** A browser-local Markdown builder for research updates, posters, and project discussions. It connects each proposed claim to an observation/result, method or source, limitation or alternative explanation, and next reproduction check. It helps new contributors write transparent, reviewable summaries without implying that the tool validates a claim. Interface and exported headings are available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Add one card per proposed claim, fill in the statement and supporting observation/result, and record the source/method, caveat, and next check. Build and review the Markdown preview, then copy or download it. Have a knowledgeable peer review the evidence and interpretation before publishing.
