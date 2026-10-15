@@ -1120,3 +1120,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/paired-interval/
 - **What it is, and who it helps:** A summary-statistic calculator for the mean within-pair difference, its standard error, degrees of freedom, and two-sided Student t confidence interval. It deliberately uses the SD of complete paired differences rather than separate group SDs, helping participants avoid treating repeated measurements as independent samples. It explains the pairing and independence assumptions and does not inspect raw records. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Calculate the mean and sample SD of the differences for complete pairs, enter those values and the pair count, choose a confidence level, and calculate. Confirm the direction convention (A − B) and pair validity before interpreting the result.
+
+### 160. VEC Two-Proportion Difference Interval Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/proportion-difference/
+- **What it is, and who it helps:** A browser-local Newcombe–Wilson confidence interval for the group 1 minus group 2 difference in two independent binomial proportions. It accepts successes and totals, reports both group proportions and the difference, and avoids a pooled Wald interval. It helps contributors communicate uncertainty around proportions such as detection or prevalence without pasting observations. It states the independence and denominator assumptions and does not adjust for clustering or multiple comparisons. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter integer success counts and denominators for two independent groups, select a confidence level, and calculate. Confirm that the outcomes are binomial and the groups are independent before interpreting the interval.
+
+### 161. VEC Independent Correlation Difference Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/correlation-difference/
+- **What it is, and who it helps:** A summary-statistic comparison of two independent Pearson correlations using Fisher's r-to-z transform. It reports the raw r difference, transformed difference, approximate standard error and confidence interval, normal z statistic, and two-sided approximate p-value. It helps teams compare associations across independent cohorts without sharing row-level data. The method is explicitly not for overlapping or dependent samples and does not establish causality. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter each Pearson r and its independent sample size (at least four), select a confidence level, and compare. Use a design-specific method if samples overlap or observations are clustered.
+
+### 162. VEC Data Transformation Lineage Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/transformation-lineage/
+- **What it is, and who it helps:** A local Markdown builder for an ordered data-processing chain. Each step records input artifacts, the transformation/tool, parameters or version/commit, output artifacts, and a validation check. It helps collaborators see how analysis-ready files were produced and where an intermediate artifact came from. It does not verify execution or data-use permission and warns against including credentials, private paths, or restricted data. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Add one step for each transformation, fill in its inputs, operation, settings, output, and check, then build and download the Markdown record. Review the record for private or restricted details before sharing.
+
+### 163. VEC Research Figure Palette Advisor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/figure-palette/
+- **What it is, and who it helps:** A browser-local guide that recommends categorical, sequential, or diverging color sets based on what the data encode and generates starting snippets for Matplotlib and ggplot2. It includes usage notes for ordered values and meaningful midpoints and prompts users to pair color with direct labels, shapes, or patterns. It helps contributors make figures easier to interpret without claiming that a swatch alone guarantees accessibility. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Select unordered categories, ordered values, or signed deviations around a meaningful center, review the swatches and caveats, and generate or download the snippets. Adapt them to the figure and inspect the final rendering at presentation size and in grayscale.
