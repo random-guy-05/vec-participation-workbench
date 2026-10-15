@@ -735,3 +735,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-release-map/
 - **What it is, and who it helps:** An interactive visual guide to the released and held-out stages and conditions for Tasks 1–3. It distinguishes interpolation from extrapolation, shows matched wild-type references for Task 3, and calls out local spatial frames and the held-out embryo stage that can otherwise make the split hard to follow.
 - **How someone else runs it:** Choose a task from the selector to view its stage/condition sequence and split roles. Follow the official data-page links for current schemas and eligibility rules; this visual is an orientation aid, not a data release or answer key.
+
+### 105. VEC Compute Access Route Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/compute-route-planner/
+- **What it is, and who it helps:** Generates a short, policy-aware starting plan from the participant's task focus, current compute access, programming experience, and data constraints. It helps newcomers choose a no-install learning route, a small local pilot, an institutional cluster template, or a carefully checked cloud workflow without promising runtime or encouraging data upload.
+- **How someone else runs it:** Select the closest options for task, compute, software, and data access, add an optional constraint note, and build the route. Download the Markdown checklist if useful; verify current official data rules and local computing policies before moving data.
