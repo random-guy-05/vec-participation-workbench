@@ -1015,3 +1015,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/markdown-accessibility/
 - **What it is, and who it helps:** A browser-local quick scan for Markdown guides and resource pages. It flags skipped heading levels, multiple or missing top-level headings, vague or empty inline link text, empty image alt text, blank headings, and unclosed fenced code blocks. Findings show line numbers but exclude source text. It provides a concrete first check for new documentation contributors and complements a broader manual accessibility checklist. Interface and findings are available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste a draft Markdown document, scan it, review each line-specific prompt in context, and download the findings CSV if useful. Fix issues manually and ask people who use assistive technology to review the final resource. The quick scan does not evaluate color, keyboard access, semantic HTML, reference links, or conformance.
+
+### 145. VEC Stage Order Map Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/stage-order-map/
+- **What it is, and who it helps:** A browser-local builder that converts participant-verified stage labels and numeric time/order values into a sorted mapping with dense ordinal groups. It validates exact headers, duplicate labels, numeric values, and tied values while preserving the supplied numbers. It helps analysts prepare an explicit lookup for stage-trend analysis or chronological split auditing without guessing how stage labels map to time. Interface and controls are available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a CSV with exact `stage_label,order_value` headers, enter verified numeric values, and build the sorted mapping. Review tied labels and confirm each value against its source, then download the sorted CSV. The builder does not infer age, equal spacing, missing stages, or a valid evaluation split.
