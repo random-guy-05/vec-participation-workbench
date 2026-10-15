@@ -966,3 +966,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/agent-run-record/
 - **What it is, and who it helps:** A multilingual, browser-local Markdown builder for an Agent Team run's pre-run configuration lock and post-run evidence packet. It checks whether the marked portal attachments include a trajectory plus another evidence kind and compares self-reported file sizes to the published caps. It does not inspect or upload artifacts and does not decide eligibility.
 - **How someone else runs it:** Before a run, record its task, framework, model, harness commit, prompt reference, fixed tools/permissions/budget, allowed input scope, and actual lock time. Afterward, add locations or hashes for the exact run's trajectory and other evidence, note portal attachment state, and enter actual bundle sizes. Recheck Official Rules §9.
+
+### 138. VEC CSV Codebook Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-codebook/
+- **What it is, and who it helps:** A browser-local data documentation aid that turns a pasted CSV sample into a codebook with heuristic column types, row counts, missingness, distinct counts, and author-written descriptions. It excludes raw cell values from exports and offers English, Spanish, and Simplified Chinese interfaces. It complements file-structure and manifest validators by documenting arbitrary tabular fields rather than validating a particular schema.
+- **How someone else runs it:** Paste a representative, non-sensitive CSV sample, build the codebook, optionally write a description for each column, then download the Markdown or dictionary CSV and review it before sharing. The counts describe only the pasted sample; detected types are not a schema or scientific validation.
