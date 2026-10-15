@@ -36,6 +36,21 @@ The community already has substantial resources for onboarding, score calculatio
 | Stage-by-Condition Coverage Planner | [Stage Trend & Forecast Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/stage-trend/) fits trends to observed stage measurements. | Expose missing or under-replicated stage-condition combinations against an explicit expected stage order; it does not model expression. |
 | Cell Annotation Concordance Auditor | [Cell-Label Transition Explorer](https://random-guy-05.github.io/vec-participation-workbench/tools/label-transition/) counts supplied source-to-target transitions. | Compare paired per-cell partitions with adjusted Rand agreement and majority mapping, invariant to label spelling. |
 
+## Interactive learning simulations
+
+These eight pages are deterministic teaching demonstrations, separate from the user-input analysis tools above. Each states its assumptions and warns against treating synthetic output as a biological result.
+
+| Simulation | Neighboring concept or resource | Distinct learning job |
+|---|---|---|
+| Pseudoreplication Visualizer | Pseudobulk Aggregator groups measurements by sample; this page teaches the information loss from within-sample correlation. | Show the equal-cluster design-effect approximation and why an effective cell count does not create biological replicates. |
+| Validation Leakage Playground | SplitForge builds leakage-audited pseudo-validation splits. | Give a closed-form intuition for the chance a related group crosses an independent cell split and explain what group-held-out validation estimates. |
+| Multiple Testing Expectation Explorer | Gene Set Enrichment Calculator applies Benjamini–Hochberg adjustment to supplied sets. | Distinguish expected false-positive count from family-wise probability under explicit independent-null assumptions. |
+| Composition Shift Demonstrator | Composition–Expression Decomposer analyzes user-provided values. | Let learners construct aggregate reversals and inspect a symmetric composition/within-type decomposition on a two-group toy example. |
+| Metric Behavior Playground | Metric Cards are static score references; MetricLens diagnoses local score outputs. | Change a toy prediction and directly compare Pearson, Spearman, and RMSE behavior under offset, scaling, or an outlier. |
+| Batch Confounding Playground | Design Confounding Auditor analyzes a supplied categorical design. | Make the treatment-by-batch aliasing pattern visible and show why restoring matrix rank is necessary but not sufficient. |
+| Dose Response Shape Explorer | Perturbation Dose Consistency Explorer summarizes supplied replicate trends. | Contrast three deterministic curve shapes and teach why dose range and replication affect what can be inferred. |
+| Spatial Neighborhood Scale Playground | Spatial Cell-Contact Explorer analyzes supplied labeled points. | Show how a radius choice changes an example graph's edge density and cross-label fraction at the same time. |
+
 The community catalog changes over time. Before extending these pages or filing a later version, check the current [community resources](https://virtualembryo.ai/challenge/resources) and prefer improving an existing item when the actual workflow overlaps.
 
 ## Language access

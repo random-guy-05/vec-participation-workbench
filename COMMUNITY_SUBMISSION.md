@@ -406,3 +406,59 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/annotation-concordance/
 - **What it is, and who it helps:** Compares two cell-label partitions for the same cells using adjusted Rand index, contingency counts, and majority label purity. It helps teams assess annotation-version agreement without requiring identical label names or implying biological correctness.
 - **How someone else runs it:** Paste unique `cell_id,label_a,label_b` rows from two annotations and inspect the partition score and label-level mapping table.
+
+### 58. Pseudoreplication Visualizer
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/pseudoreplication/
+- **What it is, and who it helps:** An interactive teaching demo of how within-replicate correlation reduces the information in clustered cell observations. It states the equal-cluster design-effect approximation and explicitly distinguishes effective cell information from biological replicate-level inference.
+- **How someone else runs it:** Adjust the number of biological replicates, cells per replicate, and intraclass correlation; compare the naive cell count with the approximate effective count and read the assumptions on the page.
+
+### 59. Validation Leakage Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/validation-leakage/
+- **What it is, and who it helps:** Shows the probability that related cells cross training and validation partitions under independent cell-level assignment, compared with group-held-out assignment. It helps participants select a split unit that matches the generalization question and flags preprocessing leakage as a separate concern.
+- **How someone else runs it:** Change group size and validation fraction; inspect the closed-form crossing probability and the notes about group-held-out interpretation.
+
+### 60. Multiple Testing Expectation Explorer
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/multiple-testing/
+- **What it is, and who it helps:** Separates expected false-positive count from family-wise probability when many hypotheses are tested. Its calculation states the independent, calibrated-null assumption and avoids presenting an adjusted p-value or threshold recommendation.
+- **How someone else runs it:** Select test count, assumed null fraction, and per-test alpha; compare the expected false-positive fraction and chance of at least one false positive.
+
+### 61. Composition Shift Demonstrator
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/composition-shift/
+- **What it is, and who it helps:** A synthetic two-subgroup example that lets learners separate changes in subgroup means from changes in subgroup proportions. A symmetric decomposition makes aggregate reversals and masked within-type effects concrete without claiming causality.
+- **How someone else runs it:** Adjust control and treatment subgroup means and the fraction of type 1 in each group; compare the four subgroup means with both aggregate means.
+
+### 62. Metric Behavior Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/metric-behavior/
+- **What it is, and who it helps:** Applies an offset, scale change, or one-point outlier to a fixed synthetic prediction series and reports Pearson correlation, Spearman correlation, and RMSE. It teaches that association, ranking, and absolute calibration measure different properties.
+- **How someone else runs it:** Choose a prediction change and magnitude; inspect the metric values and scatterplot against the perfect-agreement diagonal.
+
+### 63. Batch Confounding Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/batch-confounding/
+- **What it is, and who it helps:** Visualizes a two-condition by two-batch design and the exact aliasing that occurs when only diagonal combinations are observed. It also explains that a full-rank design is necessary for separating additive effects but does not guarantee balance or power.
+- **How someone else runs it:** Add samples to both off-diagonal combinations and watch the displayed design rank change; the page identifies all counts as illustrative independent samples.
+
+### 64. Dose Response Shape Explorer
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/dose-shape/
+- **What it is, and who it helps:** Compares deterministic linear, saturating, and transient-pulse curves over a selected dose range. It gives participants an accessible way to discuss why sparse measurements or a narrow dose window can conceal response shape while clearly labeling the curves as synthetic.
+- **How someone else runs it:** Choose a response shape and maximum plotted dose; read the accompanying design notes on controls, replication, and range selection.
+
+### 65. Spatial Neighborhood Scale Playground
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/spatial-scale/
+- **What it is, and who it helps:** A deterministic two-dimensional point-set demonstration of how a distance radius changes graph edges, edge count, and cross-label mixing together. It makes neighborhood scale an explicit analysis choice rather than hiding it in a default.
+- **How someone else runs it:** Adjust the radius, inspect the rendered graph and cross-label edge fraction, and review the notes about units, dimensionality, and segmentation before applying a neighborhood rule to real tissue.

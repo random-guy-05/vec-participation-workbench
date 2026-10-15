@@ -1,6 +1,6 @@
 # VEC Participation Workbench
 
-Fifty-six offline-first tools for joining, analyzing, and contributing to the Virtual Embryo Challenge community: planning a submission, coordinating teams, auditing study records and analysis assumptions, finding a first community task, writing safe help requests, reviewing resources, teaching, maintaining shared resources, diagnosing compute jobs, forecasting runtime, and transferring data safely.
+Fifty-six offline-first tools and eight interactive learning simulations for joining, analyzing, and contributing to the Virtual Embryo Challenge community. The tools support submission planning, team coordination, study-record audits, community onboarding, safe help requests, compute planning, and data handling; the simulations teach core reasoning about study design, evaluation, and analysis choices.
 
 Each tool runs in a browser with no account, server, analytics, dependency install, or data upload. User-entered information stays in the page until exported. The tools are planning aids; the official Challenge pages control if a rule or date changes.
 
@@ -76,6 +76,21 @@ Clone the repository and open `docs/index.html` or any `docs/tools/<name>/index.
 The current source links and the facts each tool uses are collected in [`SOURCES.md`](SOURCES.md). Recheck those official pages before relying on date- or rules-sensitive output. Last checked: 14 October 2026.
 
 The analysis tools’ distinct purposes and neighboring community resources are mapped in [NOVELTY_MAP.md](NOVELTY_MAP.md).
+
+## Interactive learning simulations
+
+These deterministic, browser-local demonstrations make assumptions visible and help participants reason about common design and interpretation choices. They are not analyses of Challenge data, fitted biological models, or replacements for the official scoring rules.
+
+| Simulation | Concept it demonstrates |
+|---|---|
+| [Pseudoreplication Visualizer](https://random-guy-05.github.io/vec-participation-workbench/simulations/pseudoreplication/) | How within-replicate correlation affects an approximate effective cell count, and why it cannot replace biological replication. |
+| [Validation Leakage Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/validation-leakage/) | The probability that a random cell split places related cells on both sides, compared with group-held-out splitting. |
+| [Multiple Testing Expectation Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/multiple-testing/) | Expected false-positive counts versus family-wise risk under stated independence assumptions. |
+| [Composition Shift Demonstrator](https://random-guy-05.github.io/vec-participation-workbench/simulations/composition-shift/) | How subgroup means and changing proportions combine into an aggregate mean, with a symmetric decomposition. |
+| [Metric Behavior Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/metric-behavior/) | How correlation, rank correlation, and RMSE respond to offsets, scaling, and one outlier. |
+| [Batch Confounding Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/batch-confounding/) | Exact treatment–batch aliasing in a two-factor design and the limits of a full-rank check. |
+| [Dose Response Shape Explorer](https://random-guy-05.github.io/vec-participation-workbench/simulations/dose-shape/) | How measurement range can make synthetic linear, saturating, and transient responses harder to distinguish. |
+| [Spatial Neighborhood Scale Playground](https://random-guy-05.github.io/vec-participation-workbench/simulations/spatial-scale/) | How a radius-defined spatial graph changes in density and label mixing as the scale changes. |
 
 ## Scope
 
