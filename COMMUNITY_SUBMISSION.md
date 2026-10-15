@@ -1029,3 +1029,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-stack/
 - **What it is, and who it helps:** A browser-local table append tool for two CSV parts with the same named columns. It aligns the second table to the first by exact header name even if column order differs, validates row widths, and can add a source-label column to preserve where each row came from. It helps participants combine same-schema table exports without silently misplacing fields or losing part-level provenance. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste both CSV tables, enter non-sensitive source labels, keep or disable the optional source column, and stack rows. Review the first 20 combined rows and download the full CSV. The tool appends rows only; it does not deduplicate, join by key, or infer missing columns.
+
+### 147. VEC Notebook Share-Ready Cleaner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/notebook-cleaner/
+- **What it is, and who it helps:** A browser-local Jupyter notebook cleaner that creates a separate copy with saved code-cell outputs cleared and execution counts reset, with an option to remove notebook-level widget state. It helps participants prepare smaller, less disclosure-prone notebooks for tutorials, issue reports, or resource sharing. It preserves the original input and explicitly warns that code, Markdown, attachments, other metadata, private paths, credentials, and identifying content still need manual review. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Choose a local `.ipynb` file or paste its JSON, decide whether to remove saved widget state, and select Prepare clean copy. Review the summary and the cleaned notebook manually, then download it as a separate file. The notebook is processed only in the browser tab; the tool does not certify anonymity or publication safety.
