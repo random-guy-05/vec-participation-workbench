@@ -987,3 +987,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/timezone-overlap/
 - **What it is, and who it helps:** A privacy-preserving meeting-time candidate finder for distributed Challenge participants. Given one IANA time zone and one local availability window per participant on a selected date, it searches 15-minute UTC start times for a shared 30-, 45-, 60-, or 90-minute slot. The browser's IANA time-zone database handles daylight-saving changes. The interface is available in English, Spanish, and Simplified Chinese. It fills a scheduling gap between a deadline calendar and a session agenda builder.
 - **How someone else runs it:** Enter each participant as `IANA-zone|start|end` using 24-hour local time, select the shared local date and meeting duration, and find overlap. Review the UTC and per-zone times with participants before sending an invitation; the tool does not connect to calendars or book a slot.
+
+### 141. VEC Environment Snapshot Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/env-snapshot/
+- **What it is, and who it helps:** A multilingual browser tool that generates a small, reviewable Python script for gathering package versions and basic runtime details for a focused support request. The script avoids user names, hostnames, paths, environment variables, tokens, and data values; an optional PyTorch probe reports CUDA availability, runtime version, and device count without printing device names. It helps participants share enough environment context to investigate setup issues without pasting entire logs or package inventories.
+- **How someone else runs it:** Enter pip distribution names, choose whether to include the optional accelerator probe, generate and inspect the Python script, then download or copy it. Run it only in the target environment after review, and inspect the resulting JSON before sharing. It uses no network service and does not install or update packages.
