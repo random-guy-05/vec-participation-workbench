@@ -980,3 +980,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sweep-matrix/
 - **What it is, and who it helps:** A browser-local experiment planner that expands user-entered task/board, configuration, validation-split, and random-seed labels into a bounded Cartesian run matrix. With a measured pilot duration and worker count, it estimates sequential compute and idealized parallel wall time. Its interface is available in English, Spanish, and Simplified Chinese. It complements the Experiment Plan Card, Runtime Forecast Planner, and seed-stability analysis by providing an executable run inventory rather than a narrative plan, single-run extrapolation, or post-run summary.
 - **How someone else runs it:** Enter one label per line in each dimension, optionally add same-workflow measured minutes per run and available concurrent workers, and build the matrix. Review the combinations, download the CSV, and remove invalid or unjustified runs before scheduling. The time estimate excludes queueing, setup, failures, and resource contention.
+
+### 140. VEC Community Time-Zone Overlap Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/timezone-overlap/
+- **What it is, and who it helps:** A privacy-preserving meeting-time candidate finder for distributed Challenge participants. Given one IANA time zone and one local availability window per participant on a selected date, it searches 15-minute UTC start times for a shared 30-, 45-, 60-, or 90-minute slot. The browser's IANA time-zone database handles daylight-saving changes. The interface is available in English, Spanish, and Simplified Chinese. It fills a scheduling gap between a deadline calendar and a session agenda builder.
+- **How someone else runs it:** Enter each participant as `IANA-zone|start|end` using 24-hour local time, select the shared local date and meeting duration, and find overlap. Review the UTC and per-zone times with participants before sending an invitation; the tool does not connect to calendars or book a slot.
