@@ -91,6 +91,8 @@
       labels.forEach((label, i) => {
         const wrap = document.createElement("div"), lab = document.createElement("label"), select = document.createElement("select");
         select.id = ["sample-col", "cell-col", "gene-col", "value-col"][i]; lab.htmlFor = select.id; lab.textContent = label;
+        const hasGuess = headers.some(name => name.toLowerCase() === guesses[i]);
+        if (!hasGuess) { const placeholder = document.createElement("option"); placeholder.value = ""; placeholder.textContent = "Choose a column"; placeholder.selected = true; select.append(placeholder); }
         headers.forEach(name => { const opt = document.createElement("option"); opt.value = name; opt.textContent = name; if (name.toLowerCase() === guesses[i]) opt.selected = true; select.append(opt); });
         wrap.append(lab, select); box.append(wrap);
       });

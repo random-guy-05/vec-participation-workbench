@@ -903,3 +903,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pseudobulk-builder/
 - **What it is, and who it helps:** A browser-local utility that sums long-form cell-by-gene values within each sample, reports distinct cell IDs and genes with records per sample, and rejects duplicate sample–cell–gene rows. It helps participants prepare sample-level expression summaries while preserving the sample as the analysis unit.
 - **How someone else runs it:** Paste CSV data, read the headers, select sample, cell, gene, and value columns, then aggregate and download the observed sample–gene sums. A separate wide export requires an explicit confirmation that absent pairs mean measured zero. The page checks nonnegative finite values and flags fractional inputs; it does not normalize, choose biological replicates, or perform differential-expression inference.
+
+### 129. VEC Sample-to-Cell Crosswalk Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sample-crosswalk/
+- **What it is, and who it helps:** A browser-local join audit between a one-row-per-sample manifest and a cell-to-sample assignment table. It identifies manifest samples with no cells and cell-table sample IDs missing from the manifest, reports distinct cell counts, and can optionally flag repeated cell IDs when the source defines IDs globally. It helps catch broken joins before expression aggregation or group comparisons.
+- **How someone else runs it:** Paste both CSV tables, read each header, select the sample ID columns and cell ID column, then audit and download the manifest with observed cell counts and join status. The tool checks exact trimmed strings, rejects duplicate manifest sample IDs and repeated within-sample cell assignments, and does not infer aliases or establish biological independence.
