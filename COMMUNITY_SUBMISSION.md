@@ -1148,3 +1148,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/figure-palette/
 - **What it is, and who it helps:** A browser-local guide that recommends categorical, sequential, or diverging color sets based on what the data encode and generates starting snippets for Matplotlib and ggplot2. It includes usage notes for ordered values and meaningful midpoints and prompts users to pair color with direct labels, shapes, or patterns. It helps contributors make figures easier to interpret without claiming that a swatch alone guarantees accessibility. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Select unordered categories, ordered values, or signed deviations around a meaningful center, review the swatches and caveats, and generate or download the snippets. Adapt them to the figure and inspect the final rendering at presentation size and in grayscale.
+
+### 164. VEC Pearson, Spearman, and Kendall Association Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/rank-association/
+- **What it is, and who it helps:** A browser-local paired-data calculator that places Pearson r, average-rank Spearman rho, and tie-adjusted Kendall tau-b side by side. It helps participants distinguish linear from monotonic and pairwise rank association using the same small dataset, while stating that coefficients are descriptive and do not establish causality. It accepts 3–10,000 finite pairs, reports summaries rather than rows, and has English, Spanish, and Simplified Chinese interfaces.
+- **How someone else runs it:** Paste one x,y pair per line, optionally using a recognized header, choose Compare association, and inspect all three coefficients alongside a scatterplot. Confirm that pairs are independent and explain the coefficient chosen; the page calculates no p-value or interval.
+
+### 165. VEC Probability of Superiority and Rank-Biserial Effect Size
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/rank-effect/
+- **What it is, and who it helps:** A descriptive effect-size calculator for two independent numeric groups. It counts every cross-group win and tie, defines ties as half a win, and reports both probability of superiority and the related rank-biserial effect. This gives contributors an interpretable direction and magnitude alongside a test statistic without implying significance. It has English, Spanish, and Simplified Chinese interfaces and bounds comparisons to five million pairs.
+- **How someone else runs it:** Enter one finite value per line for each independent group and calculate. Read the group order before interpreting direction, and report the pair-count definition; the tool does not compute a significance test or confidence interval.
+
+### 166. VEC Fisher Exact 2×2 Table Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/fisher-exact/
+- **What it is, and who it helps:** A four-count calculator for a two-sided Fisher exact test using probability ordering conditional on the observed row and column margins. It also reports the raw odds ratio and group risk difference so participants can see effect direction and scale with the p-value. It makes the two-sided convention explicit, handles zero cells, and states limits around independence, confounding, and study design. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter event and non-event counts for each independent group, calculate, and review the fixed margins, exact-test convention, odds ratio, and risk difference. Share the convention and design assumptions; zero-cell odds ratios may be infinite or undefined.
+
+### 167. VEC Median Bootstrap Interval Planner
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/median-bootstrap/
+- **What it is, and who it helps:** A browser-local, seeded percentile-bootstrap interval for one sample median. Participants select a confidence level and resample count and can repeat the implementation's resampling sequence with the displayed seed. It helps communicate uncertainty for a robust location summary without pasting rows into a remote service. The page warns that ordinary percentile bootstrap intervals can be unstable with small or highly discrete samples and do not fix dependent or unrepresentative sampling; interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste 5–1,000 finite independent observations, choose the confidence level and number of resamples, set an integer seed, and calculate. Report the percentile method and seed; inspect whether the sampling units and design justify resampling observations independently.
