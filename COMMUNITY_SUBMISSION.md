@@ -1092,3 +1092,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/data-transfer-receipt/
 - **What it is, and who it helps:** A local Markdown builder for a dataset handoff record: artifact/version, sender and receiver roles, transfer date/method, optional supplied and recomputed SHA-256 values, byte counts, and a handling note. It compares provided hashes and sizes when both sides are entered and warns that a match does not establish permission, authenticity, or scientific eligibility. It helps teams record what was transferred without names or private URLs. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Enter an artifact label and transfer method, then add the details available to your team. Build and review the Markdown receipt, then download it. Use roles rather than personal names and review notes before sharing.
+
+### 156. VEC CSV Intake Inspector
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-intake/
+- **What it is, and who it helps:** A browser-local structural check for a pasted CSV sample. It compares common delimiters using quote-aware parsing and reports the likely separator, UTF-8 BOM, line-ending pattern, and records with a different number of fields without exposing cell values. It helps newcomers diagnose why a table import shifted or failed before using downstream tools. A consistent structure does not validate column meaning or unsupported encodings. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste a representative excerpt including its header row and inspect the structure. Use the result to choose an import delimiter or investigate malformed records in the original file; a sample cannot guarantee the rest of a large file is clean.
+
+### 157. VEC Annotation Agreement and Kappa Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/annotation-kappa/
+- **What it is, and who it helps:** A browser-local nominal-label agreement calculator that reports raw agreement, expected agreement from the observed marginals, Cohen's kappa, and per-label precision/recall. It helps teams inspect annotation disagreement beyond a single accuracy value. It requires genuinely matched independent items and explains kappa's sensitivity to prevalence; it does not infer matches, weight ordinal labels, or establish correctness. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste CSV with exact `reference,predicted` headers and one matched pair per row, calculate, review class counts and agreement, and download the report CSV. Do not interpret kappa without the marginals and annotation design.
+
+### 158. VEC Welch Mean Difference Interval Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/welch-interval/
+- **What it is, and who it helps:** A summary-statistic calculator for the group 1 minus group 2 mean difference, Welch standard error, Welch–Satterthwaite degrees of freedom, and two-sided Student t interval at a selected confidence level. It handles independent groups with unequal variances and uses no row-level data. It states independence and sample-SD assumptions and does not infer causation. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter each group's mean, sample standard deviation, and sample size, select 90%, 95%, or 99%, and calculate. Verify that the design is independent rather than paired and that the SDs are sample estimates.
+
+### 159. VEC Paired Difference Interval Calculator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/paired-interval/
+- **What it is, and who it helps:** A summary-statistic calculator for the mean within-pair difference, its standard error, degrees of freedom, and two-sided Student t confidence interval. It deliberately uses the SD of complete paired differences rather than separate group SDs, helping participants avoid treating repeated measurements as independent samples. It explains the pairing and independence assumptions and does not inspect raw records. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Calculate the mean and sample SD of the differences for complete pairs, enter those values and the pair count, choose a confidence level, and calculate. Confirm the direction convention (A − B) and pair validity before interpreting the result.
