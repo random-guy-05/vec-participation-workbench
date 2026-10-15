@@ -756,3 +756,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/schema-fixture/
 - **What it is, and who it helps:** Generates a deterministic, local Python script that validates the selected task's official one-gene-per-line panel length and creates a sparse, non-negative synthetic AnnData fixture with the expected shape and, for spatial tasks, the `obsm["spatial_3D"]` key. This helps contributors smoke-test file-writing and pipeline wiring without using held-out answers, real participant data, or fabricated biological predictions.
 - **How someone else runs it:** Choose Task 1, Task 2 embryo, Task 2 heart, or Task 3 and generate/download the script. Run it in a Python environment with NumPy, pandas, SciPy, and AnnData, passing the matching official local panel file with `--panel-file`; optionally set `--output`. The fixture is not a valid scored prediction or leaderboard submission.
+
+### 108. VEC Source Overlap Audit
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/source-overlap-audit/
+- **What it is, and who it helps:** A browser-local CSV audit that groups exact sample or cell identifiers by named source and flags repeated rows within a source or IDs shared across sources. It helps participants spot possible accidental reuse before integrating public atlases or other training datasets. Case folding is optional and clearly disclosed; aliases and biological identity are never inferred.
+- **How someone else runs it:** Prepare a text manifest with `source` and `id` columns, paste it, choose whether to trim whitespace or ignore case, and run the audit. Review and download the candidate report, then confirm each match against its original accession/sample metadata. The tool does not delete records or decide whether external data are permitted.
