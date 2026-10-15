@@ -833,3 +833,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/count-dispersion/
 - **What it is, and who it helps:** An interactive synthetic demonstration of Poisson and negative-binomial count distributions with the same mean. It shows theoretical and observed variance and zero fraction as the negative-binomial dispersion changes, helping newcomers understand why a count model may need more variance than a Poisson assumption allows.
 - **How someone else runs it:** Choose a mean, negative-binomial size, draw count, and seed, then simulate. Compare the histograms and summary moments or download the draws. The page is an educational distribution demonstration, not a model-fitting tool or evidence about the Challenge's expression values.
+
+### 119. VEC Library-Size Normalization Demonstrator
+
+- **Kind:** create
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/library-size/
+- **What it is, and who it helps:** An interactive single-feature simulation that varies per-cell library depth and true transcript fraction independently, then compares raw counts, counts-per-10,000, and per-cell log1p values. It helps newcomers distinguish depth rescaling from log compression and see how a real relative-abundance change remains in this simplified setup.
+- **How someone else runs it:** Set cell count, Group A depth, Group B:A depth ratio, feature fraction, true feature-fraction ratio, and seed. Simulate, inspect the three scales and zero fractions, then optionally download the synthetic cell table. It is not a normalization recommendation or Challenge score model.
