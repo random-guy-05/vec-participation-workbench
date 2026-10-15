@@ -1022,3 +1022,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/stage-order-map/
 - **What it is, and who it helps:** A browser-local builder that converts participant-verified stage labels and numeric time/order values into a sorted mapping with dense ordinal groups. It validates exact headers, duplicate labels, numeric values, and tied values while preserving the supplied numbers. It helps analysts prepare an explicit lookup for stage-trend analysis or chronological split auditing without guessing how stage labels map to time. Interface and controls are available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Paste a CSV with exact `stage_label,order_value` headers, enter verified numeric values, and build the sorted mapping. Review tied labels and confirm each value against its source, then download the sorted CSV. The builder does not infer age, equal spacing, missing stages, or a valid evaluation split.
+
+### 146. VEC CSV Row Stack & Provenance Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-stack/
+- **What it is, and who it helps:** A browser-local table append tool for two CSV parts with the same named columns. It aligns the second table to the first by exact header name even if column order differs, validates row widths, and can add a source-label column to preserve where each row came from. It helps participants combine same-schema table exports without silently misplacing fields or losing part-level provenance. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste both CSV tables, enter non-sensitive source labels, keep or disable the optional source column, and stack rows. Review the first 20 combined rows and download the full CSV. The tool appends rows only; it does not deduplicate, join by key, or infer missing columns.
