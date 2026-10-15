@@ -742,3 +742,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/compute-route-planner/
 - **What it is, and who it helps:** Generates a short, policy-aware starting plan from the participant's task focus, current compute access, programming experience, and data constraints. It helps newcomers choose a no-install learning route, a small local pilot, an institutional cluster template, or a carefully checked cloud workflow without promising runtime or encouraging data upload.
 - **How someone else runs it:** Select the closest options for task, compute, software, and data access, add an optional constraint note, and build the route. Download the Markdown checklist if useful; verify current official data rules and local computing policies before moving data.
+
+### 106. VEC Metric Invariance Audit Sheet
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/metric-invariance-audit/
+- **What it is, and who it helps:** A browser-local worksheet that compares paired baseline and transformed synthetic-control scores against a participant-specified expectation, absolute tolerance, and relative tolerance. It helps contributors record reproducible metric-behavior checks without assuming unresolved official semantics or claiming that a failed check proves a scorer defect.
+- **How someone else runs it:** Paste metric, transformation, baseline score, transformed score, expectation, and tolerances. Review the comparison table, document scorer version/commit, seed, and transformation details, then download a Markdown audit record.
