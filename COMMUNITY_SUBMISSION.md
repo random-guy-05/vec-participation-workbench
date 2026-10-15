@@ -1204,3 +1204,31 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/paired-median-bootstrap/
 - **What it is, and who it helps:** A seeded percentile-bootstrap interval for the median of complete within-pair differences. It preserves pairing by resampling the derived differences as units and reports the seed, resample count, and quantile method. This offers a robust alternative when a paired mean summary is not the intended estimand; limits for small, discrete, clustered, or biased samples are explicit. Interface is available in English, Spanish, and Simplified Chinese.
 - **How someone else runs it:** Enter one consistently directed A−B difference per independent pair, choose confidence level and resample count, set an integer seed, and calculate. Report the sampling unit and do not treat nested repeated measures as independent pairs.
+
+### 172. VEC Locale Coverage and Placeholder Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/locale-parity/
+- **What it is, and who it helps:** A browser-local comparison of nested JSON source and translated locale dictionaries. It reports missing, extra, blank, and placeholder-mismatched keys without displaying translation strings, helping volunteer maintainers catch structural gaps before release. It does not grade meaning, grammar, tone, plural rules, or accessibility. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste the source and target JSON objects, compare, inspect the key-and-issue table, and optionally download its CSV. Have a fluent reviewer check flagged strings in context and review key names before sharing the issue list.
+
+### 173. VEC CSV Schema Contract Validator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/csv-schema-contract/
+- **What it is, and who it helps:** A local validator applies an explicit JSON contract to a pasted CSV: required columns, declared string/number/integer/boolean types, and optional allowed-value lists. It reports row number, column, and issue code without copying cell values into the report, helping contributors diagnose import mismatches before analysis. It does not infer schemas or establish scientific validity. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste the CSV with a header and a schema JSON object, validate, review the issue-code summary, then download the row/column report if needed. Keep identifiers and source values out of a shared report and verify the contract against the intended data dictionary.
+
+### 174. VEC Reproducible Run Card Builder
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/run-repro-card/
+- **What it is, and who it helps:** A browser-only Markdown builder records one executed analysis run's label/date, code version, environment lockfile, seed, hardware, input/output artifacts, exact command, validation outcome, and known deviations. It helps teammates identify what to rerun without conflating an experiment plan, data transformation chain, or agent configuration lock. It warns users to exclude credentials, private paths, and restricted identifiers. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Enter the run label, code version, environment, exact invocation, and available artifact/validation details; build, review, copy, or download the Markdown. Confirm permissions and remove private details before sharing.
+
+### 175. VEC Pooled Versus Equal-Sample Mean Comparator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/sample-weighting/
+- **What it is, and who it helps:** A browser-local comparison of an observation-weighted pooled mean and an equal-sample mean from each sample's observation count and mean. It reports the total observation count, pooled weight by sample, difference between estimands, and a downloadable sample summary. It helps single-cell contributors see how unequal cell counts can change the summary without mistaking cells for independent biological replicates. Interface is available in English, Spanish, and Simplified Chinese.
+- **How someone else runs it:** Paste one unique `sample_id,n,mean` row per biological sample, compare weighting, and inspect the mean difference and sample weights. Confirm all means use the same measurement scale and do not use the within-sample observation counts as biological replicate counts.
