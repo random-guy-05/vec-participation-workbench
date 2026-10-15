@@ -805,3 +805,10 @@ All forty-eight tools are standalone static pages with no dependencies, login, u
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/simulations/composition-closure/
 - **What it is, and who it helps:** An interactive synthetic simulation that draws three independent count populations and compares the A/B correlation in counts with their correlation after division by the shared total. It helps participants recognize that negative association among cell-type proportions can be induced by closure and is not, by itself, evidence of biological antagonism.
 - **How someone else runs it:** Adjust sample count, population mean counts, and seed, then simulate. Compare the raw-count and proportion scatterplots and correlations; optionally download the synthetic table. All results are artificial and vary with seed.
+
+### 115. VEC Holdout Split Auditor
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/split-audit/
+- **What it is, and who it helps:** A browser-local audit of a participant-defined split manifest. It reports sample IDs present in multiple split labels, exact cell IDs reused across splits, duplicate cell IDs within one split, and supplied condition counts. It helps teams review whether their local validation partitions align with the independent unit they intend to generalize to.
+- **How someone else runs it:** Paste a CSV containing `sample_id` and `split`, optionally including `cell_id` and `condition`, then audit. Review each flagged identifier against the source manifest and download the findings. It does not assess near-duplicates, indirect dependencies, preprocessing leakage, or official Challenge compliance.
