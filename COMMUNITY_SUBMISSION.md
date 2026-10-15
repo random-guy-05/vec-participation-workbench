@@ -924,3 +924,10 @@ This file records filing drafts for the standalone public resources in the workb
 - **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/state-prevalence-intervals/
 - **What it is, and who it helps:** A browser-local calculator for per-sample state-cell proportions and Wilson binomial intervals, with an explicit comparison between the equal-sample mean and the pooled cell fraction. It helps participants see both sampling resolution within samples and the effect of unequal cell totals without implying that pooling cells creates replicates.
 - **How someone else runs it:** Enter one row per independent sample with nonnegative integer state and total cell counts, select 90%, 95%, or 99%, then calculate and download. The interval is within-sample only and assumes a cell-level binomial approximation; it does not capture between-sample uncertainty or account for within-sample dependence.
+
+### 132. VEC Pilot Intraclass Correlation Estimator
+
+- **Kind:** build
+- **Public link:** https://random-guy-05.github.io/vec-participation-workbench/tools/pilot-icc/
+- **What it is, and who it helps:** A browser-local one-way random-effects method-of-moments summary for continuous pilot outcomes grouped by sample. It estimates within- and between-cluster variance, retains negative between-cluster estimates as a diagnostic, and applies the estimated ICC to an unequal-size design-effect approximation. It helps teams replace an arbitrary ICC input with a transparent pilot estimate while showing the assumptions.
+- **How someone else runs it:** Paste `sample_id,outcome` rows, read the headers, select cluster and outcome fields, and estimate. The tool requires at least two clusters and within-cluster observations. It assumes a one-way random-intercept model with common within-cluster variance; it does not fit covariate-adjusted, nested, paired, or longitudinal models and is not a power calculation.
